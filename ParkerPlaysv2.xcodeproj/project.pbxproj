@@ -10,9 +10,12 @@
 		B03A076029482F7700B11172 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A075F29482F7700B11172 /* AppDelegate.swift */; };
 		B03A076229482F7700B11172 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A076129482F7700B11172 /* SceneDelegate.swift */; };
 		B03A076429482F7700B11172 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A076329482F7700B11172 /* ViewController.swift */; };
-		B03A076729482F7700B11172 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03A076529482F7700B11172 /* Main.storyboard */; };
 		B03A076929482F7900B11172 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B03A076829482F7900B11172 /* Assets.xcassets */; };
 		B03A076C29482F7900B11172 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03A076A29482F7900B11172 /* LaunchScreen.storyboard */; };
+		B03A07862948327600B11172 /* Boo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B03A07832948327600B11172 /* Boo.mp3 */; };
+		B03A07872948327600B11172 /* Peek A .mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B03A07842948327600B11172 /* Peek A .mp3 */; };
+		B03A07882948327600B11172 /* PeekaBoo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B03A07852948327600B11172 /* PeekaBoo.mp3 */; };
+		B03A078D29483C0200B11172 /* GamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A078C29483C0200B11172 /* GamesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +23,13 @@
 		B03A075F29482F7700B11172 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B03A076129482F7700B11172 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B03A076329482F7700B11172 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B03A076629482F7700B11172 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B03A076829482F7900B11172 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B03A076B29482F7900B11172 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B03A076D29482F7900B11172 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B03A07832948327600B11172 /* Boo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Boo.mp3; path = ../../../soundfiles/Boo.mp3; sourceTree = "<group>"; };
+		B03A07842948327600B11172 /* Peek A .mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Peek A .mp3"; path = "../../../soundfiles/Peek A .mp3"; sourceTree = "<group>"; };
+		B03A07852948327600B11172 /* PeekaBoo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = PeekaBoo.mp3; path = ../../../soundfiles/PeekaBoo.mp3; sourceTree = "<group>"; };
+		B03A078C29483C0200B11172 /* GamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +64,120 @@
 			children = (
 				B03A075F29482F7700B11172 /* AppDelegate.swift */,
 				B03A076129482F7700B11172 /* SceneDelegate.swift */,
-				B03A076329482F7700B11172 /* ViewController.swift */,
-				B03A076529482F7700B11172 /* Main.storyboard */,
+				B03A078E2948427000B11172 /* Home */,
+				B03A07822948323A00B11172 /* Sounds */,
+				B03A07792948311200B11172 /* PeopleView */,
+				B03A0776294830B800B11172 /* AnimalView */,
 				B03A076829482F7900B11172 /* Assets.xcassets */,
 				B03A076A29482F7900B11172 /* LaunchScreen.storyboard */,
 				B03A076D29482F7900B11172 /* Info.plist */,
 			);
 			path = ParkerPlaysv2;
+			sourceTree = "<group>";
+		};
+		B03A07732948307800B11172 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B03A07742948308000B11172 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B03A07752948308700B11172 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B03A0776294830B800B11172 /* AnimalView */ = {
+			isa = PBXGroup;
+			children = (
+				B03A07732948307800B11172 /* Model */,
+				B03A07742948308000B11172 /* View */,
+				B03A07752948308700B11172 /* Controller */,
+			);
+			path = AnimalView;
+			sourceTree = "<group>";
+		};
+		B03A07792948311200B11172 /* PeopleView */ = {
+			isa = PBXGroup;
+			children = (
+				B03A077A2948311B00B11172 /* Model */,
+				B03A077B2948312500B11172 /* View */,
+				B03A077D2948314D00B11172 /* Controller */,
+			);
+			path = PeopleView;
+			sourceTree = "<group>";
+		};
+		B03A077A2948311B00B11172 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B03A077B2948312500B11172 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B03A077D2948314D00B11172 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B03A07822948323A00B11172 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				B03A07832948327600B11172 /* Boo.mp3 */,
+				B03A07842948327600B11172 /* Peek A .mp3 */,
+				B03A07852948327600B11172 /* PeekaBoo.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		B03A078929483BAA00B11172 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B03A078A29483BB700B11172 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B03A078C29483C0200B11172 /* GamesView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B03A078B29483BC600B11172 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B03A076329482F7700B11172 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B03A078E2948427000B11172 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B03A078B29483BC600B11172 /* Controller */,
+				B03A078929483BAA00B11172 /* Model */,
+				B03A078A29483BB700B11172 /* View */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,9 +238,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B03A07862948327600B11172 /* Boo.mp3 in Resources */,
 				B03A076C29482F7900B11172 /* LaunchScreen.storyboard in Resources */,
+				B03A07882948327600B11172 /* PeekaBoo.mp3 in Resources */,
 				B03A076929482F7900B11172 /* Assets.xcassets in Resources */,
-				B03A076729482F7700B11172 /* Main.storyboard in Resources */,
+				B03A07872948327600B11172 /* Peek A .mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,20 +256,13 @@
 				B03A076429482F7700B11172 /* ViewController.swift in Sources */,
 				B03A076029482F7700B11172 /* AppDelegate.swift in Sources */,
 				B03A076229482F7700B11172 /* SceneDelegate.swift in Sources */,
+				B03A078D29483C0200B11172 /* GamesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B03A076529482F7700B11172 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B03A076629482F7700B11172 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B03A076A29482F7900B11172 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -291,7 +399,6 @@
 				INFOPLIST_FILE = ParkerPlaysv2/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -318,7 +425,6 @@
 				INFOPLIST_FILE = ParkerPlaysv2/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
