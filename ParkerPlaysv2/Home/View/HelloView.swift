@@ -10,12 +10,13 @@ import UIKit
 class HelloView: UIView {
     let helloLabel = UILabel()
     let nameLabel = UILabel()
+
     
     override init(frame: CGRect) {
         super .init(frame: frame)
         setupHello()
         setupNameLabel()
-
+        updateName()
     }
     
     required init?(coder: NSCoder) {
@@ -49,7 +50,12 @@ class HelloView: UIView {
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.topAnchor.constraint(equalTo: helloLabel.bottomAnchor, constant: 5).isActive = true
         nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-
+    }
+    
+    func updateName(){
+        let name = UserDefaults.standard.string(forKey: "pp-name") ?? ""
+        nameLabel.text = name
+        
     }
 }
 

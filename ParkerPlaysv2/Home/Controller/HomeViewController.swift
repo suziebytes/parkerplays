@@ -14,8 +14,7 @@ class HomeViewController: UIViewController {
     let gamesView = GamesView()
     let weatherView = WeatherView()
     let background = UIImageView(frame: UIScreen.main.bounds)
-    let playButton = UIButton(type: .system)
-    let settingsButton = UIButton()
+    let settingsButton = UIButton(type: .system)
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +23,6 @@ class HomeViewController: UIViewController {
         setupHelloView()
         setupWeatherView()
         setupGamesView()
-        setupPlayButton()
         setupSettingsButton()
     }
     
@@ -79,23 +77,23 @@ class HomeViewController: UIViewController {
         gamesView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15).isActive = true
     }
     
-    func setupPlayButton(){
-        view.addSubview(playButton)
-        playButton.backgroundColor = UIColor(red: 79/255, green: 151/255, blue: 253/255, alpha: 1)
-        playButton.tintColor = .white
-        playButton.setTitle("LET'S PLAY", for: .normal)
-        playButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .medium)
-        playButton.layer.cornerRadius = 25
-//        playButton.addTarget(self, action: #selector(openAlert), for: .touchUpInside)
+    func setupSettingsButton(){
+        view.addSubview(settingsButton)
+        settingsButton.backgroundColor = UIColor(red: 79/255, green: 151/255, blue: 253/255, alpha: 1)
+        settingsButton.tintColor = .white
+        settingsButton.setTitle("SETTINGS", for: .normal)
+        settingsButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .medium)
+        settingsButton.layer.cornerRadius = 15
+        settingsButton.addTarget(self, action: #selector(openAlert), for: .touchUpInside)
         //set cornerRadius to half of height for a rounded pill button look
         
         //CONSTRAINTS
-        playButton.translatesAutoresizingMaskIntoConstraints = false
-        playButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -80).isActive = true
-        playButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        playButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        settingsButton.translatesAutoresizingMaskIntoConstraints = false
+        settingsButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40).isActive = true
+        settingsButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        settingsButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
         // this sets the button to be centered on the screen
-        playButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        settingsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     
     }
     
@@ -105,22 +103,25 @@ class HomeViewController: UIViewController {
             // configure the properties of the text field
             textField.placeholder = "Name"
         }
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (_) in
+            print("User clicked Edit button")
+        }))
+    
+        alertController.addAction(UIAlertAction(title: "Save", style: .default, handler: {[weak alertController] (_) in
+            let textField = alertController?.textFields![0]
+            print("Text field: \(String(describing: textField?.text ?? ""))")
+            UserDefaults.standard.set(textField?.text ?? "", forKey: "pp-name")
+            //use the key to grab value data (textField?.text)
+            //to access the name: let name = UserDefaults.standard.string(forKey: "pp-name") ?? ""
+            
+            self.helloView.updateName()
+        }))
+        
+        
+                                                
         present(alertController, animated: true, completion: nil)
         
     }
-     
-    func setupSettingsButton(){
-        view.addSubview(settingsButton)
-        settingsButton.backgroundColor = .clear
-        settingsButton.setTitle("SETTINGS", for: .normal)
-        settingsButton.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .light)
-        settingsButton.addTarget(self, action: #selector(openAlert), for: .touchUpInside)
-        
-        //CONSTRIANTS
-        settingsButton.translatesAutoresizingMaskIntoConstraints = false
-        settingsButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
-        settingsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-
-        
-    }
+  
 }
