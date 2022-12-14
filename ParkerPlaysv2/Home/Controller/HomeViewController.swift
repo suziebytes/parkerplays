@@ -14,7 +14,8 @@ class HomeViewController: UIViewController {
     let gamesView = GamesView()
     let weatherView = WeatherView()
     let background = UIImageView(frame: UIScreen.main.bounds)
-    let playButton = UIButton()
+    let playButton = UIButton(type: .system)
+    let settingsButton = UIButton()
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,7 @@ class HomeViewController: UIViewController {
         setupWeatherView()
         setupGamesView()
         setupPlayButton()
+        setupSettingsButton()
     }
     
     func setupBackground() {
@@ -72,7 +74,7 @@ class HomeViewController: UIViewController {
         //CONSTRAINTS
         gamesView.translatesAutoresizingMaskIntoConstraints = false
         gamesView.topAnchor.constraint(equalTo: view.topAnchor, constant: 375).isActive = true
-        gamesView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -135).isActive = true
+        gamesView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -165).isActive = true
         gamesView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15).isActive = true
         gamesView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15).isActive = true
     }
@@ -80,15 +82,16 @@ class HomeViewController: UIViewController {
     func setupPlayButton(){
         view.addSubview(playButton)
         playButton.backgroundColor = UIColor(red: 79/255, green: 151/255, blue: 253/255, alpha: 1)
+        playButton.tintColor = .white
         playButton.setTitle("LET'S PLAY", for: .normal)
         playButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         playButton.layer.cornerRadius = 25
-        playButton.addTarget(self, action: #selector(openAlert), for: .touchUpInside)
+//        playButton.addTarget(self, action: #selector(openAlert), for: .touchUpInside)
         //set cornerRadius to half of height for a rounded pill button look
         
         //CONSTRAINTS
         playButton.translatesAutoresizingMaskIntoConstraints = false
-        playButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50).isActive = true
+        playButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -80).isActive = true
         playButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
         playButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         // this sets the button to be centered on the screen
@@ -103,6 +106,21 @@ class HomeViewController: UIViewController {
             textField.placeholder = "Name"
         }
         present(alertController, animated: true, completion: nil)
+        
+    }
+     
+    func setupSettingsButton(){
+        view.addSubview(settingsButton)
+        settingsButton.backgroundColor = .clear
+        settingsButton.setTitle("SETTINGS", for: .normal)
+        settingsButton.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .light)
+        settingsButton.addTarget(self, action: #selector(openAlert), for: .touchUpInside)
+        
+        //CONSTRIANTS
+        settingsButton.translatesAutoresizingMaskIntoConstraints = false
+        settingsButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
+        settingsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+
         
     }
 }
