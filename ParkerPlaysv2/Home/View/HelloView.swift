@@ -24,7 +24,6 @@ class HelloView: UIView {
     }
 
     func setupHello(){
-  
         addSubview(helloLabel)
         helloLabel.text = "Hello"
         helloLabel.textColor = .white

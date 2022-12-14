@@ -7,14 +7,14 @@
 
 import UIKit
 
-
-
 class HomeViewController: UIViewController {
     let helloView = HelloView()
     let gamesView = GamesView()
     let weatherView = WeatherView()
+    let gamesButton = GameButton()
     let background = UIImageView(frame: UIScreen.main.bounds)
     let settingsButton = UIButton(type: .system)
+    var sound = PlaySound()
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +68,8 @@ class HomeViewController: UIViewController {
     
     func setupGamesView(){
         view.addSubview(gamesView)
+        gamesView.addSubview(gamesButton)//moved to GamesView() 
+        gamesButton.setupButton()
         
         //CONSTRAINTS
         gamesView.translatesAutoresizingMaskIntoConstraints = false
@@ -83,15 +85,16 @@ class HomeViewController: UIViewController {
         settingsButton.tintColor = .white
         settingsButton.setTitle("SETTINGS", for: .normal)
         settingsButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .medium)
-        settingsButton.layer.cornerRadius = 15
+        settingsButton.layer.cornerRadius = 22
         settingsButton.addTarget(self, action: #selector(openAlert), for: .touchUpInside)
+        settingsButton.addTarget(self, action: #selector(playSound), for: .touchUpInside)
         //set cornerRadius to half of height for a rounded pill button look
         
         //CONSTRAINTS
         settingsButton.translatesAutoresizingMaskIntoConstraints = false
         settingsButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40).isActive = true
         settingsButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        settingsButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        settingsButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         // this sets the button to be centered on the screen
         settingsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     
@@ -118,10 +121,13 @@ class HomeViewController: UIViewController {
             self.helloView.updateName()
         }))
         
-        
-                                                
         present(alertController, animated: true, completion: nil)
         
+    }
+    
+    @objc func playSound(){
+        sound.soundFile = "buttonclick1"
+        sound.playSound()
     }
   
 }
