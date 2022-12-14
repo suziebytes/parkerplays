@@ -9,10 +9,12 @@ import UIKit
  
 class HelloView: UIView {
     let helloLabel = UILabel()
+    let nameLabel = UILabel()
     
     override init(frame: CGRect) {
         super .init(frame: frame)
         setupHello()
+        setupNameLabel()
 
     }
     
@@ -30,11 +32,38 @@ class HelloView: UIView {
         
         //CONSTRAINTS
         helloLabel.translatesAutoresizingMaskIntoConstraints = false
-        helloLabel.topAnchor.constraint(equalTo: topAnchor, constant: 50).isActive = true
-        helloLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50).isActive = true
+        helloLabel.topAnchor.constraint(equalTo: topAnchor, constant: 30).isActive = true
         //centers text
         helloLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
       
     }
     
+    func setupNameLabel(){
+        addSubview(nameLabel)
+        nameLabel.text = "Landon"
+        nameLabel.textColor = .white
+        nameLabel.font = UIFont.systemFont(ofSize: 50, weight: .medium)
+        nameLabel.textDropShadow()
+
+        //CONSTRAINTS
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        nameLabel.topAnchor.constraint(equalTo: helloLabel.bottomAnchor, constant: 5).isActive = true
+        nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+
+    }
+}
+
+extension UILabel {
+    func textDropShadow() {
+        self.layer.masksToBounds = false
+        self.layer.shadowRadius = 2.0
+        self.layer.shadowOpacity = 0.2
+        self.layer.shadowOffset = CGSize(width: 1, height: 2)
+    }
+
+    static func createCustomLabel() -> UILabel {
+        let label = UILabel()
+        label.textDropShadow()
+        return label
+    }
 }

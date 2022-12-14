@@ -41,7 +41,7 @@ class HomeViewController: UIViewController {
     
     func setupHelloView(){
         view.addSubview(helloView)
-        helloView.backgroundColor = .purple
+//        helloView.backgroundColor = .purple
         
         //CONSTRAINTS
         helloView.translatesAutoresizingMaskIntoConstraints = false
@@ -83,6 +83,7 @@ class HomeViewController: UIViewController {
         playButton.setTitle("LET'S PLAY", for: .normal)
         playButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         playButton.layer.cornerRadius = 25
+        playButton.addTarget(self, action: #selector(openAlert), for: .touchUpInside)
         //set cornerRadius to half of height for a rounded pill button look
         
         //CONSTRAINTS
@@ -93,5 +94,15 @@ class HomeViewController: UIViewController {
         // this sets the button to be centered on the screen
         playButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     
+    }
+    
+    @objc func openAlert(){
+        let alertController = UIAlertController(title: "Enter Name", message: "", preferredStyle: .alert)
+        alertController.addTextField { (textField) in
+            // configure the properties of the text field
+            textField.placeholder = "Name"
+        }
+        present(alertController, animated: true, completion: nil)
+        
     }
 }
