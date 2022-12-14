@@ -9,20 +9,22 @@
 /* Begin PBXBuildFile section */
 		B03A076029482F7700B11172 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A075F29482F7700B11172 /* AppDelegate.swift */; };
 		B03A076229482F7700B11172 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A076129482F7700B11172 /* SceneDelegate.swift */; };
-		B03A076429482F7700B11172 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A076329482F7700B11172 /* ViewController.swift */; };
+		B03A076429482F7700B11172 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A076329482F7700B11172 /* HomeViewController.swift */; };
 		B03A076929482F7900B11172 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B03A076829482F7900B11172 /* Assets.xcassets */; };
 		B03A076C29482F7900B11172 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03A076A29482F7900B11172 /* LaunchScreen.storyboard */; };
 		B03A07862948327600B11172 /* Boo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B03A07832948327600B11172 /* Boo.mp3 */; };
 		B03A07872948327600B11172 /* Peek A .mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B03A07842948327600B11172 /* Peek A .mp3 */; };
 		B03A07882948327600B11172 /* PeekaBoo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B03A07852948327600B11172 /* PeekaBoo.mp3 */; };
 		B03A078D29483C0200B11172 /* GamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A078C29483C0200B11172 /* GamesView.swift */; };
+		B03A079029490E3400B11172 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A078F29490E3400B11172 /* WeatherView.swift */; };
+		B03A0792294946A000B11172 /* HelloView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A0791294946A000B11172 /* HelloView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B03A075C29482F7700B11172 /* ParkerPlaysv2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkerPlaysv2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03A075F29482F7700B11172 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B03A076129482F7700B11172 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B03A076329482F7700B11172 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B03A076329482F7700B11172 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B03A076829482F7900B11172 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B03A076B29482F7900B11172 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B03A076D29482F7900B11172 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -30,6 +32,8 @@
 		B03A07842948327600B11172 /* Peek A .mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Peek A .mp3"; path = "../../../soundfiles/Peek A .mp3"; sourceTree = "<group>"; };
 		B03A07852948327600B11172 /* PeekaBoo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = PeekaBoo.mp3; path = ../../../soundfiles/PeekaBoo.mp3; sourceTree = "<group>"; };
 		B03A078C29483C0200B11172 /* GamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesView.swift; sourceTree = "<group>"; };
+		B03A078F29490E3400B11172 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
+		B03A0791294946A000B11172 /* HelloView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				B03A078C29483C0200B11172 /* GamesView.swift */,
+				B03A078F29490E3400B11172 /* WeatherView.swift */,
+				B03A0791294946A000B11172 /* HelloView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -165,7 +171,7 @@
 		B03A078B29483BC600B11172 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B03A076329482F7700B11172 /* ViewController.swift */,
+				B03A076329482F7700B11172 /* HomeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -173,9 +179,9 @@
 		B03A078E2948427000B11172 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				B03A078B29483BC600B11172 /* Controller */,
 				B03A078929483BAA00B11172 /* Model */,
 				B03A078A29483BB700B11172 /* View */,
+				B03A078B29483BC600B11172 /* Controller */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -253,8 +259,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B03A076429482F7700B11172 /* ViewController.swift in Sources */,
+				B03A079029490E3400B11172 /* WeatherView.swift in Sources */,
+				B03A076429482F7700B11172 /* HomeViewController.swift in Sources */,
 				B03A076029482F7700B11172 /* AppDelegate.swift in Sources */,
+				B03A0792294946A000B11172 /* HelloView.swift in Sources */,
 				B03A076229482F7700B11172 /* SceneDelegate.swift in Sources */,
 				B03A078D29483C0200B11172 /* GamesView.swift in Sources */,
 			);

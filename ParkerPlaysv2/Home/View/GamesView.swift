@@ -8,33 +8,29 @@
 import UIKit
 
 class GamesView: UIView {
-    let gamesview = UIImageView()
+    let playButton = UIButton()
+
     
     override init(frame: CGRect) { //essentially *like* a viewDidLoad, so all function calls will be done here
         super.init(frame: frame)
-//        setupGamesView()
-       
+        setupView()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-//    func setupGamesView(){
-//        print(" gamesview called")
+    func setupView(){
 //        addSubview(gamesview)
-//        gamesview.layer.cornerRadius = 15
-//        gamesview.backgroundColor = .white
-//        
-//        //CONSTRAINTS
-//        gamesview.translatesAutoresizingMaskIntoConstraints = false
-//        gamesview.topAnchor.constraint(equalTo: topAnchor, constant: -30).isActive = true
-//        gamesview.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 30).isActive = true
-//        gamesview.leftAnchor.constraint(equalTo: leftAnchor, constant: 30).isActive = true
-//        gamesview.rightAnchor.constraint(equalTo: rightAnchor, constant: -30).isActive = true
-//        gamesview.widthAnchor.constraint(equalToConstant: 100).isActive = true
-//        gamesview.heightAnchor.constraint(equalToConstant: 100).isActive = true
-//    }
-   
-    
+        backgroundColor = .white
+        
+        layer.cornerRadius = 45
+        backgroundColor = .white
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.4
+        layer.shadowOffset = CGSize(width: 0, height: 3)
+        layer.shadowRadius = 4
+    }
 }
+   
+
