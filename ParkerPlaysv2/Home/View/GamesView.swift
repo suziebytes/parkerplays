@@ -32,21 +32,6 @@ class GamesView: UIView {
         layer.shadowOffset = CGSize(width: 0, height: 3)
         layer.shadowRadius = 4
     }
-    
-    //sets up the icons and labels + constraints 
-//    func setupGamesButton(){
-//        gamesButton.addSubview(title)
-//        gamesButton.addSubview(icon)
-//        title.text = "Peekaboo"
-////        title.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .medium)
-//        icon.image = UIImage(named: "lionicon")
-//
-//        //CONSTRAINTS
-//        title.translatesAutoresizingMaskIntoConstraints = false
-//        title.heightAnchor.constraint(equalToConstant: 20).isActive = true
-//        title.widthAnchor.constraint(equalToConstant: 90).isActive = true
-
-        
-    }
+}
    
 

@@ -10,17 +10,19 @@ import UIKit
 class GameButton: UIButton {
     var title = UILabel()
     var icon = UIImageView()
+    var gameName = ""
+    var iconName = ""
     
     override init(frame: CGRect) {
         super .init(frame: frame)
-        setupButton()
+        setupButton(gameName: "", iconName: "")
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupButton() {
+    func setupButton(gameName: String, iconName: String) {
         //full button styling + drop shadow
         backgroundColor = .white
         layer.cornerRadius = 15
@@ -33,10 +35,10 @@ class GameButton: UIButton {
         addSubview(title)
         addSubview(icon)
         // label + button styling
-        title.text = "Peekaboo".uppercased()
+        title.text = gameName.uppercased()
         title.textColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
         title.font = UIFont.boldSystemFont(ofSize: 15)
-        icon.image = UIImage(named: "lionicon")
+        icon.image = UIImage(named: iconName)
         
         //CONSTRAINTS to create height and width of button (white) (not against the view)
         translatesAutoresizingMaskIntoConstraints = false
@@ -54,8 +56,5 @@ class GameButton: UIButton {
         icon.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         icon.heightAnchor.constraint(equalToConstant: 80).isActive = true
         icon.widthAnchor.constraint(equalToConstant: 80).isActive = true
-
-        
-
     }
 }

@@ -15,6 +15,12 @@ class HomeViewController: UIViewController {
     let background = UIImageView(frame: UIScreen.main.bounds)
     let settingsButton = UIButton(type: .system)
     var sound = PlaySound()
+    
+    //GAME BUTTONS
+    var peekabookButton = GameButton()
+    var abcButton = GameButton()
+    var numbersButton = GameButton()
+    var shapesButton = GameButton()
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +30,10 @@ class HomeViewController: UIViewController {
         setupWeatherView()
         setupGamesView()
         setupSettingsButton()
+        setupPeekButton()
+        setupABC()
+        setupNumbers()
+        setupShapes()
     }
     
     func setupBackground() {
@@ -59,24 +69,57 @@ class HomeViewController: UIViewController {
 
         //CONSTRAINTS
         weatherView.translatesAutoresizingMaskIntoConstraints = false
-        weatherView.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
+        weatherView.topAnchor.constraint(equalTo: view.topAnchor, constant: 120).isActive = true
         weatherView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -300).isActive = true
         weatherView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15).isActive = true
         weatherView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15).isActive = true
     }
     
-    
     func setupGamesView(){
         view.addSubview(gamesView)
-        gamesView.addSubview(gamesButton)//moved to GamesView() 
-        gamesButton.setupButton()
         
-        //CONSTRAINTS
+        //CONSTRAINTS - setup the size and constraints for gamesView
         gamesView.translatesAutoresizingMaskIntoConstraints = false
-        gamesView.topAnchor.constraint(equalTo: view.topAnchor, constant: 375).isActive = true
+        gamesView.topAnchor.constraint(equalTo: view.topAnchor, constant: 320).isActive = true
         gamesView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -165).isActive = true
         gamesView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15).isActive = true
         gamesView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15).isActive = true
+    }
+
+    func setupPeekButton(){
+        gamesView.addSubview(peekabookButton)
+        
+        peekabookButton.setupButton(gameName: "peekaboo", iconName: "lionicon")
+        peekabookButton.translatesAutoresizingMaskIntoConstraints = false
+        peekabookButton.topAnchor.constraint(equalTo: gamesView.topAnchor, constant: 10).isActive = true
+        peekabookButton.leftAnchor.constraint(equalTo: gamesView.leftAnchor, constant: 15).isActive = true
+    }
+    
+    func setupABC(){
+        gamesView.addSubview(abcButton)
+        
+        abcButton.setupButton(gameName: "alphabet", iconName: "abcicon")
+        abcButton.translatesAutoresizingMaskIntoConstraints = false
+        abcButton.topAnchor.constraint(equalTo: gamesView.topAnchor, constant: 10).isActive = true
+        abcButton.leftAnchor.constraint(equalTo: peekabookButton.rightAnchor, constant: 40).isActive = true
+    }
+    
+    func setupNumbers(){
+        gamesView.addSubview(numbersButton)
+        
+        numbersButton.setupButton(gameName: "numbers", iconName: "numbersicon")
+        numbersButton.translatesAutoresizingMaskIntoConstraints = false
+        numbersButton.topAnchor.constraint(equalTo: peekabookButton.bottomAnchor, constant: 20).isActive = true
+        numbersButton.leftAnchor.constraint(equalTo: gamesView.leftAnchor, constant: 15).isActive = true
+    }
+    
+    func setupShapes(){
+        gamesView.addSubview(shapesButton)
+        
+        shapesButton.setupButton(gameName: "shapes", iconName: "shapesicon")
+        shapesButton.translatesAutoresizingMaskIntoConstraints = false
+        shapesButton.topAnchor.constraint(equalTo: abcButton.bottomAnchor, constant: 20).isActive = true
+        shapesButton.leftAnchor.constraint(equalTo: numbersButton.rightAnchor, constant: 40).isActive = true
     }
     
     func setupSettingsButton(){
