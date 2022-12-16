@@ -22,6 +22,7 @@
 		B03A079A294A2CC600B11172 /* buttonclick2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B03A0798294A2CC600B11172 /* buttonclick2.mp3 */; };
 		B03A079D294A32A900B11172 /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A079C294A32A900B11172 /* PlaySound.swift */; };
 		B03A079F294A68C900B11172 /* GameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A079E294A68C900B11172 /* GameButton.swift */; };
+		B03A07A3294D2E9C00B11172 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A07A2294D2E9C00B11172 /* PeopleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		B03A0798294A2CC600B11172 /* buttonclick2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = buttonclick2.mp3; path = ../../../soundfiles/buttonclick2.mp3; sourceTree = "<group>"; };
 		B03A079C294A32A900B11172 /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
 		B03A079E294A68C900B11172 /* GameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameButton.swift; sourceTree = "<group>"; };
+		B03A07A2294D2E9C00B11172 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 		B03A077D2948314D00B11172 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B03A07A2294D2E9C00B11172 /* PeopleViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				B03A076429482F7700B11172 /* HomeViewController.swift in Sources */,
 				B03A076029482F7700B11172 /* AppDelegate.swift in Sources */,
 				B03A0792294946A000B11172 /* HelloView.swift in Sources */,
+				B03A07A3294D2E9C00B11172 /* PeopleViewController.swift in Sources */,
 				B03A079F294A68C900B11172 /* GameButton.swift in Sources */,
 				B03A076229482F7700B11172 /* SceneDelegate.swift in Sources */,
 				B03A078D29483C0200B11172 /* GamesView.swift in Sources */,

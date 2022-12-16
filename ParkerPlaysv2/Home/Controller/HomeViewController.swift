@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
     let gamesView = GamesView()
     let weatherView = WeatherView()
     let gamesButton = GameButton()
+    let peopleViewController = PeopleViewController()
     let background = UIImageView(frame: UIScreen.main.bounds)
     let settingsButton = UIButton(type: .system)
     var sound = PlaySound()
@@ -89,6 +90,10 @@ class HomeViewController: UIViewController {
     func setupPeekButton(){
         gamesView.addSubview(peekabookButton)
         peekabookButton.setupButton(gameName: "peekaboo", iconName: "lionicon")
+        peekabookButton.addTarget(self, action: #selector(playSound), for: .touchUpInside)
+        peekabookButton.addTarget(self, action: #selector(goToPeople), for: .touchUpInside)
+        
+        //CONSTRAINTS
         peekabookButton.translatesAutoresizingMaskIntoConstraints = false
         peekabookButton.bottomAnchor.constraint(equalTo: gamesView.centerYAnchor, constant: -5).isActive = true
         peekabookButton.rightAnchor.constraint(equalTo: gamesView.centerXAnchor, constant: -10).isActive = true
@@ -97,6 +102,9 @@ class HomeViewController: UIViewController {
     func setupABC(){
         gamesView.addSubview(abcButton)
         abcButton.setupButton(gameName: "alphabet", iconName: "abcicon")
+        abcButton.addTarget(self, action: #selector(playSound), for: .touchUpInside)
+        
+        //CONSTRAINTS
         abcButton.translatesAutoresizingMaskIntoConstraints = false
         abcButton.bottomAnchor.constraint(equalTo: gamesView.centerYAnchor, constant: -5).isActive = true
         abcButton.leftAnchor.constraint(equalTo: gamesView.centerXAnchor, constant: 10).isActive = true
@@ -105,6 +113,9 @@ class HomeViewController: UIViewController {
     func setupNumbers(){
         gamesView.addSubview(numbersButton)
         numbersButton.setupButton(gameName: "numbers", iconName: "numbersicon")
+        numbersButton.addTarget(self, action: #selector(playSound), for: .touchUpInside)
+        
+        //CONSTRAINTS
         numbersButton.translatesAutoresizingMaskIntoConstraints = false
         numbersButton.topAnchor.constraint(equalTo: gamesView.centerYAnchor, constant: 5).isActive = true
         numbersButton.rightAnchor.constraint(equalTo: gamesView.centerXAnchor, constant: -10).isActive = true
@@ -113,6 +124,9 @@ class HomeViewController: UIViewController {
     func setupShapes(){
         gamesView.addSubview(shapesButton)
         shapesButton.setupButton(gameName: "shapes", iconName: "shapesicon")
+        shapesButton.addTarget(self, action: #selector(playSound), for: .touchUpInside)
+        
+        //CONSTRAINTS
         shapesButton.translatesAutoresizingMaskIntoConstraints = false
         shapesButton.topAnchor.constraint(equalTo: gamesView.centerYAnchor, constant: 5).isActive = true
         shapesButton.leftAnchor.constraint(equalTo: gamesView.centerXAnchor, constant: 10).isActive = true
@@ -161,7 +175,11 @@ class HomeViewController: UIViewController {
         }))
         
         present(alertController, animated: true, completion: nil)
-        
+    }
+    
+    @objc func goToPeople(){
+        print("i am leaving somewhere else")
+        self.present(peopleViewController, animated: true, completion: nil)
     }
     
     @objc func playSound(){
