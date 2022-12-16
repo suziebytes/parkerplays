@@ -88,38 +88,34 @@ class HomeViewController: UIViewController {
 
     func setupPeekButton(){
         gamesView.addSubview(peekabookButton)
-        
         peekabookButton.setupButton(gameName: "peekaboo", iconName: "lionicon")
         peekabookButton.translatesAutoresizingMaskIntoConstraints = false
-        peekabookButton.topAnchor.constraint(equalTo: gamesView.topAnchor, constant: 10).isActive = true
-        peekabookButton.leftAnchor.constraint(equalTo: gamesView.leftAnchor, constant: 15).isActive = true
+        peekabookButton.bottomAnchor.constraint(equalTo: gamesView.centerYAnchor, constant: -5).isActive = true
+        peekabookButton.rightAnchor.constraint(equalTo: gamesView.centerXAnchor, constant: -10).isActive = true
     }
     
     func setupABC(){
         gamesView.addSubview(abcButton)
-        
         abcButton.setupButton(gameName: "alphabet", iconName: "abcicon")
         abcButton.translatesAutoresizingMaskIntoConstraints = false
-        abcButton.topAnchor.constraint(equalTo: gamesView.topAnchor, constant: 10).isActive = true
-        abcButton.leftAnchor.constraint(equalTo: peekabookButton.rightAnchor, constant: 40).isActive = true
+        abcButton.bottomAnchor.constraint(equalTo: gamesView.centerYAnchor, constant: -5).isActive = true
+        abcButton.leftAnchor.constraint(equalTo: gamesView.centerXAnchor, constant: 10).isActive = true
     }
     
     func setupNumbers(){
         gamesView.addSubview(numbersButton)
-        
         numbersButton.setupButton(gameName: "numbers", iconName: "numbersicon")
         numbersButton.translatesAutoresizingMaskIntoConstraints = false
-        numbersButton.topAnchor.constraint(equalTo: peekabookButton.bottomAnchor, constant: 20).isActive = true
-        numbersButton.leftAnchor.constraint(equalTo: gamesView.leftAnchor, constant: 15).isActive = true
+        numbersButton.topAnchor.constraint(equalTo: gamesView.centerYAnchor, constant: 5).isActive = true
+        numbersButton.rightAnchor.constraint(equalTo: gamesView.centerXAnchor, constant: -10).isActive = true
     }
     
     func setupShapes(){
         gamesView.addSubview(shapesButton)
-        
         shapesButton.setupButton(gameName: "shapes", iconName: "shapesicon")
         shapesButton.translatesAutoresizingMaskIntoConstraints = false
-        shapesButton.topAnchor.constraint(equalTo: abcButton.bottomAnchor, constant: 20).isActive = true
-        shapesButton.leftAnchor.constraint(equalTo: numbersButton.rightAnchor, constant: 40).isActive = true
+        shapesButton.topAnchor.constraint(equalTo: gamesView.centerYAnchor, constant: 5).isActive = true
+        shapesButton.leftAnchor.constraint(equalTo: gamesView.centerXAnchor, constant: 10).isActive = true
     }
     
     func setupSettingsButton(){
