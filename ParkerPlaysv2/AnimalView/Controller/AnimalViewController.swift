@@ -1,27 +1,30 @@
 //
-//  PeopleViewController.swift
+//  AnimalViewController.swift
 //  ParkerPlaysv2
 //
 //  Created by Suzie  on 12/16/22.
 //
 
 import UIKit
-
-class PeopleViewController: UIViewController {
+ 
+class AnimalViewController: UIViewController {
+    let animal = Animal()
     let background = UIImageView(frame: UIScreen.main.bounds)
-    let animalViewController = AnimalViewController()
     let cardView = CardView()
-    let toAnimalButton = UIButton()
+    let animalLabel = AnimalLabel()
 
     
-    var image = String(Int.random(in: 0..<21))
+    //access our animal array --> animal = Animal()
+    //grab index of array to populate different animal --> Int random 0-21
+    //assign array[index] to animalImage
+    //plug animalImage into cardView.setupImage(animalImage: String)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBackground()
         setupCardView()
-        peopleImage()
-        setupToAnimalButton()
+        setupAnimalImage()
+        setupLabel()
     }
     
     func setupBackground(){
@@ -48,27 +51,22 @@ class PeopleViewController: UIViewController {
         cardView.widthAnchor.constraint(equalToConstant: 315).isActive = true
     }
     
-    func peopleImage(){
-        cardView.setupImage(image: image)
+    func setupAnimalImage(){
+        let animalImage = animal.animalList[Int.random(in: 0..<animal.animalList.count-1)]
+        
+        cardView.setupImage(image: animalImage)
     }
     
-    func setupToAnimalButton(){
-        view.addSubview(toAnimalButton)
-        toAnimalButton.backgroundColor = .clear
-        toAnimalButton.addTarget(self, action: #selector(goToAnimal), for: .touchUpInside)
+    func setupLabel(){
+        view.addSubview(animalLabel)
         
         //CONSTRAINTS
-        toAnimalButton.translatesAutoresizingMaskIntoConstraints = false
-        toAnimalButton.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        toAnimalButton.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        toAnimalButton.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        toAnimalButton.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-    }
-    
-    @objc func goToAnimal(){
-        self.present(animalViewController, animated: true)
+        animalLabel.translatesAutoresizingMaskIntoConstraints = false
+        animalLabel.widthAnchor.constraint(equalToConstant: 315).isActive =  true
+        animalLabel.heightAnchor.constraint(equalToConstant: 65).isActive = true
+        animalLabel.topAnchor.constraint(equalTo: cardView.bottomAnchor, constant: 10).isActive = true
+        animalLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
 }
 
-
-//UINavigationController that allows you to go back adn forth between two views
+//check to see if there's random as in array.randomelement

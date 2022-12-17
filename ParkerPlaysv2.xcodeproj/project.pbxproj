@@ -24,6 +24,9 @@
 		B03A079F294A68C900B11172 /* GameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A079E294A68C900B11172 /* GameButton.swift */; };
 		B03A07A3294D2E9C00B11172 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A07A2294D2E9C00B11172 /* PeopleViewController.swift */; };
 		B03A07A5294D321700B11172 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A07A4294D321700B11172 /* CardView.swift */; };
+		B03A07A9294D879F00B11172 /* AnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A07A8294D879F00B11172 /* AnimalViewController.swift */; };
+		B03A07AB294D894B00B11172 /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A07AA294D894B00B11172 /* Animal.swift */; };
+		B03A07AD294D91A300B11172 /* AnimalLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A07AC294D91A300B11172 /* AnimalLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,9 @@
 		B03A079E294A68C900B11172 /* GameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameButton.swift; sourceTree = "<group>"; };
 		B03A07A2294D2E9C00B11172 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
 		B03A07A4294D321700B11172 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		B03A07A8294D879F00B11172 /* AnimalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalViewController.swift; sourceTree = "<group>"; };
+		B03A07AA294D894B00B11172 /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
+		B03A07AC294D91A300B11172 /* AnimalLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +101,7 @@
 		B03A07732948307800B11172 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B03A07AA294D894B00B11172 /* Animal.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -102,6 +109,7 @@
 		B03A07742948308000B11172 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B03A07AC294D91A300B11172 /* AnimalLabel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -109,6 +117,7 @@
 		B03A07752948308700B11172 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B03A07A8294D879F00B11172 /* AnimalViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -288,11 +297,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B03A079029490E3400B11172 /* WeatherView.swift in Sources */,
+				B03A07AD294D91A300B11172 /* AnimalLabel.swift in Sources */,
 				B03A079D294A32A900B11172 /* PlaySound.swift in Sources */,
 				B03A076429482F7700B11172 /* HomeViewController.swift in Sources */,
 				B03A076029482F7700B11172 /* AppDelegate.swift in Sources */,
 				B03A07A5294D321700B11172 /* CardView.swift in Sources */,
+				B03A07AB294D894B00B11172 /* Animal.swift in Sources */,
 				B03A0792294946A000B11172 /* HelloView.swift in Sources */,
+				B03A07A9294D879F00B11172 /* AnimalViewController.swift in Sources */,
 				B03A07A3294D2E9C00B11172 /* PeopleViewController.swift in Sources */,
 				B03A079F294A68C900B11172 /* GameButton.swift in Sources */,
 				B03A076229482F7700B11172 /* SceneDelegate.swift in Sources */,
