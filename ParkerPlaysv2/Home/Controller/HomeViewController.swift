@@ -67,7 +67,6 @@ class HomeViewController: UIViewController {
         view.addSubview(weatherView)
         weatherView.backgroundColor = .clear
     
-
         //CONSTRAINTS
         weatherView.translatesAutoresizingMaskIntoConstraints = false
         weatherView.topAnchor.constraint(equalTo: view.topAnchor, constant: 120).isActive = true

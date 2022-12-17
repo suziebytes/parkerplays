@@ -23,6 +23,7 @@
 		B03A079D294A32A900B11172 /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A079C294A32A900B11172 /* PlaySound.swift */; };
 		B03A079F294A68C900B11172 /* GameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A079E294A68C900B11172 /* GameButton.swift */; };
 		B03A07A3294D2E9C00B11172 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A07A2294D2E9C00B11172 /* PeopleViewController.swift */; };
+		B03A07A5294D321700B11172 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A07A4294D321700B11172 /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		B03A079C294A32A900B11172 /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
 		B03A079E294A68C900B11172 /* GameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameButton.swift; sourceTree = "<group>"; };
 		B03A07A2294D2E9C00B11172 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
+		B03A07A4294D321700B11172 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 		B03A077B2948312500B11172 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B03A07A4294D321700B11172 /* CardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				B03A079D294A32A900B11172 /* PlaySound.swift in Sources */,
 				B03A076429482F7700B11172 /* HomeViewController.swift in Sources */,
 				B03A076029482F7700B11172 /* AppDelegate.swift in Sources */,
+				B03A07A5294D321700B11172 /* CardView.swift in Sources */,
 				B03A0792294946A000B11172 /* HelloView.swift in Sources */,
 				B03A07A3294D2E9C00B11172 /* PeopleViewController.swift in Sources */,
 				B03A079F294A68C900B11172 /* GameButton.swift in Sources */,

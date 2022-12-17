@@ -9,10 +9,14 @@ import UIKit
 
 class PeopleViewController: UIViewController {
     let background = UIImageView(frame: UIScreen.main.bounds)
+    let cardView = CardView()
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBackground()
+        setupCardView()
+        peopleImage()
     }
     
     func setupBackground(){
@@ -27,4 +31,17 @@ class PeopleViewController: UIViewController {
         background.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         background.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
     }
+    
+    func setupCardView(){
+        view.addSubview(cardView)
+
+        //CONSTRAINTS
+        cardView.translatesAutoresizingMaskIntoConstraints = false
+        cardView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        cardView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        cardView.heightAnchor.constraint(equalToConstant: 530).isActive = true
+        cardView.widthAnchor.constraint(equalToConstant: 315).isActive = true
+    }
+    
+
 }
