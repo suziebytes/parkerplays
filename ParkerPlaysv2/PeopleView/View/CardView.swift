@@ -14,7 +14,6 @@ class CardView: UIView {
     override init(frame: CGRect) {
         super .init(frame: frame)
         setupCard()
-        setupImage()
     }
     
     required init?(coder: NSCoder) {
@@ -22,6 +21,7 @@ class CardView: UIView {
     }
 
     func setupCard(){
+        backgroundColor = .white
         layer.cornerRadius = 15
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.4
@@ -29,15 +29,14 @@ class CardView: UIView {
         layer.shadowRadius = 4
     }
     
-    func setupImage(){
+    func setupImage(image: String){
         addSubview(imageView)
         imageView.image = UIImage(named: image)
-        imageView.clipsToBounds = true
-//        imageView.layer.cornerRadius = 15
+        imageView.layer.cornerRadius = 15
         imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
 
-//        imageView.frame = self.frame
-        print("hey hey")
+//        imageView.frame = self.frame instead of constraints(?)
         
         //CONSTRANTS
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -46,5 +45,4 @@ class CardView: UIView {
         imageView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         imageView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
     }
-
 }

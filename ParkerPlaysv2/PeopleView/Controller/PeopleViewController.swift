@@ -10,7 +10,8 @@ import UIKit
 class PeopleViewController: UIViewController {
     let background = UIImageView(frame: UIScreen.main.bounds)
     let cardView = CardView()
-   
+    
+    var image = String(Int.random(in: 0..<21))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,5 +44,10 @@ class PeopleViewController: UIViewController {
         cardView.widthAnchor.constraint(equalToConstant: 315).isActive = true
     }
     
-
+    func peopleImage(){
+        cardView.setupImage(image: image)
+    }
 }
+
+
+//UINavigationController that allows you to go back adn forth between two views

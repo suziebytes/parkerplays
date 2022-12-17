@@ -177,7 +177,6 @@ class HomeViewController: UIViewController {
     }
     
     @objc func goToPeople(){
-        print("i am leaving somewhere else")
         self.present(peopleViewController, animated: true, completion: nil)
     }
     
