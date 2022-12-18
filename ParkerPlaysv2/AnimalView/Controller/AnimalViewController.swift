@@ -11,7 +11,7 @@ class AnimalViewController: UIViewController {
     let animal = Animal()
     let background = UIImageView(frame: UIScreen.main.bounds)
     let cardView = CardView()
-    let animalLabel = AnimalLabel()
+    let animalLabelView = AnimalLabelView()
     let toPeople = UIButton()
     let randNum = Int.random(in: 0..<40)
     var sound = PlaySound()
@@ -88,15 +88,15 @@ class AnimalViewController: UIViewController {
     
     func setupLabel(){
         let labelTitle = animal.animalList[randNum]
-        view.addSubview(animalLabel)
-        animalLabel.text = labelTitle
+        view.addSubview(animalLabelView)
+        animalLabelView.animalLabel.text = labelTitle
         
         //CONSTRAINTS
-        animalLabel.translatesAutoresizingMaskIntoConstraints = false
-        animalLabel.widthAnchor.constraint(equalToConstant: 315).isActive =  true
-        animalLabel.heightAnchor.constraint(equalToConstant: 65).isActive = true
-        animalLabel.topAnchor.constraint(equalTo: cardView.bottomAnchor, constant: 10).isActive = true
-        animalLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        animalLabelView.translatesAutoresizingMaskIntoConstraints = false
+        animalLabelView.widthAnchor.constraint(equalToConstant: 315).isActive =  true
+        animalLabelView.heightAnchor.constraint(equalToConstant: 65).isActive = true
+        animalLabelView.topAnchor.constraint(equalTo: cardView.bottomAnchor, constant: 10).isActive = true
+        animalLabelView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
     @objc func backToPeople(){

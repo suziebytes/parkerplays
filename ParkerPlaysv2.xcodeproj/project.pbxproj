@@ -26,7 +26,7 @@
 		B03A07A5294D321700B11172 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A07A4294D321700B11172 /* CardView.swift */; };
 		B03A07A9294D879F00B11172 /* AnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A07A8294D879F00B11172 /* AnimalViewController.swift */; };
 		B03A07AB294D894B00B11172 /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A07AA294D894B00B11172 /* Animal.swift */; };
-		B03A07AD294D91A300B11172 /* AnimalLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A07AC294D91A300B11172 /* AnimalLabel.swift */; };
+		B03A07AD294D91A300B11172 /* AnimalLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A07AC294D91A300B11172 /* AnimalLabelView.swift */; };
 		B03A07AF294ED5F800B11172 /* HomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A07AE294ED5F800B11172 /* HomeButton.swift */; };
 		B03A07B1294EE6B700B11172 /* TextToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A07B0294EE6B700B11172 /* TextToSpeech.swift */; };
 /* End PBXBuildFile section */
@@ -53,7 +53,7 @@
 		B03A07A4294D321700B11172 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		B03A07A8294D879F00B11172 /* AnimalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalViewController.swift; sourceTree = "<group>"; };
 		B03A07AA294D894B00B11172 /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
-		B03A07AC294D91A300B11172 /* AnimalLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalLabel.swift; sourceTree = "<group>"; };
+		B03A07AC294D91A300B11172 /* AnimalLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalLabelView.swift; sourceTree = "<group>"; };
 		B03A07AE294ED5F800B11172 /* HomeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButton.swift; sourceTree = "<group>"; };
 		B03A07B0294EE6B700B11172 /* TextToSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeech.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,7 +113,7 @@
 		B03A07742948308000B11172 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B03A07AC294D91A300B11172 /* AnimalLabel.swift */,
+				B03A07AC294D91A300B11172 /* AnimalLabelView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -304,7 +304,7 @@
 			files = (
 				B03A079029490E3400B11172 /* WeatherView.swift in Sources */,
 				B03A07B1294EE6B700B11172 /* TextToSpeech.swift in Sources */,
-				B03A07AD294D91A300B11172 /* AnimalLabel.swift in Sources */,
+				B03A07AD294D91A300B11172 /* AnimalLabelView.swift in Sources */,
 				B03A079D294A32A900B11172 /* PlaySound.swift in Sources */,
 				B03A076429482F7700B11172 /* HomeViewController.swift in Sources */,
 				B03A076029482F7700B11172 /* AppDelegate.swift in Sources */,
