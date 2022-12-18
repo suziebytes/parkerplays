@@ -22,7 +22,7 @@ class HomeViewController: UIViewController {
     var abcButton = GameButton()
     var numbersButton = GameButton()
     var shapesButton = GameButton()
-  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -41,7 +41,7 @@ class HomeViewController: UIViewController {
         view.addSubview(background)
         background.image = UIImage(named: "gradientbg")
         background.contentMode = .scaleAspectFill
-
+        
         //CONSTRAINTS
         background.translatesAutoresizingMaskIntoConstraints = false
         background.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -52,7 +52,7 @@ class HomeViewController: UIViewController {
     
     func setupHelloView(){
         view.addSubview(helloView)
-//        helloView.backgroundColor = .purple
+        //        helloView.backgroundColor = .purple
         
         //CONSTRAINTS
         helloView.translatesAutoresizingMaskIntoConstraints = false
@@ -66,7 +66,7 @@ class HomeViewController: UIViewController {
     func setupWeatherView(){
         view.addSubview(weatherView)
         weatherView.backgroundColor = .clear
-    
+        
         //CONSTRAINTS
         weatherView.translatesAutoresizingMaskIntoConstraints = false
         weatherView.topAnchor.constraint(equalTo: view.topAnchor, constant: 120).isActive = true
@@ -85,7 +85,7 @@ class HomeViewController: UIViewController {
         gamesView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15).isActive = true
         gamesView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15).isActive = true
     }
-
+    
     func setupPeekButton(){
         gamesView.addSubview(peekabookButton)
         peekabookButton.setupButton(gameName: "peekaboo", iconName: "lionicon")
@@ -149,7 +149,17 @@ class HomeViewController: UIViewController {
         settingsButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         // this sets the button to be centered on the screen
         settingsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+    }
     
+    @objc func goToPeople(){
+        
+        let peopleVC = PeopleViewController()
+        let rootVC = peopleVC
+        let navVC = UINavigationController(rootViewController: rootVC)
+        
+        navVC.modalPresentationStyle = .fullScreen
+        present(navVC, animated: true)
     }
     
     @objc func openAlert(){
@@ -162,7 +172,7 @@ class HomeViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (_) in
             print("User clicked Edit button")
         }))
-    
+        
         alertController.addAction(UIAlertAction(title: "Save", style: .default, handler: {[weak alertController] (_) in
             let textField = alertController?.textFields![0]
             print("Text field: \(String(describing: textField?.text ?? ""))")
@@ -175,11 +185,7 @@ class HomeViewController: UIViewController {
         
         present(alertController, animated: true, completion: nil)
     }
-    
-    @objc func goToPeople(){
-        self.present(peopleViewController, animated: true, completion: nil)
-    }
-    
+
     @objc func playSound(){
         sound.soundFile = "buttonclick1"
         sound.playSound()

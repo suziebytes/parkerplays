@@ -9,9 +9,11 @@ import UIKit
  
 class AnimalViewController: UIViewController {
     let animal = Animal()
+
     let background = UIImageView(frame: UIScreen.main.bounds)
     let cardView = CardView()
     let animalLabel = AnimalLabel()
+    let toPeople = UIButton()
 
     
     //access our animal array --> animal = Animal()
@@ -25,6 +27,7 @@ class AnimalViewController: UIViewController {
         setupCardView()
         setupAnimalImage()
         setupLabel()
+        setupButtononImage()
     }
     
     func setupBackground(){
@@ -57,6 +60,18 @@ class AnimalViewController: UIViewController {
         cardView.setupImage(image: animalImage)
     }
     
+    func setupButtononImage(){
+        view.addSubview(toPeople)
+        toPeople.backgroundColor = .green
+        toPeople.addTarget(self, action: #selector(backToPeople), for: .touchUpInside)
+        
+        toPeople.translatesAutoresizingMaskIntoConstraints = false
+        toPeople.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        toPeople.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        toPeople.heightAnchor.constraint(equalToConstant: 400).isActive = true
+        toPeople.widthAnchor.constraint(equalToConstant: 315).isActive = true
+    }
+    
     func setupLabel(){
         view.addSubview(animalLabel)
         
@@ -67,6 +82,14 @@ class AnimalViewController: UIViewController {
         animalLabel.topAnchor.constraint(equalTo: cardView.bottomAnchor, constant: 10).isActive = true
         animalLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
+    
+    @objc func backToPeople(){
+        let peopleVC = PeopleViewController()
+        navigationController?.popViewController(animated: true)
+    }
+    
 }
 
+
 //check to see if there's random as in array.randomelement
+

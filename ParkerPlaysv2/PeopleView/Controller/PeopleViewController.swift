@@ -9,12 +9,11 @@ import UIKit
 
 class PeopleViewController: UIViewController {
     let background = UIImageView(frame: UIScreen.main.bounds)
-    let animalViewController = AnimalViewController()
     let cardView = CardView()
     let toAnimalButton = UIButton()
 
     
-    var image = String(Int.random(in: 0..<21))
+    var image = String(Int.random(in: 0..<20))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +54,7 @@ class PeopleViewController: UIViewController {
     func setupToAnimalButton(){
         view.addSubview(toAnimalButton)
         toAnimalButton.backgroundColor = .clear
-        toAnimalButton.addTarget(self, action: #selector(goToAnimal), for: .touchUpInside)
+        toAnimalButton.addTarget(self, action: #selector(toAnimal), for: .touchUpInside)
         
         //CONSTRAINTS
         toAnimalButton.translatesAutoresizingMaskIntoConstraints = false
@@ -65,10 +64,11 @@ class PeopleViewController: UIViewController {
         toAnimalButton.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
     }
     
-    @objc func goToAnimal(){
-        self.present(animalViewController, animated: true)
+    @objc func toAnimal(){
+        let animalVC = AnimalViewController()
+        animalVC.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(animalVC, animated: true)
     }
+   
 }
 
-
-//UINavigationController that allows you to go back adn forth between two views
