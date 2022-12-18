@@ -157,7 +157,6 @@ class HomeViewController: UIViewController {
         let peopleVC = PeopleViewController()
         let rootVC = peopleVC
         let navVC = UINavigationController(rootViewController: rootVC)
-        
         navVC.modalPresentationStyle = .fullScreen
         present(navVC, animated: true)
     }

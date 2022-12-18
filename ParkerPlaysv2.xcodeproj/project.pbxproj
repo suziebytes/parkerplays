@@ -28,6 +28,7 @@
 		B03A07AB294D894B00B11172 /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A07AA294D894B00B11172 /* Animal.swift */; };
 		B03A07AD294D91A300B11172 /* AnimalLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A07AC294D91A300B11172 /* AnimalLabel.swift */; };
 		B03A07AF294ED5F800B11172 /* HomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A07AE294ED5F800B11172 /* HomeButton.swift */; };
+		B03A07B1294EE6B700B11172 /* TextToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A07B0294EE6B700B11172 /* TextToSpeech.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		B03A07AA294D894B00B11172 /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
 		B03A07AC294D91A300B11172 /* AnimalLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalLabel.swift; sourceTree = "<group>"; };
 		B03A07AE294ED5F800B11172 /* HomeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButton.swift; sourceTree = "<group>"; };
+		B03A07B0294EE6B700B11172 /* TextToSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeech.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				B03A079C294A32A900B11172 /* PlaySound.swift */,
+				B03A07B0294EE6B700B11172 /* TextToSpeech.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B03A079029490E3400B11172 /* WeatherView.swift in Sources */,
+				B03A07B1294EE6B700B11172 /* TextToSpeech.swift in Sources */,
 				B03A07AD294D91A300B11172 /* AnimalLabel.swift in Sources */,
 				B03A079D294A32A900B11172 /* PlaySound.swift in Sources */,
 				B03A076429482F7700B11172 /* HomeViewController.swift in Sources */,

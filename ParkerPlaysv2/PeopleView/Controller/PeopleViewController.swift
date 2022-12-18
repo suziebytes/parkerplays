@@ -12,6 +12,7 @@ class PeopleViewController: UIViewController {
     let cardView = CardView()
     let toAnimalButton = UIButton()
     let homeButton = HomeButton()
+    var sound = PlaySound()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +53,7 @@ class PeopleViewController: UIViewController {
     }
     
     func peopleImage(){
-        let image = String(Int.random(in: 0..<20))
+        let image = String(Int.random(in: 0..<19))
         cardView.setupImage(image: image)
     }
     
@@ -73,6 +74,7 @@ class PeopleViewController: UIViewController {
         let animalVC = AnimalViewController()
         animalVC.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(animalVC, animated: true)
+    
     }
     
     func setupHomeButton(){
@@ -83,11 +85,13 @@ class PeopleViewController: UIViewController {
         
         //CONSTRAINTS
         homeButton.translatesAutoresizingMaskIntoConstraints = false
-        homeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 75).isActive = true
+        homeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 90).isActive = true
         homeButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25).isActive = true
     }
     
     @objc func toHome() {
+        sound.soundFile = "buttonclick2"
+        sound.playSound()
         let homeVC = HomeViewController()
         let navVC = UINavigationController(rootViewController: homeVC)
             navVC.modalPresentationStyle = .fullScreen
