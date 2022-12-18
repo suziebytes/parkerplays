@@ -13,6 +13,7 @@ class AnimalViewController: UIViewController {
     let cardView = CardView()
     let animalLabel = AnimalLabel()
     let toPeople = UIButton()
+    let randNum = Int.random(in: 0..<41)
 
     
     override func viewDidLoad() {
@@ -40,6 +41,7 @@ class AnimalViewController: UIViewController {
     func setupCardView(){
         view.addSubview(cardView)
 
+
         //CONSTRAINTS
         cardView.translatesAutoresizingMaskIntoConstraints = false
         cardView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -49,7 +51,7 @@ class AnimalViewController: UIViewController {
     }
     
     func setupAnimalImage(){
-        let animalImage = animal.animalList[Int.random(in: 0..<animal.animalList.count-1)]
+        let animalImage = animal.animalList[randNum]
         cardView.setupImage(image: animalImage)
     }
     
@@ -65,7 +67,7 @@ class AnimalViewController: UIViewController {
     }
     
     func setupLabel(){
-        var labelTitle = animal.animalList[Int.random(in: 0..<animal.animalList.count-1)]
+        let labelTitle = animal.animalList[randNum]
         view.addSubview(animalLabel)
         animalLabel.text = labelTitle
         

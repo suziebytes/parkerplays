@@ -14,7 +14,6 @@ class AnimalLabel: UILabel {
         super .init(frame: frame)
         dropShadow()
         setupLabel()
- 
     }
     
     required init?(coder: NSCoder) {

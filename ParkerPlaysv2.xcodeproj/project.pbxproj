@@ -27,6 +27,7 @@
 		B03A07A9294D879F00B11172 /* AnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A07A8294D879F00B11172 /* AnimalViewController.swift */; };
 		B03A07AB294D894B00B11172 /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A07AA294D894B00B11172 /* Animal.swift */; };
 		B03A07AD294D91A300B11172 /* AnimalLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A07AC294D91A300B11172 /* AnimalLabel.swift */; };
+		B03A07AF294ED5F800B11172 /* HomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A07AE294ED5F800B11172 /* HomeButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		B03A07A8294D879F00B11172 /* AnimalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalViewController.swift; sourceTree = "<group>"; };
 		B03A07AA294D894B00B11172 /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
 		B03A07AC294D91A300B11172 /* AnimalLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalLabel.swift; sourceTree = "<group>"; };
+		B03A07AE294ED5F800B11172 /* HomeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				B03A07A4294D321700B11172 /* CardView.swift */,
+				B03A07AE294ED5F800B11172 /* HomeButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				B03A0792294946A000B11172 /* HelloView.swift in Sources */,
 				B03A07A9294D879F00B11172 /* AnimalViewController.swift in Sources */,
 				B03A07A3294D2E9C00B11172 /* PeopleViewController.swift in Sources */,
+				B03A07AF294ED5F800B11172 /* HomeButton.swift in Sources */,
 				B03A079F294A68C900B11172 /* GameButton.swift in Sources */,
 				B03A076229482F7700B11172 /* SceneDelegate.swift in Sources */,
 				B03A078D29483C0200B11172 /* GamesView.swift in Sources */,

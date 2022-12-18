@@ -11,8 +11,7 @@ class PeopleViewController: UIViewController {
     let background = UIImageView(frame: UIScreen.main.bounds)
     let cardView = CardView()
     let toAnimalButton = UIButton()
-
-    
+    let homeButton = HomeButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,12 +19,12 @@ class PeopleViewController: UIViewController {
         setupCardView()
         peopleImage()
         setupToAnimalButton()
+        setupHomeButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         peopleImage()
-        print("yes no maybe so ")
     }
     
     func setupBackground(){
@@ -43,7 +42,7 @@ class PeopleViewController: UIViewController {
     
     func setupCardView(){
         view.addSubview(cardView)
-
+        
         //CONSTRAINTS
         cardView.translatesAutoresizingMaskIntoConstraints = false
         cardView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -53,8 +52,7 @@ class PeopleViewController: UIViewController {
     }
     
     func peopleImage(){
-        var image = String(Int.random(in: 0..<20))
-
+        let image = String(Int.random(in: 0..<20))
         cardView.setupImage(image: image)
     }
     
@@ -76,6 +74,25 @@ class PeopleViewController: UIViewController {
         animalVC.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(animalVC, animated: true)
     }
-   
+    
+    func setupHomeButton(){
+        view.addSubview(homeButton)
+        homeButton.setupHome()
+        homeButton.addTarget(self, action: #selector(toHome), for: .touchUpInside)
+        
+        
+        //CONSTRAINTS
+        homeButton.translatesAutoresizingMaskIntoConstraints = false
+        homeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 75).isActive = true
+        homeButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25).isActive = true
+    }
+    
+    @objc func toHome() {
+        let homeVC = HomeViewController()
+        let navVC = UINavigationController(rootViewController: homeVC)
+            navVC.modalPresentationStyle = .fullScreen
+            present(navVC, animated: true)
+        }
+    
 }
-
+   

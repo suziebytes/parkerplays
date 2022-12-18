@@ -1,0 +1,28 @@
+//
+//  HomeButton.swift
+//  ParkerPlaysv2
+//
+//  Created by Suzie  on 12/17/22.
+//
+
+import UIKit
+
+class HomeButton: UIButton {
+    let image = UIImage()
+    
+    override init(frame: CGRect) {
+        super .init(frame: frame)
+        setupHome()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setupHome(){
+        setImage(UIImage(named: "houseicon.png"), for:.normal)
+        tintColor = .white
+
+    }
+    
+}
