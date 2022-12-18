@@ -9,17 +9,11 @@ import UIKit
  
 class AnimalViewController: UIViewController {
     let animal = Animal()
-
     let background = UIImageView(frame: UIScreen.main.bounds)
     let cardView = CardView()
     let animalLabel = AnimalLabel()
     let toPeople = UIButton()
 
-    
-    //access our animal array --> animal = Animal()
-    //grab index of array to populate different animal --> Int random 0-21
-    //assign array[index] to animalImage
-    //plug animalImage into cardView.setupImage(animalImage: String)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +21,7 @@ class AnimalViewController: UIViewController {
         setupCardView()
         setupAnimalImage()
         setupLabel()
-        setupButtononImage()
+        setupVCButton()
     }
     
     func setupBackground(){
@@ -56,15 +50,13 @@ class AnimalViewController: UIViewController {
     
     func setupAnimalImage(){
         let animalImage = animal.animalList[Int.random(in: 0..<animal.animalList.count-1)]
-        
         cardView.setupImage(image: animalImage)
     }
     
-    func setupButtononImage(){
+    func setupVCButton(){
         view.addSubview(toPeople)
-        toPeople.backgroundColor = .green
         toPeople.addTarget(self, action: #selector(backToPeople), for: .touchUpInside)
-        
+
         toPeople.translatesAutoresizingMaskIntoConstraints = false
         toPeople.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         toPeople.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
@@ -73,7 +65,9 @@ class AnimalViewController: UIViewController {
     }
     
     func setupLabel(){
+        var labelTitle = animal.animalList[Int.random(in: 0..<animal.animalList.count-1)]
         view.addSubview(animalLabel)
+        animalLabel.text = labelTitle
         
         //CONSTRAINTS
         animalLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -84,7 +78,6 @@ class AnimalViewController: UIViewController {
     }
     
     @objc func backToPeople(){
-        let peopleVC = PeopleViewController()
         navigationController?.popViewController(animated: true)
     }
     

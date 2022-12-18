@@ -13,7 +13,6 @@ class PeopleViewController: UIViewController {
     let toAnimalButton = UIButton()
 
     
-    var image = String(Int.random(in: 0..<20))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +20,12 @@ class PeopleViewController: UIViewController {
         setupCardView()
         peopleImage()
         setupToAnimalButton()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        peopleImage()
+        print("yes no maybe so ")
     }
     
     func setupBackground(){
@@ -48,6 +53,8 @@ class PeopleViewController: UIViewController {
     }
     
     func peopleImage(){
+        var image = String(Int.random(in: 0..<20))
+
         cardView.setupImage(image: image)
     }
     
