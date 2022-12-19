@@ -1,34 +1,32 @@
 //
-//  PeopleViewController.swift
+//  ABC.swift
 //  ParkerPlaysv2
 //
-//  Created by Suzie  on 12/16/22.
+//  Created by Suzie on 12/18/22.
 //
 
 import UIKit
 
-class PeopleViewController: UIViewController {
+class ABCViewController: UIViewController {
     let background = UIImageView(frame: UIScreen.main.bounds)
     let cardView = CardView()
-    let toAnimalButton = UIButton()
     let homeButton = HomeButton()
     var sound = PlaySound()
-    
+    let alphabet = ABCList()
+    let abcButton = ABCButton()
+    let abcView = ABCButton()
+    let randNum = Int.random(in: 0..<20)
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBackground()
         setupCardView()
-        peopleImage()
-        setupToAnimalButton()
         setupHomeButton()
+        setupLetter()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        peopleImage()
-    }
-    
-    func setupBackground(){
+    func setupBackground() {
         view.addSubview(background)
         background.image = UIImage(named: "gradientbg")
         background.contentMode = .scaleAspectFill
@@ -52,29 +50,19 @@ class PeopleViewController: UIViewController {
         cardView.widthAnchor.constraint(equalToConstant: 315).isActive = true
     }
     
-    func peopleImage(){
-        let image = String(Int.random(in: 0..<19))
-        cardView.setupImage(image: image)
-    }
-    
-    func setupToAnimalButton(){
-        view.addSubview(toAnimalButton)
-        toAnimalButton.backgroundColor = .clear
-        toAnimalButton.addTarget(self, action: #selector(toAnimal), for: .touchUpInside)
+    func setupLetter(){
+        let letter = alphabet.alphabet[randNum]
+        cardView.addSubview(abcButton)
+        abcButton.setupButton(letter: letter)
+        
+        //add target to go to the next button / dismiss and call ABCbutton again?
         
         //CONSTRAINTS
-        toAnimalButton.translatesAutoresizingMaskIntoConstraints = false
-        toAnimalButton.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        toAnimalButton.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        toAnimalButton.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        toAnimalButton.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-    }
-    
-    @objc func toAnimal(){
-        let animalVC = AnimalViewController()
-        animalVC.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(animalVC, animated: true)
-    
+        abcButton.translatesAutoresizingMaskIntoConstraints = false
+        abcButton.topAnchor.constraint(equalTo: cardView.topAnchor).isActive = true
+        abcButton.bottomAnchor.constraint(equalTo: cardView.bottomAnchor).isActive = true
+        abcButton.leftAnchor.constraint(equalTo: cardView.leftAnchor).isActive = true
+        abcButton.rightAnchor.constraint(equalTo: cardView.rightAnchor).isActive = true
     }
     
     func setupHomeButton(){
@@ -85,18 +73,15 @@ class PeopleViewController: UIViewController {
         
         //CONSTRAINTS
         homeButton.translatesAutoresizingMaskIntoConstraints = false
-        homeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 90).isActive = true
+        homeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 75).isActive = true
         homeButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25).isActive = true
     }
     
     @objc func toHome() {
         sound.soundFile = "buttonclick2"
         sound.playSound()
-        let homeVC = HomeViewController()
-        let navVC = UINavigationController(rootViewController: homeVC)
-            navVC.modalPresentationStyle = .fullScreen
-            present(navVC, animated: true)
-        }
+        self.dismiss(animated: true)
+    }
+
     
 }
-   

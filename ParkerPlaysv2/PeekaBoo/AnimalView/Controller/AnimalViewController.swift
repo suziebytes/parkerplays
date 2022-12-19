@@ -17,6 +17,7 @@ class AnimalViewController: UIViewController {
     var sound = PlaySound()
     let homeButton = HomeButton()
     let ttsButton = UIButton()
+    let TTS = TextToSpeech()
 
     
     override func viewDidLoad() {
@@ -58,6 +59,7 @@ class AnimalViewController: UIViewController {
     func setupAnimalImage(){
         let animalImage = animal.animalList[randNum]
         cardView.setupImage(image: animalImage)
+        cardView.imageView.contentMode = .scaleAspectFit
     }
     
     func setupVCButton(){
@@ -83,13 +85,14 @@ class AnimalViewController: UIViewController {
     }
     
     @objc func toTTS() {
-        // setup TTS
+      print("play tapped")
+        TTS.playTTS(name: animal.animalList[randNum])
     }
     
     func setupLabel(){
         let labelTitle = animal.animalList[randNum]
         view.addSubview(animalLabelView)
-        animalLabelView.animalLabel.text = labelTitle
+        animalLabelView.animalLabel.text = labelTitle.lowercased()
         
         //CONSTRAINTS
         animalLabelView.translatesAutoresizingMaskIntoConstraints = false
@@ -101,7 +104,6 @@ class AnimalViewController: UIViewController {
     
     @objc func backToPeople(){
         navigationController?.popViewController(animated: true)
-//        self.navigationItem.setHidesBackButton(true, animated: true)
     }
     
     func setupHomeButton(){
@@ -111,7 +113,7 @@ class AnimalViewController: UIViewController {
         
         //CONSTRAINTS
         homeButton.translatesAutoresizingMaskIntoConstraints = false
-        homeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 90).isActive = true
+        homeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 75).isActive = true
         homeButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25).isActive = true
     }
     

@@ -9,14 +9,13 @@ import UIKit
 import AVFoundation
 
 struct TextToSpeech {
-    let name: String = ""
     let synthesizer = AVSpeechSynthesizer()
     var player: AVAudioPlayer?
     
-    func playTTS (sender: UIButton){
+    func playTTS (name: String){
 
         let utterance = AVSpeechUtterance(string: name)
-        utterance.rate = 0.1
+        utterance.rate = 0.5
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         synthesizer.speak(utterance)
     }

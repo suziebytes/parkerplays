@@ -17,6 +17,7 @@ class HomeViewController: UIViewController {
     let settingsButton = UIButton(type: .system)
     var sound = PlaySound()
     
+    
     //GAME BUTTONS
     var peekabookButton = GameButton()
     var abcButton = GameButton()
@@ -50,19 +51,6 @@ class HomeViewController: UIViewController {
         background.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
     }
     
-    func setupHelloView(){
-        view.addSubview(helloView)
-        //        helloView.backgroundColor = .purple
-        
-        //CONSTRAINTS
-        helloView.translatesAutoresizingMaskIntoConstraints = false
-        helloView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
-        helloView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -500).isActive = true
-        helloView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25).isActive = true
-        helloView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -25).isActive = true
-        
-    }
-    
     func setupWeatherView(){
         view.addSubview(weatherView)
         weatherView.backgroundColor = .clear
@@ -73,6 +61,18 @@ class HomeViewController: UIViewController {
         weatherView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -300).isActive = true
         weatherView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15).isActive = true
         weatherView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15).isActive = true
+    }
+    
+    func setupHelloView(){
+        view.addSubview(helloView)
+        //        helloView.backgroundColor = .purple
+        
+        //CONSTRAINTS
+        helloView.translatesAutoresizingMaskIntoConstraints = false
+        helloView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
+        helloView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -500).isActive = true
+        helloView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25).isActive = true
+        helloView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -25).isActive = true
     }
     
     func setupGamesView(){
@@ -102,6 +102,7 @@ class HomeViewController: UIViewController {
         gamesView.addSubview(abcButton)
         abcButton.setupButton(gameName: "alphabet", iconName: "abcicon")
         abcButton.addTarget(self, action: #selector(playSound), for: .touchUpInside)
+        abcButton.addTarget(self, action: #selector(goToABC), for: .touchUpInside)
         
         //CONSTRAINTS
         abcButton.translatesAutoresizingMaskIntoConstraints = false
@@ -149,7 +150,6 @@ class HomeViewController: UIViewController {
         settingsButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         // this sets the button to be centered on the screen
         settingsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        
     }
     
     @objc func goToPeople(){
@@ -160,6 +160,15 @@ class HomeViewController: UIViewController {
         navVC.modalPresentationStyle = .fullScreen
         present(navVC, animated: true)
     }
+    
+    @objc func goToABC(){
+        let abcVC = ABCViewController()
+        let rootVC = abcVC
+        let navVC = UINavigationController(rootViewController: rootVC)
+        navVC.modalPresentationStyle = .fullScreen
+        present(navVC, animated: true)
+    }
+    
     
     @objc func openAlert(){
         let alertController = UIAlertController(title: "Enter Name", message: "", preferredStyle: .alert)
