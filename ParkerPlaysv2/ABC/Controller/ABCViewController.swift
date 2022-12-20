@@ -95,7 +95,6 @@ class ABCViewController: UIViewController {
     }
     
     @objc func toTTS() {
-      print("play tapped")
         TTS.playTTS(name: alphabet.alphabet[randNum].lowercased())
     }
     
