@@ -16,6 +16,8 @@ class ABCViewController: UIViewController {
     let abcButton = ABCButton()
     let abcView = ABCButton()
     let randNum = Int.random(in: 0..<20)
+    let ttsButton = UIButton()
+    let TTS = TextToSpeech()
 
 
     override func viewDidLoad() {
@@ -24,8 +26,14 @@ class ABCViewController: UIViewController {
         setupCardView()
         setupHomeButton()
         setupLetter()
+        setupTTSButton()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.setHidesBackButton(true, animated: true)
+    }
+ 
     func setupBackground() {
         view.addSubview(background)
         background.image = UIImage(named: "gradientbg")
@@ -54,6 +62,7 @@ class ABCViewController: UIViewController {
         let letter = alphabet.alphabet[randNum]
         cardView.addSubview(abcButton)
         abcButton.setupButton(letter: letter)
+        abcButton.addTarget(self, action: #selector(newLetter), for: .touchUpInside)
         
         //add target to go to the next button / dismiss and call ABCbutton again?
         
@@ -63,6 +72,31 @@ class ABCViewController: UIViewController {
         abcButton.bottomAnchor.constraint(equalTo: cardView.bottomAnchor).isActive = true
         abcButton.leftAnchor.constraint(equalTo: cardView.leftAnchor).isActive = true
         abcButton.rightAnchor.constraint(equalTo: cardView.rightAnchor).isActive = true
+    }
+    
+    @objc func newLetter(){
+        let abcVC = ABCViewController()
+        
+        abcVC.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(abcVC, animated: true)
+        sound.soundFile = "buttonclick1"
+        sound.playSound()
+    }
+     
+    func setupTTSButton(){
+        view.addSubview(ttsButton)
+        ttsButton.setImage(UIImage(named: "playcircle.svg"), for: .normal)
+        ttsButton.addTarget(self, action: #selector(toTTS), for: .touchUpInside)
+         
+        //CONSTRAINTS
+        ttsButton.translatesAutoresizingMaskIntoConstraints = false
+        ttsButton.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -10).isActive = true
+        ttsButton.rightAnchor.constraint(equalTo: cardView.rightAnchor, constant: -10).isActive = true
+    }
+    
+    @objc func toTTS() {
+      print("play tapped")
+        TTS.playTTS(name: alphabet.alphabet[randNum].lowercased())
     }
     
     func setupHomeButton(){

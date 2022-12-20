@@ -104,6 +104,8 @@ class AnimalViewController: UIViewController {
     
     @objc func backToPeople(){
         navigationController?.popViewController(animated: true)
+        sound.soundFile = "buttonclick1"
+        sound.playSound()
     }
     
     func setupHomeButton(){

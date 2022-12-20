@@ -114,6 +114,7 @@ class HomeViewController: UIViewController {
         gamesView.addSubview(numbersButton)
         numbersButton.setupButton(gameName: "numbers", iconName: "numbersicon")
         numbersButton.addTarget(self, action: #selector(playSound), for: .touchUpInside)
+        numbersButton.addTarget(self, action: #selector(goToNumbers), for: .touchUpInside)
         
         //CONSTRAINTS
         numbersButton.translatesAutoresizingMaskIntoConstraints = false
@@ -164,6 +165,14 @@ class HomeViewController: UIViewController {
     @objc func goToABC(){
         let abcVC = ABCViewController()
         let rootVC = abcVC
+        let navVC = UINavigationController(rootViewController: rootVC)
+        navVC.modalPresentationStyle = .fullScreen
+        present(navVC, animated: true)
+    }
+    
+    @objc func goToNumbers(){
+        let numVC = NumbersViewController()
+        let rootVC = numVC
         let navVC = UINavigationController(rootViewController: rootVC)
         navVC.modalPresentationStyle = .fullScreen
         present(navVC, animated: true)

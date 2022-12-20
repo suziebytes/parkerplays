@@ -32,6 +32,9 @@
 		B0885718294FCB300025E835 /* ABCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0885717294FCB300025E835 /* ABCViewController.swift */; };
 		B088571A294FD5BC0025E835 /* ABCList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0885719294FD5BC0025E835 /* ABCList.swift */; };
 		B0956B7D2950F6B90056C435 /* BaksoSapi.otf in Resources */ = {isa = PBXBuildFile; fileRef = B0956B7C2950F6B90056C435 /* BaksoSapi.otf */; };
+		B0CD055529511B2100953C45 /* PlayTTSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD055429511B2100953C45 /* PlayTTSButton.swift */; };
+		B0CD055C2951738D00953C45 /* NumbersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD055B2951738D00953C45 /* NumbersViewController.swift */; };
+		B0CD055E2951772B00953C45 /* NumberList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD055D2951772B00953C45 /* NumberList.swift */; };
 		B0E671EA294FE0280015682D /* ABCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E671E9294FE0280015682D /* ABCView.swift */; };
 		B0E671ED294FE9E50015682D /* Wash Your Hand.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B0E671EC294FE9E50015682D /* Wash Your Hand.ttf */; };
 /* End PBXBuildFile section */
@@ -64,6 +67,9 @@
 		B0885717294FCB300025E835 /* ABCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABCViewController.swift; sourceTree = "<group>"; };
 		B0885719294FD5BC0025E835 /* ABCList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABCList.swift; sourceTree = "<group>"; };
 		B0956B7C2950F6B90056C435 /* BaksoSapi.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BaksoSapi.otf; sourceTree = "<group>"; };
+		B0CD055429511B2100953C45 /* PlayTTSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayTTSButton.swift; sourceTree = "<group>"; };
+		B0CD055B2951738D00953C45 /* NumbersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersViewController.swift; sourceTree = "<group>"; };
+		B0CD055D2951772B00953C45 /* NumberList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberList.swift; sourceTree = "<group>"; };
 		B0E671E9294FE0280015682D /* ABCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABCView.swift; sourceTree = "<group>"; };
 		B0E671EC294FE9E50015682D /* Wash Your Hand.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Wash Your Hand.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,10 +106,12 @@
 			children = (
 				B03A075F29482F7700B11172 /* AppDelegate.swift */,
 				B03A076129482F7700B11172 /* SceneDelegate.swift */,
+				B0CD055329511AFF00953C45 /* Components */,
 				B03A079B294A329500B11172 /* Manager */,
 				B03A078E2948427000B11172 /* Home */,
 				B0885711294FCA780025E835 /* PeekaBoo */,
 				B0885713294FCAB70025E835 /* ABC */,
+				B0CD05572951734400953C45 /* Numbers */,
 				B03A07822948323A00B11172 /* Sounds */,
 				B0E671EB294FE9CF0015682D /* Fonts */,
 				B03A076829482F7900B11172 /* Assets.xcassets */,
@@ -281,6 +289,47 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		B0CD055329511AFF00953C45 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B0CD055429511B2100953C45 /* PlayTTSButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B0CD05572951734400953C45 /* Numbers */ = {
+			isa = PBXGroup;
+			children = (
+				B0CD055A2951736800953C45 /* Controller */,
+				B0CD05582951735300953C45 /* Model */,
+				B0CD05592951735B00953C45 /* View */,
+			);
+			path = Numbers;
+			sourceTree = "<group>";
+		};
+		B0CD05582951735300953C45 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B0CD055D2951772B00953C45 /* NumberList.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B0CD05592951735B00953C45 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B0CD055A2951736800953C45 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B0CD055B2951738D00953C45 /* NumbersViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		B0E671EB294FE9CF0015682D /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -368,6 +417,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B03A079029490E3400B11172 /* WeatherView.swift in Sources */,
+				B0CD055C2951738D00953C45 /* NumbersViewController.swift in Sources */,
 				B03A07B1294EE6B700B11172 /* TextToSpeech.swift in Sources */,
 				B03A07AD294D91A300B11172 /* AnimalLabelView.swift in Sources */,
 				B03A079D294A32A900B11172 /* PlaySound.swift in Sources */,
@@ -375,6 +425,8 @@
 				B03A076029482F7700B11172 /* AppDelegate.swift in Sources */,
 				B03A07A5294D321700B11172 /* CardView.swift in Sources */,
 				B0E671EA294FE0280015682D /* ABCView.swift in Sources */,
+				B0CD055E2951772B00953C45 /* NumberList.swift in Sources */,
+				B0CD055529511B2100953C45 /* PlayTTSButton.swift in Sources */,
 				B03A07AB294D894B00B11172 /* Animal.swift in Sources */,
 				B03A0792294946A000B11172 /* HelloView.swift in Sources */,
 				B03A07A9294D879F00B11172 /* AnimalViewController.swift in Sources */,

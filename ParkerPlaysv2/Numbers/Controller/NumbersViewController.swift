@@ -1,34 +1,30 @@
 //
-//  PeopleViewController.swift
+//  NumbersViewController.swift
 //  ParkerPlaysv2
 //
-//  Created by Suzie  on 12/16/22.
+//  Created by Suzie on 12/19/22.
 //
 
 import UIKit
 
-class PeopleViewController: UIViewController {
+class NumbersViewController: UIViewController {
     let background = UIImageView(frame: UIScreen.main.bounds)
     let cardView = CardView()
-    let toAnimalButton = UIButton()
     let homeButton = HomeButton()
     var sound = PlaySound()
+    let TTS = TextToSpeech()
+    let ttsButton = UIButton()
+    let numButton = NumberButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBackground()
         setupCardView()
-        peopleImage()
-        setupToAnimalButton()
         setupHomeButton()
+        setupNumbersButton()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        peopleImage()
-    }
-    
-    func setupBackground(){
+    func setupBackground() {
         view.addSubview(background)
         background.image = UIImage(named: "gradientbg")
         background.contentMode = .scaleAspectFill
@@ -52,30 +48,24 @@ class PeopleViewController: UIViewController {
         cardView.widthAnchor.constraint(equalToConstant: 315).isActive = true
     }
     
-    func peopleImage(){
-        let image = String(Int.random(in: 0..<19))
-        cardView.setupImage(image: image)
-    }
-    
-    func setupToAnimalButton(){
-        view.addSubview(toAnimalButton)
-        toAnimalButton.backgroundColor = .clear
-        toAnimalButton.addTarget(self, action: #selector(toAnimal), for: .touchUpInside)
+    func setupNumbersButton(){
+        view.addSubview(numButton)
+        numButton.setupNumButton()
+        numButton.addTarget(self, action: #selector(increaseCount), for: .touchUpInside)
         
-        //CONSTRAINTS
-        toAnimalButton.translatesAutoresizingMaskIntoConstraints = false
-        toAnimalButton.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        toAnimalButton.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        toAnimalButton.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        toAnimalButton.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        //on each tap to the button, count will increase by 1
+        //button set title = increases
+        
+        // CONSTRAINTS
+        numButton.translatesAutoresizingMaskIntoConstraints = false
+        numButton.topAnchor.constraint(equalTo: cardView.topAnchor).isActive = true
+        numButton.bottomAnchor.constraint(equalTo: cardView.bottomAnchor).isActive = true
+        numButton.leftAnchor.constraint(equalTo: cardView.leftAnchor).isActive = true
+        numButton.rightAnchor.constraint(equalTo: cardView.rightAnchor).isActive = true
     }
     
-    @objc func toAnimal(){
-        sound.soundFile = "buttonclick1"
-        sound.playSound()
-        let animalVC = AnimalViewController()
-        animalVC.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(animalVC, animated: true)
+    @objc func increaseCount(){
+
     }
     
     func setupHomeButton(){
@@ -95,6 +85,5 @@ class PeopleViewController: UIViewController {
         sound.playSound()
         self.dismiss(animated: true)
     }
-
+    
 }
-   
