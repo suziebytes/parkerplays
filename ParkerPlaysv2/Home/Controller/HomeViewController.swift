@@ -126,12 +126,14 @@ class HomeViewController: UIViewController {
         gamesView.addSubview(shapesButton)
         shapesButton.setupButton(gameName: "shapes", iconName: "shapesicon")
         shapesButton.addTarget(self, action: #selector(playSound), for: .touchUpInside)
+        shapesButton.addTarget(self, action: #selector(goToShapes), for: .touchUpInside)
         
         //CONSTRAINTS
         shapesButton.translatesAutoresizingMaskIntoConstraints = false
         shapesButton.topAnchor.constraint(equalTo: gamesView.centerYAnchor, constant: 5).isActive = true
         shapesButton.leftAnchor.constraint(equalTo: gamesView.centerXAnchor, constant: 10).isActive = true
     }
+    
     
     func setupSettingsButton(){
         view.addSubview(settingsButton)
@@ -173,6 +175,14 @@ class HomeViewController: UIViewController {
     @objc func goToNumbers(){
         let numVC = NumbersViewController()
         let rootVC = numVC
+        let navVC = UINavigationController(rootViewController: rootVC)
+        navVC.modalPresentationStyle = .fullScreen
+        present(navVC, animated: true)
+    }
+    
+    @objc func goToShapes(){
+        let shapeVC = ShapesViewController()
+        let rootVC = shapeVC
         let navVC = UINavigationController(rootViewController: rootVC)
         navVC.modalPresentationStyle = .fullScreen
         present(navVC, animated: true)
