@@ -26,6 +26,7 @@ class PeopleViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         peopleImage()
+        self.navigationItem.setHidesBackButton(true, animated: true)
     }
     
     func setupBackground(){

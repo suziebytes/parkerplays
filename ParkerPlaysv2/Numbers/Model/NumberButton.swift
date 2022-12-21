@@ -36,7 +36,7 @@ class NumberButton: UIButton {
     }
     
     func setupTTS (){
-        let strCount = String(count-1)
+        let strCount = String(count)
         TTS.playTTS(name:strCount)
 
     }
