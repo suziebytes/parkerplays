@@ -8,10 +8,7 @@
 import UIKit
 
 class NumberButton: UIButton {
-    let TTS = TextToSpeech()
     var randNum = Int.random(in: 0..<3)
-    let name = ""
-    
     
     func setupNumButton(){
         let colorList = [

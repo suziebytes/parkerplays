@@ -25,6 +25,7 @@ class ShapesViewController: UIViewController {
         setupCardView()
         setupHomeButton()
         setupShapeButton()
+        setupTTSButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,12 +65,10 @@ class ShapesViewController: UIViewController {
         shapeButton.setupButton(shape: shape)
         shapeButton.addTarget(self, action: #selector(newShape), for: .touchUpInside)
         
-
-        
         //CONSTRAINTS
         shapeButton.translatesAutoresizingMaskIntoConstraints = false
-        shapeButton.topAnchor.constraint(equalTo: cardView.topAnchor).isActive = true
-        shapeButton.bottomAnchor.constraint(equalTo: cardView.bottomAnchor).isActive = true
+        shapeButton.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 100).isActive = true
+        shapeButton.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -100).isActive = true
         shapeButton.leftAnchor.constraint(equalTo: cardView.leftAnchor).isActive = true
         shapeButton.rightAnchor.constraint(equalTo: cardView.rightAnchor).isActive = true
     }
@@ -82,6 +81,24 @@ class ShapesViewController: UIViewController {
         
         sound.soundFile = "buttonclick"
         sound.playSound()
+    }
+    
+    func setupTTSButton(){
+        view.addSubview(ttsButton)
+        ttsButton.setImage(UIImage(named: "playcircle.svg"), for: .normal)
+        ttsButton.addTarget(self, action: #selector(toTTS), for: .touchUpInside)
+         
+        //CONSTRAINTS
+        ttsButton.translatesAutoresizingMaskIntoConstraints = false
+        ttsButton.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -10).isActive = true
+        ttsButton.rightAnchor.constraint(equalTo: cardView.rightAnchor, constant: -10).isActive = true
+    }
+    
+    @objc func toTTS() {
+        let image = shapeList.shapeList
+        let shape = image[randNum]
+        
+        TTS.playTTS(name: shape)
     }
 
     func setupHomeButton(){

@@ -27,7 +27,6 @@ class NumbersViewController: UIViewController {
         setupTTSButton()
     }
     
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.setHidesBackButton(true, animated: true)
@@ -81,27 +80,25 @@ class NumbersViewController: UIViewController {
         navigationController?.pushViewController(numberVC, animated: true)
         }
 
-    
     func setupTTSButton(){
         view.addSubview(ttsButton)
         ttsButton.setImage(UIImage(named: "playcircle.svg"), for: .normal)
-//        ttsButton.addTarget(self, action: #selector(toTTS), for: .touchUpInside)
+        ttsButton.addTarget(self, action: #selector(toTTS), for: .touchUpInside)
 
         //CONSTRAINTS
         ttsButton.translatesAutoresizingMaskIntoConstraints = false
         ttsButton.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -10).isActive = true
         ttsButton.rightAnchor.constraint(equalTo: cardView.rightAnchor, constant: -10).isActive = true
     }
-//
-//    @objc func toTTS(){
-//        numButton.setupTTS()
-//    }
+
+    @objc func toTTS(){
+        setupTTS.playTTS(name:String(count))
+    }
     
     func setupHomeButton(){
         view.addSubview(homeButton)
         homeButton.setupHome()
         homeButton.addTarget(self, action: #selector(toHome), for: .touchUpInside)
-        
         
         //CONSTRAINTS
         homeButton.translatesAutoresizingMaskIntoConstraints = false
