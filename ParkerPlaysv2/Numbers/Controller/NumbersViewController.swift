@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class NumbersViewController: UIViewController {
     let background = UIImageView(frame: UIScreen.main.bounds)
@@ -14,6 +15,8 @@ class NumbersViewController: UIViewController {
     var sound = PlaySound()
     let ttsButton = UIButton()
     let numButton = NumberButton()
+    let setupTTS = TextToSpeech()
+    var count = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +24,10 @@ class NumbersViewController: UIViewController {
         setupCardView()
         setupHomeButton()
         setupNumbersButton()
-//        setupTTSButton()
+        setupTTSButton()
     }
     
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.setHidesBackButton(true, animated: true)
@@ -56,7 +60,8 @@ class NumbersViewController: UIViewController {
     func setupNumbersButton(){
         view.addSubview(numButton)
         numButton.setupNumButton()
-        
+        numButton.setTitle(String(count), for: .normal)
+        setupTTS.playTTS(name: String(count))
         numButton.addTarget(self, action: #selector(newCount), for: .touchUpInside)
         
         // CONSTRAINTS
@@ -68,29 +73,27 @@ class NumbersViewController: UIViewController {
     }
     
     @objc func newCount(){
+        count+=1
+        numButton.setTitle(String(count), for: .normal)
+      
         let numberVC = NumbersViewController()
-        numButton.setupTTS()
-        numButton.setupNumButton()
-//        navigationController?.pushViewController(numberVC, animated: true)
-        
-        //we want a new card to appear
-        //card should update with new number count - UINavigationController to push
+        numberVC.count = count
+        navigationController?.pushViewController(numberVC, animated: true)
         }
 
     
-//    func setupTTSButton(){
-//        view.addSubview(ttsButton)
-//        ttsButton.setImage(UIImage(named: "playcircle.svg"), for: .normal)
+    func setupTTSButton(){
+        view.addSubview(ttsButton)
+        ttsButton.setImage(UIImage(named: "playcircle.svg"), for: .normal)
 //        ttsButton.addTarget(self, action: #selector(toTTS), for: .touchUpInside)
-//
-//        //CONSTRAINTS
-//        ttsButton.translatesAutoresizingMaskIntoConstraints = false
-//        ttsButton.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -10).isActive = true
-//        ttsButton.rightAnchor.constraint(equalTo: cardView.rightAnchor, constant: -10).isActive = true
-//    }
+
+        //CONSTRAINTS
+        ttsButton.translatesAutoresizingMaskIntoConstraints = false
+        ttsButton.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -10).isActive = true
+        ttsButton.rightAnchor.constraint(equalTo: cardView.rightAnchor, constant: -10).isActive = true
+    }
 //
 //    @objc func toTTS(){
-//        //count is taken from numButton.setupNumButton, however, the count is in NumberButton(different class) - how do we access 'count' for TTS
 //        numButton.setupTTS()
 //    }
     
