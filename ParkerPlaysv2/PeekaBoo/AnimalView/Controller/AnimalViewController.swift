@@ -32,6 +32,12 @@ class AnimalViewController: UIViewController {
         setupTTSButton()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        sound.soundFile = "Boo - boosted"
+        sound.playSound()
+    }
+    
     func setupBackground(){
         view.addSubview(background)
         background.image = UIImage(named: "gradientbg")

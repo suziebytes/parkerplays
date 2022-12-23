@@ -33,6 +33,9 @@ class ABCViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.setHidesBackButton(true, animated: true)
+        sound.soundFile = "Boo - boosted"
+        sound.playSound()
+      
     }
  
     func setupBackground() {

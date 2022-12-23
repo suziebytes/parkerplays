@@ -27,6 +27,7 @@ class PeopleViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         sound.soundFile = "Peek A - boosted"
+        sound.playSound()
         peopleImage()
         self.navigationItem.setHidesBackButton(true, animated: true)
     }
@@ -84,8 +85,8 @@ class PeopleViewController: UIViewController {
         }
         print("this is \(count)")
         
-        sound.soundFile = "Boo"
-        sound.playSound()
+//        sound.soundFile = "Boo"
+//        sound.playSound()
         
     
         let animalVC = AnimalViewController()
