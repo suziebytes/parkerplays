@@ -48,8 +48,9 @@ class PeopleViewController: UIViewController {
         //CONSTRAINTS
         cardView.translatesAutoresizingMaskIntoConstraints = false
         cardView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        cardView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        cardView.heightAnchor.constraint(equalToConstant: 530).isActive = true
+//        cardView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        cardView.topAnchor.constraint(equalTo: view.topAnchor, constant: 170).isActive = true
+        cardView.heightAnchor.constraint(equalToConstant: 605).isActive = true
         cardView.widthAnchor.constraint(equalToConstant: 315).isActive = true
     }
     
@@ -72,7 +73,7 @@ class PeopleViewController: UIViewController {
     }
     
     @objc func toAnimal(){
-        sound.soundFile = "buttonclick1"
+        sound.soundFile = "Boo"
         sound.playSound()
         let animalVC = AnimalViewController()
         animalVC.modalPresentationStyle = .fullScreen

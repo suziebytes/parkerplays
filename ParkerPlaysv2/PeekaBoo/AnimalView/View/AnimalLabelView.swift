@@ -35,7 +35,7 @@ class AnimalLabelView: UIView{
         animalLabel.font = UIFont.systemFont(ofSize: 50, weight: .regular)
         animalLabel.textAlignment = .center
         animalLabel.textColor = UIColor(red: 57/255, green: 57/255, blue: 57/255, alpha: 1)
-        print("wheres the text")
+        animalLabel.adjustsFontSizeToFitWidth = true
         
         //CONSTRAINTS
         animalLabel.translatesAutoresizingMaskIntoConstraints = false

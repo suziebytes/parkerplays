@@ -65,7 +65,6 @@ class HomeViewController: UIViewController {
     
     func setupHelloView(){
         view.addSubview(helloView)
-        //        helloView.backgroundColor = .purple
         
         //CONSTRAINTS
         helloView.translatesAutoresizingMaskIntoConstraints = false
@@ -89,7 +88,7 @@ class HomeViewController: UIViewController {
     func setupPeekButton(){
         gamesView.addSubview(peekabookButton)
         peekabookButton.setupButton(gameName: "peekaboo", iconName: "lionicon")
-        peekabookButton.addTarget(self, action: #selector(playSound), for: .touchUpInside)
+//        peekabookButton.addTarget(self, action: #selector(playSound), for: .touchUpInside)
         peekabookButton.addTarget(self, action: #selector(goToPeople), for: .touchUpInside)
         
         //CONSTRAINTS
@@ -134,7 +133,6 @@ class HomeViewController: UIViewController {
         shapesButton.leftAnchor.constraint(equalTo: gamesView.centerXAnchor, constant: 10).isActive = true
     }
     
-    
     func setupSettingsButton(){
         view.addSubview(settingsButton)
         settingsButton.backgroundColor = UIColor(red: 79/255, green: 151/255, blue: 253/255, alpha: 1)
@@ -156,12 +154,15 @@ class HomeViewController: UIViewController {
     }
     
     @objc func goToPeople(){
+        sound.soundFile = "Peek A "
+        sound.playSound()
         
         let peopleVC = PeopleViewController()
         let rootVC = peopleVC
         let navVC = UINavigationController(rootViewController: rootVC)
         navVC.modalPresentationStyle = .fullScreen
         present(navVC, animated: true)
+      
     }
     
     @objc func goToABC(){

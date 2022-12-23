@@ -72,8 +72,11 @@ class NumbersViewController: UIViewController {
     }
     
     @objc func newCount(){
-        count+=1
-        numButton.setTitle(String(count), for: .normal)
+        if count < 10 {
+            count+=1
+        } else {
+            count = 0
+        }
       
         let numberVC = NumbersViewController()
         numberVC.count = count

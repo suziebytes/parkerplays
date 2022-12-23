@@ -106,7 +106,7 @@ class AnimalViewController: UIViewController {
 //        navigationController?.popViewController(animated: true)
         let peopleVC = PeopleViewController()
         navigationController?.pushViewController(peopleVC, animated: true)
-        sound.soundFile = "buttonclick1"
+        sound.soundFile = "Peek A "
         sound.playSound()
     }
     
@@ -124,10 +124,7 @@ class AnimalViewController: UIViewController {
     @objc func toHome() {
         sound.soundFile = "buttonclick2"
         sound.playSound()
-        let homeVC = HomeViewController()
-        let navVC = UINavigationController(rootViewController: homeVC)
-            navVC.modalPresentationStyle = .fullScreen
-            present(navVC, animated: true)
+        self.dismiss(animated: true)
         }
     
 }

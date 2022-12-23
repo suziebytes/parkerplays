@@ -9,7 +9,7 @@ import AVFoundation
 struct PlaySound {
     var sound: AVAudioPlayer?
     var soundFile: String = ""
-    
+
     
     mutating func playSound() {
         guard let url = Bundle.main.url(forResource: soundFile, withExtension: "mp3") else { return }
@@ -17,6 +17,7 @@ struct PlaySound {
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
+            sound?.setVolume(1, fadeDuration: 0.1)
             
             /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
             sound = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
@@ -32,5 +33,7 @@ struct PlaySound {
             print(error.localizedDescription)
         }
     }
+    
+    
 }
 
