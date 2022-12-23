@@ -38,6 +38,7 @@
 		B0CD056429523F0000953C45 /* ShapesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD056329523F0000953C45 /* ShapesViewController.swift */; };
 		B0CD05662952406600953C45 /* ShapeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD05652952406600953C45 /* ShapeButton.swift */; };
 		B0CD05682952572B00953C45 /* ShapesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD05672952572B00953C45 /* ShapesList.swift */; };
+		B0CD056A2956676500953C45 /* Peek A - boosted.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B0CD05692956676400953C45 /* Peek A - boosted.mp3 */; };
 		B0E671EA294FE0280015682D /* ABCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E671E9294FE0280015682D /* ABCView.swift */; };
 		B0E671ED294FE9E50015682D /* Wash Your Hand.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B0E671EC294FE9E50015682D /* Wash Your Hand.ttf */; };
 /* End PBXBuildFile section */
@@ -76,6 +77,7 @@
 		B0CD056329523F0000953C45 /* ShapesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapesViewController.swift; sourceTree = "<group>"; };
 		B0CD05652952406600953C45 /* ShapeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeButton.swift; sourceTree = "<group>"; };
 		B0CD05672952572B00953C45 /* ShapesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapesList.swift; sourceTree = "<group>"; };
+		B0CD05692956676400953C45 /* Peek A - boosted.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Peek A - boosted.mp3"; sourceTree = "<group>"; };
 		B0E671E9294FE0280015682D /* ABCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABCView.swift; sourceTree = "<group>"; };
 		B0E671EC294FE9E50015682D /* Wash Your Hand.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Wash Your Hand.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -199,6 +201,7 @@
 		B03A07822948323A00B11172 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				B0CD05692956676400953C45 /* Peek A - boosted.mp3 */,
 				B03A07B3294FB7F100B11172 /* Boo.mp3 */,
 				B03A07B2294FB7F100B11172 /* buttonclick1.mp3 */,
 				B03A07B4294FB7F100B11172 /* buttonclick2.mp3 */,
@@ -443,6 +446,7 @@
 				B0956B7D2950F6B90056C435 /* BaksoSapi.otf in Resources */,
 				B03A07B8294FB7F100B11172 /* Boo.mp3 in Resources */,
 				B0E671ED294FE9E50015682D /* Wash Your Hand.ttf in Resources */,
+				B0CD056A2956676500953C45 /* Peek A - boosted.mp3 in Resources */,
 				B03A076C29482F7900B11172 /* LaunchScreen.storyboard in Resources */,
 				B03A076929482F7900B11172 /* Assets.xcassets in Resources */,
 				B03A07BA294FB7F100B11172 /* Peek A .mp3 in Resources */,

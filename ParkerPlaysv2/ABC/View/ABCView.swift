@@ -13,12 +13,11 @@ class ABCButton: UIButton {
 //apply 1 or 3 theme colors
     
     var letter : String = ""
-    var randNum = Int.random(in: 0..<3)
 
   
     // GOAL: update the card with a random alphabet letter with a random text color each time
     
-    func setupButton(letter: String){
+    func setupButton(letter: String, colorCount: Int){
         let colorList = [
             UIColor(red: 255/255, green: 85/255, blue: 54/255, alpha: 1),
             UIColor(red: 127/255, green: 17/255, blue: 224/255, alpha: 1),
@@ -26,7 +25,7 @@ class ABCButton: UIButton {
             UIColor(red: 80/255, green: 227/255, blue: 194/255, alpha: 1)
         ]
                
-        let color: UIColor = colorList[randNum]
+        let color: UIColor = colorList[colorCount]
         
         setTitleColor((color),for: .normal)
         setTitle(letter, for: .normal )

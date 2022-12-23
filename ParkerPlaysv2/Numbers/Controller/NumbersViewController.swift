@@ -17,6 +17,7 @@ class NumbersViewController: UIViewController {
     let numButton = NumberButton()
     let setupTTS = TextToSpeech()
     var count = 0
+    var colorCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +59,7 @@ class NumbersViewController: UIViewController {
     
     func setupNumbersButton(){
         view.addSubview(numButton)
-        numButton.setupNumButton()
+        numButton.setupNumButton(colorCount: colorCount)
         numButton.setTitle(String(count), for: .normal)
         setupTTS.playTTS(name: String(count))
         numButton.addTarget(self, action: #selector(newCount), for: .touchUpInside)
@@ -77,9 +78,16 @@ class NumbersViewController: UIViewController {
         } else {
             count = 0
         }
+        
+        if colorCount < 3 {
+            colorCount+=1
+        } else {
+            colorCount = 0
+        }
       
         let numberVC = NumbersViewController()
         numberVC.count = count
+        numberVC.colorCount = colorCount
         navigationController?.pushViewController(numberVC, animated: true)
         }
 

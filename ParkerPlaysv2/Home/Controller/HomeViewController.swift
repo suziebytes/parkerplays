@@ -154,7 +154,7 @@ class HomeViewController: UIViewController {
     }
     
     @objc func goToPeople(){
-        sound.soundFile = "Peek A "
+        sound.soundFile = "Peek A - boosted"
         sound.playSound()
         
         let peopleVC = PeopleViewController()

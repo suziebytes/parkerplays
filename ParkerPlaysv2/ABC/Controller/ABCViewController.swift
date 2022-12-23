@@ -17,7 +17,8 @@ class ABCViewController: UIViewController {
     let abcView = ABCButton()
     let ttsButton = UIButton()
     let TTS = TextToSpeech()
-    var count = 0 
+    var count = 0
+    var colorCount = 0
 
 
     override func viewDidLoad() {
@@ -61,7 +62,7 @@ class ABCViewController: UIViewController {
     func setupLetter(){
         let letter = alphabet.alphabet[count]
         cardView.addSubview(abcButton)
-        abcButton.setupButton(letter: letter)
+        abcButton.setupButton(letter: letter, colorCount: colorCount)
         abcButton.addTarget(self, action: #selector(newLetter), for: .touchUpInside)
         
         //add target to go to the next button / dismiss and call ABCbutton again?
@@ -81,10 +82,17 @@ class ABCViewController: UIViewController {
         } else {
             count = 0
         }
+        
+        if colorCount < 3 {
+            colorCount+=1
+        } else {
+            colorCount = 0
+        }
     
     
         let abcVC = ABCViewController()
         abcVC.count = count
+        abcVC.colorCount = colorCount
         abcVC.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(abcVC, animated: true)
         sound.soundFile = "buttonclick1"
