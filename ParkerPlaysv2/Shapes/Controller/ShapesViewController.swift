@@ -16,7 +16,7 @@ class ShapesViewController: UIViewController {
     let ttsButton = UIButton()
     let shapeButton = ShapeButton()
     let shapeList = ShapeList()
-    let randNum = Int.random(in: 0..<11)
+    var count = 0
     
     
     override func viewDidLoad() {
@@ -59,7 +59,7 @@ class ShapesViewController: UIViewController {
     
     func setupShapeButton(){
         let image = shapeList.shapeList
-        let shape = image[randNum]
+        let shape = image[count]
 
         view.addSubview(shapeButton)
         shapeButton.setupButton(shape: shape)
@@ -74,8 +74,15 @@ class ShapesViewController: UIViewController {
     }
     
     @objc func newShape(){
-        let shapeVC = ShapesViewController()
         
+        if count < shapeList.shapeList.count {
+            count+=1
+        } else {
+            count = 0
+        }
+        
+        let shapeVC = ShapesViewController()
+        shapeVC.count = count
         shapeVC.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(shapeVC, animated: true)
         
@@ -96,7 +103,7 @@ class ShapesViewController: UIViewController {
     
     @objc func toTTS() {
         let image = shapeList.shapeList
-        let shape = image[randNum]
+        let shape = image[count]
         
         TTS.playTTS(name: shape)
     }

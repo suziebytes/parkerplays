@@ -15,9 +15,9 @@ class ABCViewController: UIViewController {
     let alphabet = ABCList()
     let abcButton = ABCButton()
     let abcView = ABCButton()
-    let randNum = Int.random(in: 0..<20)
     let ttsButton = UIButton()
     let TTS = TextToSpeech()
+    var count = 0 
 
 
     override func viewDidLoad() {
@@ -59,7 +59,7 @@ class ABCViewController: UIViewController {
     }
     
     func setupLetter(){
-        let letter = alphabet.alphabet[randNum]
+        let letter = alphabet.alphabet[count]
         cardView.addSubview(abcButton)
         abcButton.setupButton(letter: letter)
         abcButton.addTarget(self, action: #selector(newLetter), for: .touchUpInside)
@@ -75,8 +75,16 @@ class ABCViewController: UIViewController {
     }
     
     @objc func newLetter(){
-        let abcVC = ABCViewController()
         
+        if count < 25 {
+            count+=1
+        } else {
+            count = 0
+        }
+    
+    
+        let abcVC = ABCViewController()
+        abcVC.count = count
         abcVC.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(abcVC, animated: true)
         sound.soundFile = "buttonclick1"
@@ -95,7 +103,7 @@ class ABCViewController: UIViewController {
     }
     
     @objc func toTTS() {
-        TTS.playTTS(name: alphabet.alphabet[randNum].lowercased())
+        TTS.playTTS(name: alphabet.alphabet[count].lowercased())
     }
     
     func setupHomeButton(){

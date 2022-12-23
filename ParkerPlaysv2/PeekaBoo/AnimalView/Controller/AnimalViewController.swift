@@ -103,9 +103,7 @@ class AnimalViewController: UIViewController {
     }
     
     @objc func backToPeople(){
-//        navigationController?.popViewController(animated: true)
-        let peopleVC = PeopleViewController()
-        navigationController?.pushViewController(peopleVC, animated: true)
+        navigationController?.popViewController(animated: true)
         sound.soundFile = "Peek A "
         sound.playSound()
     }

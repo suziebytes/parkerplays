@@ -13,6 +13,7 @@ class PeopleViewController: UIViewController {
     let toAnimalButton = UIButton()
     let homeButton = HomeButton()
     var sound = PlaySound()
+    var count = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,14 +50,15 @@ class PeopleViewController: UIViewController {
         cardView.translatesAutoresizingMaskIntoConstraints = false
         cardView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 //        cardView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        cardView.topAnchor.constraint(equalTo: view.topAnchor, constant: 170).isActive = true
+        cardView.topAnchor.constraint(equalTo: view.topAnchor, constant: 160).isActive = true
         cardView.heightAnchor.constraint(equalToConstant: 605).isActive = true
         cardView.widthAnchor.constraint(equalToConstant: 315).isActive = true
     }
     
     func peopleImage(){
-        let image = String(Int.random(in: 0..<19))
+        let image = String(count)
         cardView.setupImage(image: image)
+     
     }
     
     func setupToAnimalButton(){
@@ -73,8 +75,18 @@ class PeopleViewController: UIViewController {
     }
     
     @objc func toAnimal(){
+        
+        if count < 21 {
+            count+=1
+        } else {
+            count = 1
+        }
+        print("this is \(count)")
+        
         sound.soundFile = "Boo"
         sound.playSound()
+        
+    
         let animalVC = AnimalViewController()
         animalVC.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(animalVC, animated: true)

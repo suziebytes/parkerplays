@@ -9,6 +9,7 @@ import UIKit
 
 class NumberButton: UIButton {
     var randNum = Int.random(in: 0..<3)
+    var count = 0
     
     func setupNumButton(){
         let colorList = [
@@ -18,7 +19,13 @@ class NumberButton: UIButton {
             UIColor(red: 80/255, green: 227/255, blue: 194/255, alpha: 1)
         ]
         
-        let color: UIColor = colorList[randNum]
+        let color: UIColor = colorList[count]
+        
+        if count > 0 {
+         count+=1
+        } else {
+            count = 0
+        }
         
         setTitleColor((color),for: .normal)
         titleLabel?.font = UIFont(name: "BaksoSapi", size: 300)
