@@ -33,9 +33,6 @@ class ABCViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.setHidesBackButton(true, animated: true)
-        sound.soundFile = "Boo - boosted"
-        sound.playSound()
-      
     }
  
     func setupBackground() {
@@ -86,7 +83,9 @@ class ABCViewController: UIViewController {
             count = 0
         }
         
-        if colorCount < 3 {
+        
+        let colorsList = abcButton.colorList.count-1
+        if colorCount < colorsList {
             colorCount+=1
         } else {
             colorCount = 0

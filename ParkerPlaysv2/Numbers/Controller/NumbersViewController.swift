@@ -79,7 +79,9 @@ class NumbersViewController: UIViewController {
             count = 0
         }
         
-        if colorCount < 3 {
+        let colorsList = numButton.colorList.count-1
+        
+        if colorCount < colorsList {
             colorCount+=1
         } else {
             colorCount = 0
