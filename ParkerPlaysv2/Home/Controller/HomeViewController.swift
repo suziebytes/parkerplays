@@ -36,6 +36,12 @@ class HomeViewController: UIViewController {
         setupABC()
         setupNumbers()
         setupShapes()
+        introSound()
+    }
+    
+    func introSound(){
+        sound.soundFile = "magicsounds"
+        sound.playSound()
     }
     
     func setupBackground() {
@@ -162,7 +168,6 @@ class HomeViewController: UIViewController {
         let navVC = UINavigationController(rootViewController: rootVC)
         navVC.modalPresentationStyle = .fullScreen
         present(navVC, animated: true)
-      
     }
     
     @objc func goToABC(){

@@ -16,6 +16,7 @@ class ShapesViewController: UIViewController {
     let ttsButton = UIButton()
     let shapeButton = ShapeButton()
     let shapeList = ShapeList()
+    let shapeLabel = ShapeLabel()
     var count = 0
     
     
@@ -26,6 +27,7 @@ class ShapesViewController: UIViewController {
         setupHomeButton()
         setupShapeButton()
         setupTTSButton()
+        setupShapeLabel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -90,6 +92,19 @@ class ShapesViewController: UIViewController {
         sound.playSound()
     }
     
+    func setupShapeLabel(){
+        view.addSubview(shapeLabel)
+        let labelTitle = shapeList.shapeList[count]
+        shapeLabel.shapeLabel.text = labelTitle.lowercased()
+        
+        //CONSTRANT
+        shapeLabel.translatesAutoresizingMaskIntoConstraints = false
+        shapeLabel.widthAnchor.constraint(equalToConstant: 315).isActive =  true
+        shapeLabel.heightAnchor.constraint(equalToConstant: 65).isActive = true
+        shapeLabel.topAnchor.constraint(equalTo: cardView.bottomAnchor, constant: 10).isActive = true
+        shapeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+    }
     func setupTTSButton(){
         view.addSubview(ttsButton)
         ttsButton.setImage(UIImage(named: "playcircle.svg"), for: .normal)

@@ -25,9 +25,7 @@
 		B03A07AF294ED5F800B11172 /* HomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A07AE294ED5F800B11172 /* HomeButton.swift */; };
 		B03A07B1294EE6B700B11172 /* TextToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A07B0294EE6B700B11172 /* TextToSpeech.swift */; };
 		B03A07B7294FB7F100B11172 /* buttonclick1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B03A07B2294FB7F100B11172 /* buttonclick1.mp3 */; };
-		B03A07B8294FB7F100B11172 /* Boo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B03A07B3294FB7F100B11172 /* Boo.mp3 */; };
 		B03A07B9294FB7F100B11172 /* buttonclick2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B03A07B4294FB7F100B11172 /* buttonclick2.mp3 */; };
-		B03A07BB294FB7F100B11172 /* PeekaBoo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B03A07B6294FB7F100B11172 /* PeekaBoo.mp3 */; };
 		B0885718294FCB300025E835 /* ABCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0885717294FCB300025E835 /* ABCViewController.swift */; };
 		B088571A294FD5BC0025E835 /* ABCList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0885719294FD5BC0025E835 /* ABCList.swift */; };
 		B0956B7D2950F6B90056C435 /* BaksoSapi.otf in Resources */ = {isa = PBXBuildFile; fileRef = B0956B7C2950F6B90056C435 /* BaksoSapi.otf */; };
@@ -39,6 +37,8 @@
 		B0CD05682952572B00953C45 /* ShapesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD05672952572B00953C45 /* ShapesList.swift */; };
 		B0CD056A2956676500953C45 /* Peek A - boosted.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B0CD05692956676400953C45 /* Peek A - boosted.mp3 */; };
 		B0CD056C2956700600953C45 /* Boo - boosted.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B0CD056B2956700500953C45 /* Boo - boosted.mp3 */; };
+		B0CD05702956D0E200953C45 /* magicsounds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B0CD056F2956D0E200953C45 /* magicsounds.mp3 */; };
+		B0CD05722956DFBE00953C45 /* ShapeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD05712956DFBE00953C45 /* ShapeLabel.swift */; };
 		B0E671EA294FE0280015682D /* ABCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E671E9294FE0280015682D /* ABCView.swift */; };
 		B0E671ED294FE9E50015682D /* Wash Your Hand.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B0E671EC294FE9E50015682D /* Wash Your Hand.ttf */; };
 /* End PBXBuildFile section */
@@ -64,9 +64,7 @@
 		B03A07AE294ED5F800B11172 /* HomeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButton.swift; sourceTree = "<group>"; };
 		B03A07B0294EE6B700B11172 /* TextToSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeech.swift; sourceTree = "<group>"; };
 		B03A07B2294FB7F100B11172 /* buttonclick1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buttonclick1.mp3; sourceTree = "<group>"; };
-		B03A07B3294FB7F100B11172 /* Boo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Boo.mp3; sourceTree = "<group>"; };
 		B03A07B4294FB7F100B11172 /* buttonclick2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buttonclick2.mp3; sourceTree = "<group>"; };
-		B03A07B6294FB7F100B11172 /* PeekaBoo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PeekaBoo.mp3; sourceTree = "<group>"; };
 		B0885717294FCB300025E835 /* ABCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABCViewController.swift; sourceTree = "<group>"; };
 		B0885719294FD5BC0025E835 /* ABCList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABCList.swift; sourceTree = "<group>"; };
 		B0956B7C2950F6B90056C435 /* BaksoSapi.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BaksoSapi.otf; sourceTree = "<group>"; };
@@ -78,6 +76,8 @@
 		B0CD05672952572B00953C45 /* ShapesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapesList.swift; sourceTree = "<group>"; };
 		B0CD05692956676400953C45 /* Peek A - boosted.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Peek A - boosted.mp3"; sourceTree = "<group>"; };
 		B0CD056B2956700500953C45 /* Boo - boosted.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Boo - boosted.mp3"; sourceTree = "<group>"; };
+		B0CD056F2956D0E200953C45 /* magicsounds.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = magicsounds.mp3; sourceTree = "<group>"; };
+		B0CD05712956DFBE00953C45 /* ShapeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeLabel.swift; sourceTree = "<group>"; };
 		B0E671E9294FE0280015682D /* ABCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABCView.swift; sourceTree = "<group>"; };
 		B0E671EC294FE9E50015682D /* Wash Your Hand.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Wash Your Hand.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -202,11 +202,10 @@
 			isa = PBXGroup;
 			children = (
 				B0CD05692956676400953C45 /* Peek A - boosted.mp3 */,
-				B03A07B3294FB7F100B11172 /* Boo.mp3 */,
 				B0CD056B2956700500953C45 /* Boo - boosted.mp3 */,
+				B0CD056F2956D0E200953C45 /* magicsounds.mp3 */,
 				B03A07B2294FB7F100B11172 /* buttonclick1.mp3 */,
 				B03A07B4294FB7F100B11172 /* buttonclick2.mp3 */,
-				B03A07B6294FB7F100B11172 /* PeekaBoo.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -362,6 +361,7 @@
 			isa = PBXGroup;
 			children = (
 				B0CD05652952406600953C45 /* ShapeButton.swift */,
+				B0CD05712956DFBE00953C45 /* ShapeLabel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -445,12 +445,11 @@
 				B03A07B9294FB7F100B11172 /* buttonclick2.mp3 in Resources */,
 				B03A07B7294FB7F100B11172 /* buttonclick1.mp3 in Resources */,
 				B0956B7D2950F6B90056C435 /* BaksoSapi.otf in Resources */,
-				B03A07B8294FB7F100B11172 /* Boo.mp3 in Resources */,
 				B0E671ED294FE9E50015682D /* Wash Your Hand.ttf in Resources */,
 				B0CD056A2956676500953C45 /* Peek A - boosted.mp3 in Resources */,
+				B0CD05702956D0E200953C45 /* magicsounds.mp3 in Resources */,
 				B03A076C29482F7900B11172 /* LaunchScreen.storyboard in Resources */,
 				B03A076929482F7900B11172 /* Assets.xcassets in Resources */,
-				B03A07BB294FB7F100B11172 /* PeekaBoo.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +483,7 @@
 				B03A079F294A68C900B11172 /* GameButton.swift in Sources */,
 				B03A076229482F7700B11172 /* SceneDelegate.swift in Sources */,
 				B088571A294FD5BC0025E835 /* ABCList.swift in Sources */,
+				B0CD05722956DFBE00953C45 /* ShapeLabel.swift in Sources */,
 				B03A078D29483C0200B11172 /* GamesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
