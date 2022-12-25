@@ -23,6 +23,8 @@ class HomeViewController: UIViewController {
     var abcButton = GameButton()
     var numbersButton = GameButton()
     var shapesButton = GameButton()
+    var colorsButton = GameButton()
+    var facesButton = GameButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +38,8 @@ class HomeViewController: UIViewController {
         setupABC()
         setupNumbers()
         setupShapes()
+        setupColors()
+        setupFaces()
         introSound()
     }
     
@@ -86,7 +90,7 @@ class HomeViewController: UIViewController {
         //CONSTRAINTS - setup the size and constraints for gamesView
         gamesView.translatesAutoresizingMaskIntoConstraints = false
         gamesView.topAnchor.constraint(equalTo: view.topAnchor, constant: 320).isActive = true
-        gamesView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -165).isActive = true
+        gamesView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -80).isActive = true
         gamesView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15).isActive = true
         gamesView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15).isActive = true
     }
@@ -99,7 +103,8 @@ class HomeViewController: UIViewController {
         
         //CONSTRAINTS
         peekabookButton.translatesAutoresizingMaskIntoConstraints = false
-        peekabookButton.bottomAnchor.constraint(equalTo: gamesView.centerYAnchor, constant: -5).isActive = true
+//        peekabookButton.bottomAnchor.constraint(equalTo: gamesView.top, constant: -5).isActive = true
+        peekabookButton.topAnchor.constraint(equalTo: gamesView.topAnchor, constant: 15).isActive = true
         peekabookButton.rightAnchor.constraint(equalTo: gamesView.centerXAnchor, constant: -10).isActive = true
     }
     
@@ -111,7 +116,8 @@ class HomeViewController: UIViewController {
         
         //CONSTRAINTS
         abcButton.translatesAutoresizingMaskIntoConstraints = false
-        abcButton.bottomAnchor.constraint(equalTo: gamesView.centerYAnchor, constant: -5).isActive = true
+//        abcButton.bottomAnchor.constraint(equalTo: gamesView.centerYAnchor, constant: -5).isActive = true
+        abcButton.topAnchor.constraint(equalTo: gamesView.topAnchor, constant: 15).isActive = true
         abcButton.leftAnchor.constraint(equalTo: gamesView.centerXAnchor, constant: 10).isActive = true
     }
     
@@ -123,8 +129,9 @@ class HomeViewController: UIViewController {
         
         //CONSTRAINTS
         numbersButton.translatesAutoresizingMaskIntoConstraints = false
-        numbersButton.topAnchor.constraint(equalTo: gamesView.centerYAnchor, constant: 5).isActive = true
+//        numbersButton.topAnchor.constraint(equalTo: gamesView.centerYAnchor, constant: 5).isActive = true
         numbersButton.rightAnchor.constraint(equalTo: gamesView.centerXAnchor, constant: -10).isActive = true
+        numbersButton.topAnchor.constraint(equalTo: peekabookButton.bottomAnchor, constant: 10).isActive = true
     }
     
     func setupShapes(){
@@ -135,8 +142,33 @@ class HomeViewController: UIViewController {
         
         //CONSTRAINTS
         shapesButton.translatesAutoresizingMaskIntoConstraints = false
-        shapesButton.topAnchor.constraint(equalTo: gamesView.centerYAnchor, constant: 5).isActive = true
+//        shapesButton.topAnchor.constraint(equalTo: gamesView.centerYAnchor, constant: 5).isActive = true
         shapesButton.leftAnchor.constraint(equalTo: gamesView.centerXAnchor, constant: 10).isActive = true
+        shapesButton.topAnchor.constraint(equalTo: abcButton.bottomAnchor, constant: 10).isActive = true
+    }
+    
+    func setupColors(){
+        gamesView.addSubview(colorsButton)
+        colorsButton.setupButton(gameName: "colors", iconName: "rainbow3")
+        colorsButton.addTarget(self, action: #selector(goToColors), for: .touchUpInside)
+        colorsButton.addTarget(self, action: #selector(playSound), for: .touchUpInside)
+
+//        CONTRAINTS
+        colorsButton.translatesAutoresizingMaskIntoConstraints = false
+        colorsButton.topAnchor.constraint(equalTo: numbersButton.bottomAnchor, constant: 10).isActive = true
+        colorsButton.rightAnchor.constraint(equalTo: gamesView.centerXAnchor, constant: -10).isActive = true
+    }
+    
+    func setupFaces(){
+        gamesView.addSubview(facesButton)
+        facesButton.setupButton(gameName: "faces", iconName: "faceicon")
+        facesButton.addTarget(self, action: #selector(toSubscription), for: .touchUpInside)
+        facesButton.addTarget(self, action: #selector(playSound), for: .touchUpInside)
+        
+        //CONSTRAINTS
+        facesButton.translatesAutoresizingMaskIntoConstraints = false
+        facesButton.topAnchor.constraint(equalTo: shapesButton.bottomAnchor, constant: 10).isActive = true
+        facesButton.leftAnchor.constraint(equalTo: gamesView.centerXAnchor, constant: 10).isActive = true
     }
     
     func setupSettingsButton(){
@@ -148,11 +180,10 @@ class HomeViewController: UIViewController {
         settingsButton.layer.cornerRadius = 22
         settingsButton.addTarget(self, action: #selector(openAlert), for: .touchUpInside)
         settingsButton.addTarget(self, action: #selector(playSound), for: .touchUpInside)
-        //set cornerRadius to half of height for a rounded pill button look
         
         //CONSTRAINTS
         settingsButton.translatesAutoresizingMaskIntoConstraints = false
-        settingsButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40).isActive = true
+        settingsButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
         settingsButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
         settingsButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         // this sets the button to be centered on the screen
@@ -192,6 +223,20 @@ class HomeViewController: UIViewController {
         let navVC = UINavigationController(rootViewController: rootVC)
         navVC.modalPresentationStyle = .fullScreen
         present(navVC, animated: true)
+    }
+    
+    @objc func goToColors(){
+        let colorsVC = ColorsViewController()
+        let rootVC = colorsVC
+        let navVC = UINavigationController(rootViewController: rootVC)
+        navVC.modalPresentationStyle = .fullScreen
+        present(navVC, animated: true)
+    }
+    
+    @objc func toSubscription(){
+        //pop up for option to subscribe
+        //include example of what is included in subscription
+        //StoreKit
     }
     
     

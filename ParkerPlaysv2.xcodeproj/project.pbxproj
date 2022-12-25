@@ -26,6 +26,7 @@
 		B03A07B1294EE6B700B11172 /* TextToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A07B0294EE6B700B11172 /* TextToSpeech.swift */; };
 		B03A07B7294FB7F100B11172 /* buttonclick1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B03A07B2294FB7F100B11172 /* buttonclick1.mp3 */; };
 		B03A07B9294FB7F100B11172 /* buttonclick2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B03A07B4294FB7F100B11172 /* buttonclick2.mp3 */; };
+		B04C52D329590AD600C10B16 /* ColorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C52D229590AD600C10B16 /* ColorsViewController.swift */; };
 		B0885718294FCB300025E835 /* ABCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0885717294FCB300025E835 /* ABCViewController.swift */; };
 		B088571A294FD5BC0025E835 /* ABCList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0885719294FD5BC0025E835 /* ABCList.swift */; };
 		B0956B7D2950F6B90056C435 /* BaksoSapi.otf in Resources */ = {isa = PBXBuildFile; fileRef = B0956B7C2950F6B90056C435 /* BaksoSapi.otf */; };
@@ -44,7 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B03A075C29482F7700B11172 /* ParkerPlaysv2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkerPlaysv2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B03A075C29482F7700B11172 /* Parker Plays.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Parker Plays.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03A075F29482F7700B11172 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B03A076129482F7700B11172 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B03A076329482F7700B11172 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +66,7 @@
 		B03A07B0294EE6B700B11172 /* TextToSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeech.swift; sourceTree = "<group>"; };
 		B03A07B2294FB7F100B11172 /* buttonclick1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buttonclick1.mp3; sourceTree = "<group>"; };
 		B03A07B4294FB7F100B11172 /* buttonclick2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buttonclick2.mp3; sourceTree = "<group>"; };
+		B04C52D229590AD600C10B16 /* ColorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsViewController.swift; sourceTree = "<group>"; };
 		B0885717294FCB300025E835 /* ABCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABCViewController.swift; sourceTree = "<group>"; };
 		B0885719294FD5BC0025E835 /* ABCList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABCList.swift; sourceTree = "<group>"; };
 		B0956B7C2950F6B90056C435 /* BaksoSapi.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BaksoSapi.otf; sourceTree = "<group>"; };
@@ -104,7 +106,7 @@
 		B03A075D29482F7700B11172 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B03A075C29482F7700B11172 /* ParkerPlaysv2.app */,
+				B03A075C29482F7700B11172 /* Parker Plays.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -121,6 +123,7 @@
 				B0885713294FCAB70025E835 /* ABC */,
 				B0CD05572951734400953C45 /* Numbers */,
 				B0CD055F29523ECF00953C45 /* Shapes */,
+				B04C52D429590ADD00C10B16 /* Colors */,
 				B03A07822948323A00B11172 /* Sounds */,
 				B0E671EB294FE9CF0015682D /* Fonts */,
 				B03A076829482F7900B11172 /* Assets.xcassets */,
@@ -253,6 +256,14 @@
 				B03A07B0294EE6B700B11172 /* TextToSpeech.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		B04C52D429590ADD00C10B16 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				B04C52D229590AD600C10B16 /* ColorsViewController.swift */,
+			);
+			path = Colors;
 			sourceTree = "<group>";
 		};
 		B0885711294FCA780025E835 /* PeekaBoo */ = {
@@ -400,7 +411,7 @@
 			);
 			name = ParkerPlaysv2;
 			productName = ParkerPlaysv2;
-			productReference = B03A075C29482F7700B11172 /* ParkerPlaysv2.app */;
+			productReference = B03A075C29482F7700B11172 /* Parker Plays.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -474,6 +485,7 @@
 				B0CD055E2951772B00953C45 /* NumberButton.swift in Sources */,
 				B0CD055529511B2100953C45 /* PlayTTSButton.swift in Sources */,
 				B03A07AB294D894B00B11172 /* Animal.swift in Sources */,
+				B04C52D329590AD600C10B16 /* ColorsViewController.swift in Sources */,
 				B03A0792294946A000B11172 /* HelloView.swift in Sources */,
 				B03A07A9294D879F00B11172 /* AnimalViewController.swift in Sources */,
 				B0CD05662952406600953C45 /* ShapeButton.swift in Sources */,
@@ -636,7 +648,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.suziebytes.ParkerPlaysv2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Parker Plays";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -663,7 +675,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.suziebytes.ParkerPlaysv2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Parker Plays";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
