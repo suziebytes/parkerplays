@@ -27,6 +27,8 @@
 		B03A07B7294FB7F100B11172 /* buttonclick1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B03A07B2294FB7F100B11172 /* buttonclick1.mp3 */; };
 		B03A07B9294FB7F100B11172 /* buttonclick2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B03A07B4294FB7F100B11172 /* buttonclick2.mp3 */; };
 		B04C52D329590AD600C10B16 /* ColorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C52D229590AD600C10B16 /* ColorsViewController.swift */; };
+		B04C52D7295A237B00C10B16 /* GamesViewCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C52D6295A237B00C10B16 /* GamesViewCollection.swift */; };
+		B04C52D9295A468500C10B16 /* CustomGameViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C52D8295A468500C10B16 /* CustomGameViewCell.swift */; };
 		B0885718294FCB300025E835 /* ABCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0885717294FCB300025E835 /* ABCViewController.swift */; };
 		B088571A294FD5BC0025E835 /* ABCList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0885719294FD5BC0025E835 /* ABCList.swift */; };
 		B0956B7D2950F6B90056C435 /* BaksoSapi.otf in Resources */ = {isa = PBXBuildFile; fileRef = B0956B7C2950F6B90056C435 /* BaksoSapi.otf */; };
@@ -67,6 +69,8 @@
 		B03A07B2294FB7F100B11172 /* buttonclick1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buttonclick1.mp3; sourceTree = "<group>"; };
 		B03A07B4294FB7F100B11172 /* buttonclick2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buttonclick2.mp3; sourceTree = "<group>"; };
 		B04C52D229590AD600C10B16 /* ColorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsViewController.swift; sourceTree = "<group>"; };
+		B04C52D6295A237B00C10B16 /* GamesViewCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesViewCollection.swift; sourceTree = "<group>"; };
+		B04C52D8295A468500C10B16 /* CustomGameViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGameViewCell.swift; sourceTree = "<group>"; };
 		B0885717294FCB300025E835 /* ABCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABCViewController.swift; sourceTree = "<group>"; };
 		B0885719294FD5BC0025E835 /* ABCList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABCList.swift; sourceTree = "<group>"; };
 		B0956B7C2950F6B90056C435 /* BaksoSapi.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BaksoSapi.otf; sourceTree = "<group>"; };
@@ -227,6 +231,8 @@
 				B03A078F29490E3400B11172 /* WeatherView.swift */,
 				B03A0791294946A000B11172 /* HelloView.swift */,
 				B03A079E294A68C900B11172 /* GameButton.swift */,
+				B04C52D6295A237B00C10B16 /* GamesViewCollection.swift */,
+				B04C52D8295A468500C10B16 /* CustomGameViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -471,12 +477,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B04C52D7295A237B00C10B16 /* GamesViewCollection.swift in Sources */,
 				B03A079029490E3400B11172 /* WeatherView.swift in Sources */,
 				B0CD055C2951738D00953C45 /* NumbersViewController.swift in Sources */,
 				B03A07B1294EE6B700B11172 /* TextToSpeech.swift in Sources */,
 				B0CD05682952572B00953C45 /* ShapesList.swift in Sources */,
 				B03A07AD294D91A300B11172 /* AnimalLabelView.swift in Sources */,
 				B03A079D294A32A900B11172 /* PlaySound.swift in Sources */,
+				B04C52D9295A468500C10B16 /* CustomGameViewCell.swift in Sources */,
 				B03A076429482F7700B11172 /* HomeViewController.swift in Sources */,
 				B0CD056429523F0000953C45 /* ShapesViewController.swift in Sources */,
 				B03A076029482F7700B11172 /* AppDelegate.swift in Sources */,
