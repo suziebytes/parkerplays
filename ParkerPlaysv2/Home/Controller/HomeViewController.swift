@@ -90,24 +90,30 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         view.addSubview(gamesView)
         
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: 0, height: 0)
         
-        self.collectionView = UICollectionView(frame:.zero, collectionViewLayout: layout)
-         
+        
+        self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        
+        //how to unwrap optional into variable
         guard let collectionView = collectionView else {
             return
         }
         
+        collectionView.backgroundColor = .systemPink
         collectionView.register(CustomGameViewCell.self, forCellWithReuseIdentifier: "CustomGameViewCell")
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.isPagingEnabled = true
+     
         gamesView.addSubview(collectionView)
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.topAnchor.constraint(equalTo: gamesView.topAnchor, constant: 25).isActive = true
-        collectionView.rightAnchor.constraint(equalTo: gamesView.rightAnchor, constant: -10).isActive = true
-        collectionView.leftAnchor.constraint(equalTo: gamesView.leftAnchor, constant: 10).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: gamesView.bottomAnchor, constant: -25).isActive = true
+        collectionView.topAnchor.constraint(equalTo: gamesView.topAnchor).isActive = true
+        collectionView.rightAnchor.constraint(equalTo: gamesView.rightAnchor).isActive = true
+        collectionView.leftAnchor.constraint(equalTo: gamesView.leftAnchor).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: gamesView.bottomAnchor).isActive = true
 
         //CONSTRAINTS - setup the size and constraints for gamesView
         gamesView.translatesAutoresizingMaskIntoConstraints = false
@@ -115,16 +121,33 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         gamesView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -80).isActive = true
         gamesView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15).isActive = true
         gamesView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15).isActive = true
+    }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        //use guard let to unwrap optional into variable
+        guard let collectionView = collectionView else {
+            return
+        }
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+//        layout.itemSize = CGSize(width: gamesView.frame.width/2, height: gamesView.frame.height/2)
+        layout.itemSize = CGSize(width: gamesView.frame.width/2, height: gamesView.frame.height/2)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        collectionView.setCollectionViewLayout(layout, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return 8
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomGameViewCell", for: indexPath)
-        cell.contentView.backgroundColor = .systemBlue
+        let colors: [UIColor] = [.systemPink, .systemOrange, .systemBlue, .systemRed, .black, .brown, .systemCyan, .green, .darkGray, .lightGray]
+        cell.contentView.backgroundColor = colors.randomElement() ?? .green
         return cell
     }
 
