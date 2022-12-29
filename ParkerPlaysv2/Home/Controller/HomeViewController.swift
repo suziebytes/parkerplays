@@ -27,6 +27,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var colorsButton = GameButton()
     var facesButton = GameButton()
     
+    //COLLECTIONVIEW
+    var array = ["peekaboo", "numbers", "abc", "shapes", "colors","opposites", "feelings", "faces"]
+    var imgArray = ["lionicon", "numbersicon", "abcicon", "shapesicon", "rainbow3", "houseicon", "lionicon", "faceicon"]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -101,7 +106,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             return
         }
         
-        collectionView.backgroundColor = .systemPink
         collectionView.register(CustomGameViewCell.self, forCellWithReuseIdentifier: "CustomGameViewCell")
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -141,14 +145,30 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return array.count
+
     }
     
+    //creates the cell and  applies the ui design
+    //indexpath = index
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        //IndexPath is an object, so to retreive the actual  index we access the .row - indexPath.row is a property that will provide the index -> Int (#)
+        //identifier (class customgameview) is where all the design will be and it is populated using dequeue - essentially a view
+        //ALWAYS needs to be casted to your own customgameviewcell (inherits from UICollectionCell
+        //to cast - if let ; guard let*
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomGameViewCell", for: indexPath)
-        let colors: [UIColor] = [.systemPink, .systemOrange, .systemBlue, .systemRed, .black, .brown, .systemCyan, .green, .darkGray, .lightGray]
-        cell.contentView.backgroundColor = colors.randomElement() ?? .green
-        return cell
+        
+        guard let customCell = cell as? CustomGameViewCell else {
+            return cell
+        }
+        
+        let titleName = array[indexPath.row]
+        let imageName = imgArray[indexPath.row]
+        customCell.configureCell(named: imageName, titleName: titleName)
+        
+
+        return customCell
     }
 
 //    func setupPeekButton(){

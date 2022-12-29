@@ -31,6 +31,7 @@ class GamesView: UIView {
         layer.shadowOpacity = 0.4
         layer.shadowOffset = CGSize(width: 0, height: 3)
         layer.shadowRadius = 4
+        clipsToBounds = true
     }
 }
    
