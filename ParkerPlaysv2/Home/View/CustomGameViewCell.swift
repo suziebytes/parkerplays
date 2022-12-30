@@ -45,10 +45,10 @@ class CustomGameViewCell: UICollectionViewCell {
         container.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         container.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.topAnchor.constraint(equalTo: container.topAnchor, constant: 5).isActive = true
-        image.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -25).isActive = true
-        image.rightAnchor.constraint(equalTo: container.rightAnchor, constant: -5).isActive = true
-        image.leftAnchor.constraint(equalTo: container.leftAnchor, constant: 5).isActive = true
+        image.topAnchor.constraint(equalTo: container.topAnchor, constant: 10).isActive = true
+        image.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -30).isActive = true
+        image.rightAnchor.constraint(equalTo: container.rightAnchor, constant: -10).isActive = true
+        image.leftAnchor.constraint(equalTo: container.leftAnchor, constant: 10).isActive = true
         label.translatesAutoresizingMaskIntoConstraints = false
         label.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 5).isActive = true
         label.centerXAnchor.constraint(equalTo: container.centerXAnchor).isActive = true
