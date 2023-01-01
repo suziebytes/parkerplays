@@ -96,6 +96,7 @@ class PeopleViewController: UIViewController {
     func setupHomeButton(){
         view.addSubview(homeButton)
         homeButton.setupHome()
+        homeButton.backgroundColor = .red
         homeButton.addTarget(self, action: #selector(toHome), for: .touchUpInside)
         
         

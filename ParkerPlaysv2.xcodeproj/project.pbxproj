@@ -29,6 +29,8 @@
 		B04C52D329590AD600C10B16 /* ColorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C52D229590AD600C10B16 /* ColorsViewController.swift */; };
 		B04C52D7295A237B00C10B16 /* GamesViewCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C52D6295A237B00C10B16 /* GamesViewCollection.swift */; };
 		B04C52D9295A468500C10B16 /* CustomGameViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C52D8295A468500C10B16 /* CustomGameViewCell.swift */; };
+		B04C52DF2962384500C10B16 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C52DE2962384500C10B16 /* Color.swift */; };
+		B04C52E129623C1F00C10B16 /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C52E029623C1F00C10B16 /* ColorButton.swift */; };
 		B0885718294FCB300025E835 /* ABCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0885717294FCB300025E835 /* ABCViewController.swift */; };
 		B088571A294FD5BC0025E835 /* ABCList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0885719294FD5BC0025E835 /* ABCList.swift */; };
 		B0956B7D2950F6B90056C435 /* BaksoSapi.otf in Resources */ = {isa = PBXBuildFile; fileRef = B0956B7C2950F6B90056C435 /* BaksoSapi.otf */; };
@@ -71,6 +73,8 @@
 		B04C52D229590AD600C10B16 /* ColorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsViewController.swift; sourceTree = "<group>"; };
 		B04C52D6295A237B00C10B16 /* GamesViewCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesViewCollection.swift; sourceTree = "<group>"; };
 		B04C52D8295A468500C10B16 /* CustomGameViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGameViewCell.swift; sourceTree = "<group>"; };
+		B04C52DE2962384500C10B16 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		B04C52E029623C1F00C10B16 /* ColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
 		B0885717294FCB300025E835 /* ABCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABCViewController.swift; sourceTree = "<group>"; };
 		B0885719294FD5BC0025E835 /* ABCList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABCList.swift; sourceTree = "<group>"; };
 		B0956B7C2950F6B90056C435 /* BaksoSapi.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BaksoSapi.otf; sourceTree = "<group>"; };
@@ -268,7 +272,9 @@
 		B04C52D429590ADD00C10B16 /* Colors */ = {
 			isa = PBXGroup;
 			children = (
-				B04C52D229590AD600C10B16 /* ColorsViewController.swift */,
+				B04C52DC296237C400C10B16 /* Model */,
+				B04C52DD296237CA00C10B16 /* Controller */,
+				B04C52DB296237C000C10B16 /* View */,
 			);
 			path = Colors;
 			sourceTree = "<group>";
@@ -278,6 +284,30 @@
 			children = (
 			);
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		B04C52DB296237C000C10B16 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B04C52E029623C1F00C10B16 /* ColorButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B04C52DC296237C400C10B16 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B04C52DE2962384500C10B16 /* Color.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B04C52DD296237CA00C10B16 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B04C52D229590AD600C10B16 /* ColorsViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		B0885711294FCA780025E835 /* PeekaBoo */ = {
@@ -502,6 +532,7 @@
 				B0CD055529511B2100953C45 /* PlayTTSButton.swift in Sources */,
 				B03A07AB294D894B00B11172 /* Animal.swift in Sources */,
 				B04C52D329590AD600C10B16 /* ColorsViewController.swift in Sources */,
+				B04C52DF2962384500C10B16 /* Color.swift in Sources */,
 				B03A0792294946A000B11172 /* HelloView.swift in Sources */,
 				B03A07A9294D879F00B11172 /* AnimalViewController.swift in Sources */,
 				B0CD05662952406600953C45 /* ShapeButton.swift in Sources */,
@@ -511,6 +542,7 @@
 				B03A079F294A68C900B11172 /* GameButton.swift in Sources */,
 				B03A076229482F7700B11172 /* SceneDelegate.swift in Sources */,
 				B088571A294FD5BC0025E835 /* ABCList.swift in Sources */,
+				B04C52E129623C1F00C10B16 /* ColorButton.swift in Sources */,
 				B0CD05722956DFBE00953C45 /* ShapeLabel.swift in Sources */,
 				B03A078D29483C0200B11172 /* GamesView.swift in Sources */,
 			);

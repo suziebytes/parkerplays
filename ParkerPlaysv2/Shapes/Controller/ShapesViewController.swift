@@ -23,8 +23,8 @@ class ShapesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBackground()
-        setupCardView()
         setupHomeButton()
+        setupCardView()
         setupShapeButton()
         setupTTSButton()
         setupShapeLabel()
@@ -54,8 +54,9 @@ class ShapesViewController: UIViewController {
         //CONSTRAINTS
         cardView.translatesAutoresizingMaskIntoConstraints = false
         cardView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        cardView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        cardView.heightAnchor.constraint(equalToConstant: 530).isActive = true
+        cardView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.7).isActive = true
+        cardView.topAnchor.constraint(equalTo: homeButton.bottomAnchor, constant: 10).isActive = true
+//        cardView.heightAnchor.constraint(equalToConstant: 605).isActive = true
         cardView.widthAnchor.constraint(equalToConstant: 315).isActive = true
     }
     
@@ -129,7 +130,8 @@ class ShapesViewController: UIViewController {
         homeButton.addTarget(self, action: #selector(toHome), for: .touchUpInside)
         //CONSTRAINTS
         homeButton.translatesAutoresizingMaskIntoConstraints = false
-        homeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 75).isActive = true
+        homeButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.15).isActive = true
+        homeButton.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         homeButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25).isActive = true
     }
     @objc func toHome() {

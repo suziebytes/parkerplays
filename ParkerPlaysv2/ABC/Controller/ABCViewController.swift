@@ -9,8 +9,8 @@ import UIKit
 
 class ABCViewController: UIViewController {
     let background = UIImageView(frame: UIScreen.main.bounds)
-    let cardView = CardView()
     let homeButton = HomeButton()
+    let cardView = CardView()
     var sound = PlaySound()
     let alphabet = ABCList()
     let abcButton = ABCButton()
@@ -24,10 +24,11 @@ class ABCViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBackground()
-        setupCardView()
         setupHomeButton()
+        setupCardView()
         setupLetter()
         setupTTSButton()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,8 +55,9 @@ class ABCViewController: UIViewController {
         //CONSTRAINTS
         cardView.translatesAutoresizingMaskIntoConstraints = false
         cardView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        cardView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        cardView.heightAnchor.constraint(equalToConstant: 530).isActive = true
+        cardView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.7).isActive = true
+        cardView.topAnchor.constraint(equalTo: homeButton.bottomAnchor, constant: 10).isActive = true
+//        cardView.heightAnchor.constraint(equalToConstant: 605).isActive = true
         cardView.widthAnchor.constraint(equalToConstant: 315).isActive = true
     }
     
@@ -121,11 +123,10 @@ class ABCViewController: UIViewController {
         homeButton.setupHome()
         homeButton.addTarget(self, action: #selector(toHome), for: .touchUpInside)
         
-        
         //CONSTRAINTS
         homeButton.translatesAutoresizingMaskIntoConstraints = false
-        homeButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.05).isActive = true
-        homeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 75).isActive = true
+        homeButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.15).isActive = true
+        homeButton.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         homeButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25).isActive = true
     }
     
@@ -134,6 +135,4 @@ class ABCViewController: UIViewController {
         sound.playSound()
         self.dismiss(animated: true)
     }
-
-    
 }

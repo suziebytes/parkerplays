@@ -29,7 +29,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     //COLLECTIONVIEW
     var array = ["peekaboo", "numbers", "abc", "shapes", "colors","opposites", "feelings", "faces"]
-    var imgArray = ["lionicon", "numbersicon", "abcicon", "shapesicon", "rainbow3", "houseicon", "lionicon", "faceicon"]
+    var imgArray = ["lionicon", "numbersicon", "abcicon", "shapesicon", "rainbow3", "houseicon", "feelingsicon", "faceicon"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
