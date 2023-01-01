@@ -18,10 +18,10 @@ class PeopleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBackground()
+        setupHomeButton()
         setupCardView()
         peopleImage()
         setupToAnimalButton()
-        setupHomeButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,9 +51,9 @@ class PeopleViewController: UIViewController {
         //CONSTRAINTS
         cardView.translatesAutoresizingMaskIntoConstraints = false
         cardView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        cardView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        cardView.topAnchor.constraint(equalTo: view.topAnchor, constant: 160).isActive = true
-        cardView.heightAnchor.constraint(equalToConstant: 605).isActive = true
+        cardView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.75).isActive = true
+        cardView.topAnchor.constraint(equalTo: homeButton.bottomAnchor, constant: 10).isActive = true
+//        cardView.heightAnchor.constraint(equalToConstant: 605).isActive = true
         cardView.widthAnchor.constraint(equalToConstant: 315).isActive = true
     }
     
@@ -65,15 +65,14 @@ class PeopleViewController: UIViewController {
     
     func setupToAnimalButton(){
         view.addSubview(toAnimalButton)
-        toAnimalButton.backgroundColor = .clear
         toAnimalButton.addTarget(self, action: #selector(toAnimal), for: .touchUpInside)
         
         //CONSTRAINTS
         toAnimalButton.translatesAutoresizingMaskIntoConstraints = false
-        toAnimalButton.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        toAnimalButton.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        toAnimalButton.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        toAnimalButton.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        toAnimalButton.topAnchor.constraint(equalTo: cardView.topAnchor).isActive = true
+        toAnimalButton.bottomAnchor.constraint(equalTo: cardView.bottomAnchor).isActive = true
+        toAnimalButton.leftAnchor.constraint(equalTo: cardView.leftAnchor).isActive = true
+        toAnimalButton.rightAnchor.constraint(equalTo: cardView.rightAnchor).isActive = true
     }
     
     @objc func toAnimal(){
@@ -102,7 +101,8 @@ class PeopleViewController: UIViewController {
         
         //CONSTRAINTS
         homeButton.translatesAutoresizingMaskIntoConstraints = false
-        homeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 75).isActive = true
+        homeButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.15).isActive = true
+        homeButton.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         homeButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25).isActive = true
     }
     

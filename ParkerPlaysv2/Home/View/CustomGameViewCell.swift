@@ -25,7 +25,6 @@ class CustomGameViewCell: UICollectionViewCell {
     }
     
     func setupCell(){
-//        contentView.backgroundColor = .red
         contentView.addSubview(container)
         contentView.addSubview(image)
         contentView.addSubview(label)
