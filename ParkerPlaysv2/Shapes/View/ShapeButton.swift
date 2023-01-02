@@ -15,6 +15,5 @@ class ShapeButton: UIButton {
         
         setImage(image, for: .normal)
         setImage(image, for: .highlighted)
-        contentMode = .scaleAspectFit
     }
 }

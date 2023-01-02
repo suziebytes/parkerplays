@@ -85,7 +85,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        pageControl.currentPage = Int(self.collectionView!.contentOffset.x)
+        pageControl.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
     }
     
     func setupGamesView(){
@@ -237,15 +237,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             break
         }
     }
-    
-   
-    
-//    override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-//        let scrollPos = scrollView.contentOffset.x / view.frame.width
-//        pageControl.currentPage = Int(scrollPos)
-//    }
- 
-        
     
         
     func setupSettingsButton(){

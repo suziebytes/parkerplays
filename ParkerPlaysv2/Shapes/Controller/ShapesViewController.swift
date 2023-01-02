@@ -67,6 +67,7 @@ class ShapesViewController: UIViewController {
         view.addSubview(shapeButton)
         shapeButton.setupButton(shape: shape)
         shapeButton.addTarget(self, action: #selector(newShape), for: .touchUpInside)
+        shapeButton.imageView?.contentMode = .scaleAspectFit
         
         //CONSTRAINTS
         shapeButton.translatesAutoresizingMaskIntoConstraints = false
