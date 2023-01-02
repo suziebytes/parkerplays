@@ -36,7 +36,6 @@ class ColorsViewController: UIViewController {
         self.navigationItem.setHidesBackButton(true, animated: true)
     }
     
-     
     
     func setupBackground(){
         view.addSubview(background)
@@ -56,7 +55,7 @@ class ColorsViewController: UIViewController {
         
         //CONSTRAINTS
         homeButton.translatesAutoresizingMaskIntoConstraints = false
-        homeButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.05).isActive = true
+//        homeButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.05).isActive = true
         homeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 75).isActive = true
         homeButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25).isActive = true
     }

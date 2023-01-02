@@ -18,6 +18,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     let background = UIImageView(frame: UIScreen.main.bounds)
     let settingsButton = UIButton(type: .system)
     var sound = PlaySound()
+    let pageControl = UIPageControl()
     
     //GAME BUTTONS
     var peekabookButton = GameButton()
@@ -29,7 +30,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     //COLLECTIONVIEW
     var array = ["peekaboo", "numbers", "abc", "shapes", "colors","opposites", "feelings", "faces"]
-    var imgArray = ["lionicon", "numbersicon", "abcicon", "shapesicon", "rainbow3", "houseicon", "feelingsicon", "faceicon"]
+    var imgArray = ["lionicon", "numbersicon", "abcicon", "shapesicon", "crayon2", "oppositeicon", "feelingsicon", "faceicon"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +40,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         setupWeatherView()
         setupGamesView()
         setupSettingsButton()
-        introSound()
+//        introSound()
     }
     func introSound(){
         sound.soundFile = "magicsounds"
@@ -82,7 +83,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         weatherView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15).isActive = true
         weatherView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15).isActive = true
     }
-
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        pageControl.currentPage = Int(self.collectionView!.contentOffset.x)
+    }
     
     func setupGamesView(){
         view.addSubview(gamesView)
@@ -98,29 +102,39 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         guard let collectionView = collectionView else {
             return
         }
-        
+    
         collectionView.register(CustomGameViewCell.self, forCellWithReuseIdentifier: "CustomGameViewCell")
         collectionView.dataSource = self
         collectionView.delegate = self
-        //scrolling effect
         collectionView.isPagingEnabled = true
+        collectionView.showsHorizontalScrollIndicator = false
         
         gamesView.addSubview(collectionView)
         
+        // CONSTRAINTS
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.topAnchor.constraint(equalTo: gamesView.topAnchor).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: gamesView.bottomAnchor).isActive = true
         collectionView.rightAnchor.constraint(equalTo: gamesView.rightAnchor).isActive = true
         collectionView.leftAnchor.constraint(equalTo: gamesView.leftAnchor).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: gamesView.bottomAnchor).isActive = true
-        
-        //CONSTRAINTS - setup the size and constraints for gamesView
+      
         gamesView.translatesAutoresizingMaskIntoConstraints = false
         gamesView.topAnchor.constraint(equalTo: weatherView.bottomAnchor).isActive = true
         gamesView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.45).isActive = true
-//        gamesView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -80).isActive = true
         gamesView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15).isActive = true
         gamesView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15).isActive = true
-        gamesView.heightAnchor.constraint(equalToConstant: 370).isActive = true
+//        gamesView.heightAnchor.constraint(equalToConstant: 370).isActive = true
+        
+        gamesView.addSubview(pageControl)
+        pageControl.numberOfPages = 2
+        pageControl.currentPage = array.count/4
+        pageControl.pageIndicatorTintColor = .lightGray
+        pageControl.currentPageIndicatorTintColor = .gray
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        pageControl.topAnchor.constraint(equalTo: gamesView.bottomAnchor, constant: -15).isActive = true
+        pageControl.bottomAnchor.constraint(equalTo: gamesView.bottomAnchor).isActive = true
+        pageControl.leftAnchor.constraint(equalTo: gamesView.leftAnchor).isActive = true
+        pageControl.rightAnchor.constraint(equalTo: gamesView.rightAnchor).isActive = true
     }
     
     override func viewDidLayoutSubviews() {
@@ -223,6 +237,16 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             break
         }
     }
+    
+   
+    
+//    override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+//        let scrollPos = scrollView.contentOffset.x / view.frame.width
+//        pageControl.currentPage = Int(scrollPos)
+//    }
+ 
+        
+    
         
     func setupSettingsButton(){
         view.addSubview(settingsButton)
