@@ -18,7 +18,7 @@ class FeeligsViewController: UIViewController {
     let ttsButton = UIButton()
     let TTS = TextToSpeech()
     let nextButton = UIButton()
-    let animalLabelView = AnimalLabelView()
+    let label = AnimalLabelView()
     let feelingList = FeelingList()
     var count = 0
 
@@ -30,7 +30,8 @@ class FeeligsViewController: UIViewController {
         setupCardView()
         setupAnimation()
         setupNextFeeling()
-//        setupTTSButton()
+        setupLabel()
+        setupTTSButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -86,8 +87,6 @@ class FeeligsViewController: UIViewController {
     }
     
     @objc func nextFeeling() {
-        print("i was clicked")
-        
         if count < feelingList.feelingArray.count-1 {
             count+=1
         } else {
@@ -106,7 +105,6 @@ class FeeligsViewController: UIViewController {
         view.addSubview(homeButton)
         homeButton.setupHome()
         homeButton.addTarget(self, action: #selector(toHome), for: .touchUpInside)
-        homeButton.backgroundColor = .red
         
         //CONSTRAINTS
         homeButton.translatesAutoresizingMaskIntoConstraints = false
@@ -134,34 +132,35 @@ class FeeligsViewController: UIViewController {
         background.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
     }
     
-//    func setupTTSButton() {
-//        view.addSubview(ttsButton)
-//        ttsButton.setImage(UIImage(named: "playcircle.svg"), for: .normal)
-//        ttsButton.addTarget(self, action: #selector(toTTS), for: .touchUpInside)
-//
-//        //CONSTRAINTS
-//        ttsButton.translatesAutoresizingMaskIntoConstraints = false
-//        ttsButton.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -10).isActive = true
-//        ttsButton.rightAnchor.constraint(equalTo: cardView.rightAnchor, constant: -10).isActive = true
-//    }
+    func setupLabel() {
+        let labelTitle = feelingList.feelingArray[count]
+        view.addSubview(label)
+        label.animalLabel.text = labelTitle
+        
+        //CONSTRAINTS
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.widthAnchor.constraint(equalToConstant: 315).isActive =  true
+        label.heightAnchor.constraint(equalToConstant: 65).isActive = true
+        label.topAnchor.constraint(equalTo: cardView.bottomAnchor, constant: 10).isActive = true
+        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    }
+
+    func setupTTSButton() {
+        view.addSubview(ttsButton)
+        ttsButton.setImage(UIImage(named: "playcircle.svg"), for: .normal)
+        ttsButton.addTarget(self, action: #selector(toTTS), for: .touchUpInside)
+
+        //CONSTRAINTS
+        ttsButton.translatesAutoresizingMaskIntoConstraints = false
+        ttsButton.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -10).isActive = true
+        ttsButton.rightAnchor.constraint(equalTo: cardView.rightAnchor, constant: -10).isActive = true
+    }
     
-//    @objc func toTTS() {
-//      print("play tapped")
-//        TTS.playTTS(name: animal.animalList[randNum])
-//    }
-    
-//    func setupLabel(){
-//        let labelTitle = animal.animalList[randNum]
-//        view.addSubview(animalLabelView)
-//        animalLabelView.animalLabel.text = labelTitle.lowercased()
-//
-//        //CONSTRAINTS
-//        animalLabelView.translatesAutoresizingMaskIntoConstraints = false
-//        animalLabelView.widthAnchor.constraint(equalToConstant: 315).isActive =  true
-//        animalLabelView.heightAnchor.constraint(equalToConstant: 65).isActive = true
-//        animalLabelView.topAnchor.constraint(equalTo: cardView.bottomAnchor, constant: 10).isActive = true
-//        animalLabelView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//    }
-    
-    
+    @objc func toTTS() {
+      print("play tapped")
+        let labelTitle = feelingList.feelingArray[count]
+
+        TTS.playTTS(name: labelTitle)
+    }
+
 }

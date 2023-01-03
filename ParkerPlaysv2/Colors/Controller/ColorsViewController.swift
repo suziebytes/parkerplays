@@ -55,8 +55,8 @@ class ColorsViewController: UIViewController {
         
         //CONSTRAINTS
         homeButton.translatesAutoresizingMaskIntoConstraints = false
-//        homeButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.05).isActive = true
-        homeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 75).isActive = true
+        homeButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.15).isActive = true
+//        homeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 75).isActive = true
         homeButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25).isActive = true
     }
     
@@ -102,7 +102,6 @@ class ColorsViewController: UIViewController {
         colorButton.leftAnchor.constraint(equalTo: cardView.leftAnchor).isActive = true
         colorButton.rightAnchor.constraint(equalTo: cardView.rightAnchor).isActive = true
     }
-    
 
    func setupTTSButton(){
        view.addSubview(ttsButton)
@@ -127,7 +126,7 @@ class ColorsViewController: UIViewController {
     }
     
     @objc func newColor(){
-        if count < color.colorList.count {
+        if count < color.colorList.count-1 {
             count+=1
         } else {
             count = 0
