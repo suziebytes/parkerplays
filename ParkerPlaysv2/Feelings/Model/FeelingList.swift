@@ -9,7 +9,7 @@ import UIKit
 
 struct FeelingList {
   
-    let feelingArray = ["happy", "angry", "cool", "crying", "evil", "funny", "happy", "hurt", "kissing", "love", "nervous", "sad", "shocked", "sick", "sleepy", "uncertain"]
+    let feelingArray = ["amazed", "angry", "cool", "crying", "evil", "funny", "happy", "hurt",  "love", "nervous", "sad", "shocked", "sick", "silly", "winking", "sleepy"]
     
     
 }

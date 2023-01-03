@@ -17,6 +17,7 @@ class FeeligsViewController: UIViewController {
     var sound = PlaySound()
     let ttsButton = UIButton()
     let TTS = TextToSpeech()
+    let nextButton = UIButton()
     let animalLabelView = AnimalLabelView()
     let feelingList = FeelingList()
     var count = 0
@@ -28,26 +29,77 @@ class FeeligsViewController: UIViewController {
         setupHomeButton()
         setupCardView()
         setupAnimation()
+        setupNextFeeling()
 //        setupTTSButton()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.setHidesBackButton(true, animated: true)
+    }
     
     func setupAnimation() {
-        var feeling = feelingList[count]
-        
+        let feeling = feelingList.feelingArray[count]
+
         // 2. Start AnimationView with animation name (without extension)
         animationView = .init(name: feeling)
-        animationView!.frame = view.bounds
         // 3. Set animation content mode
         animationView!.contentMode = .scaleAspectFit
         // 4. Set animation loop mode
         animationView!.loopMode = .loop
         // 5. Adjust animation speed
         animationView!.animationSpeed = 0.5
-        view.addSubview(animationView!)
+        cardView.addSubview(animationView!)
         // 6. Play animation
-
         animationView!.play()
+        
+        //CONSTRAINTS
+        animationView!.translatesAutoresizingMaskIntoConstraints = false
+        animationView!.topAnchor.constraint(equalTo: cardView.topAnchor).isActive = true
+        animationView!.bottomAnchor.constraint(equalTo: cardView.bottomAnchor).isActive = true
+        animationView!.leftAnchor.constraint(equalTo: cardView.leftAnchor).isActive = true
+        animationView!.rightAnchor.constraint(equalTo: cardView.rightAnchor).isActive = true
+    }
+    
+    func setupCardView(){
+        view.addSubview(cardView)
+    
+        //CONSTRAINTS
+        cardView.translatesAutoresizingMaskIntoConstraints = false
+        cardView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        cardView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.7).isActive = true
+        cardView.topAnchor.constraint(equalTo: homeButton.bottomAnchor, constant: 10).isActive = true
+        cardView.widthAnchor.constraint(equalToConstant: 315).isActive = true
+    }
+    
+    func setupNextFeeling(){
+        cardView.addSubview(nextButton)
+        nextButton.addTarget(self, action: #selector(nextFeeling), for: .touchUpInside)
+//        nextButton.backgroundColor = .green
+        
+        //CONSTRAINTS
+        nextButton.translatesAutoresizingMaskIntoConstraints = false
+        nextButton.topAnchor.constraint(equalTo: cardView.topAnchor).isActive = true
+        nextButton.bottomAnchor.constraint(equalTo: cardView.bottomAnchor).isActive = true
+        nextButton.widthAnchor.constraint(equalTo: cardView.widthAnchor).isActive = true
+        nextButton.heightAnchor.constraint(equalTo: cardView.heightAnchor).isActive = true
+    }
+    
+    @objc func nextFeeling() {
+        print("i was clicked")
+        
+        if count < feelingList.feelingArray.count-1 {
+            count+=1
+        } else {
+            count = 0
+        }
+        
+        let feelingVC = FeeligsViewController()
+        feelingVC.count = count
+        feelingVC.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(feelingVC, animated: true)
+        sound.soundFile = "buttonclick1"
+        sound.playSound()
     }
     
     func setupHomeButton(){
@@ -80,17 +132,6 @@ class FeeligsViewController: UIViewController {
         background.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         background.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         background.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-    }
-    
-    func setupCardView(){
-        view.addSubview(cardView)
-
-        //CONSTRAINTS
-        cardView.translatesAutoresizingMaskIntoConstraints = false
-        cardView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        cardView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.7).isActive = true
-        cardView.topAnchor.constraint(equalTo: homeButton.bottomAnchor, constant: 10).isActive = true
-        cardView.widthAnchor.constraint(equalToConstant: 315).isActive = true
     }
     
 //    func setupTTSButton() {
