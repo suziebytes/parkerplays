@@ -38,6 +38,18 @@ class AnimalViewController: UIViewController {
         sound.playSound()
     }
     
+    func setupHomeButton(){
+        view.addSubview(homeButton)
+        homeButton.setupHome()
+        homeButton.addTarget(self, action: #selector(toHome), for: .touchUpInside)
+        
+        //CONSTRAINTS
+        homeButton.translatesAutoresizingMaskIntoConstraints = false
+        homeButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.15).isActive = true
+        homeButton.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        homeButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25).isActive = true
+    }
+    
     func setupBackground(){
         view.addSubview(background)
         background.image = UIImage(named: "gradientbg")
@@ -115,17 +127,7 @@ class AnimalViewController: UIViewController {
         sound.playSound()
     }
     
-    func setupHomeButton(){
-        view.addSubview(homeButton)
-        homeButton.setupHome()
-        homeButton.addTarget(self, action: #selector(toHome), for: .touchUpInside)
-        
-        //CONSTRAINTS
-        homeButton.translatesAutoresizingMaskIntoConstraints = false
-        homeButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.15).isActive = true
-        homeButton.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        homeButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25).isActive = true
-    }
+
     
     @objc func toHome() {
         sound.soundFile = "buttonclick2"

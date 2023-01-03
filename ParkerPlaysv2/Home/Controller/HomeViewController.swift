@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     let helloView = HelloView()
@@ -232,7 +233,17 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             let navVC = UINavigationController(rootViewController: rootVC)
             navVC.modalPresentationStyle = .fullScreen
             present(navVC, animated: true)
+       
+        case "feelings":
+            sound.soundFile = "buttonclick1"
+            sound.playSound()
             
+            let feelingsVC = FeeligsViewController()
+            let rootVC = feelingsVC
+            let navVC = UINavigationController(rootViewController: rootVC)
+            navVC.modalPresentationStyle = .fullScreen
+            present(navVC, animated: true)
+      
         default:
             break
         }

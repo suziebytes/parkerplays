@@ -31,9 +31,28 @@
 		B04C52D9295A468500C10B16 /* CustomGameViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C52D8295A468500C10B16 /* CustomGameViewCell.swift */; };
 		B04C52DF2962384500C10B16 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C52DE2962384500C10B16 /* Color.swift */; };
 		B04C52E129623C1F00C10B16 /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C52E029623C1F00C10B16 /* ColorButton.swift */; };
+		B04C52E42963837800C10B16 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B04C52E32963837800C10B16 /* Lottie */; };
+		B04C52E7296387E700C10B16 /* FeelingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C52E6296387E700C10B16 /* FeelingsViewController.swift */; };
+		B04C52FC2963950600C10B16 /* silly.json in Resources */ = {isa = PBXBuildFile; fileRef = B04C52EC2963950600C10B16 /* silly.json */; };
+		B04C52FD2963950600C10B16 /* sleepy.json in Resources */ = {isa = PBXBuildFile; fileRef = B04C52ED2963950600C10B16 /* sleepy.json */; };
+		B04C52FE2963950600C10B16 /* evil.json in Resources */ = {isa = PBXBuildFile; fileRef = B04C52EE2963950600C10B16 /* evil.json */; };
+		B04C52FF2963950600C10B16 /* crying.json in Resources */ = {isa = PBXBuildFile; fileRef = B04C52EF2963950600C10B16 /* crying.json */; };
+		B04C53002963950600C10B16 /* shocked.json in Resources */ = {isa = PBXBuildFile; fileRef = B04C52F02963950600C10B16 /* shocked.json */; };
+		B04C53012963950600C10B16 /* funny.json in Resources */ = {isa = PBXBuildFile; fileRef = B04C52F12963950600C10B16 /* funny.json */; };
+		B04C53022963950600C10B16 /* uncertain.json in Resources */ = {isa = PBXBuildFile; fileRef = B04C52F22963950600C10B16 /* uncertain.json */; };
+		B04C53032963950600C10B16 /* angry.json in Resources */ = {isa = PBXBuildFile; fileRef = B04C52F32963950600C10B16 /* angry.json */; };
+		B04C53042963950600C10B16 /* nervous.json in Resources */ = {isa = PBXBuildFile; fileRef = B04C52F42963950600C10B16 /* nervous.json */; };
+		B04C53052963950600C10B16 /* happy.json in Resources */ = {isa = PBXBuildFile; fileRef = B04C52F52963950600C10B16 /* happy.json */; };
+		B04C53062963950600C10B16 /* love.json in Resources */ = {isa = PBXBuildFile; fileRef = B04C52F62963950600C10B16 /* love.json */; };
+		B04C53072963950600C10B16 /* cool.json in Resources */ = {isa = PBXBuildFile; fileRef = B04C52F72963950600C10B16 /* cool.json */; };
+		B04C53082963950600C10B16 /* sad.json in Resources */ = {isa = PBXBuildFile; fileRef = B04C52F82963950600C10B16 /* sad.json */; };
+		B04C53092963950600C10B16 /* hurt.json in Resources */ = {isa = PBXBuildFile; fileRef = B04C52F92963950600C10B16 /* hurt.json */; };
+		B04C530A2963950600C10B16 /* kissing.json in Resources */ = {isa = PBXBuildFile; fileRef = B04C52FA2963950600C10B16 /* kissing.json */; };
+		B04C530B2963950600C10B16 /* sick.json in Resources */ = {isa = PBXBuildFile; fileRef = B04C52FB2963950600C10B16 /* sick.json */; };
 		B0885718294FCB300025E835 /* ABCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0885717294FCB300025E835 /* ABCViewController.swift */; };
 		B088571A294FD5BC0025E835 /* ABCList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0885719294FD5BC0025E835 /* ABCList.swift */; };
 		B0956B7D2950F6B90056C435 /* BaksoSapi.otf in Resources */ = {isa = PBXBuildFile; fileRef = B0956B7C2950F6B90056C435 /* BaksoSapi.otf */; };
+		B0BE6B5A2963F1E3008FA8AF /* FeelingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BE6B592963F1E3008FA8AF /* FeelingList.swift */; };
 		B0CD055529511B2100953C45 /* PlayTTSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD055429511B2100953C45 /* PlayTTSButton.swift */; };
 		B0CD055C2951738D00953C45 /* NumbersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD055B2951738D00953C45 /* NumbersViewController.swift */; };
 		B0CD055E2951772B00953C45 /* NumberButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD055D2951772B00953C45 /* NumberButton.swift */; };
@@ -75,9 +94,27 @@
 		B04C52D8295A468500C10B16 /* CustomGameViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGameViewCell.swift; sourceTree = "<group>"; };
 		B04C52DE2962384500C10B16 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		B04C52E029623C1F00C10B16 /* ColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
+		B04C52E6296387E700C10B16 /* FeelingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingsViewController.swift; sourceTree = "<group>"; };
+		B04C52EC2963950600C10B16 /* silly.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = silly.json; sourceTree = "<group>"; };
+		B04C52ED2963950600C10B16 /* sleepy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sleepy.json; sourceTree = "<group>"; };
+		B04C52EE2963950600C10B16 /* evil.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = evil.json; sourceTree = "<group>"; };
+		B04C52EF2963950600C10B16 /* crying.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = crying.json; sourceTree = "<group>"; };
+		B04C52F02963950600C10B16 /* shocked.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = shocked.json; sourceTree = "<group>"; };
+		B04C52F12963950600C10B16 /* funny.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = funny.json; sourceTree = "<group>"; };
+		B04C52F22963950600C10B16 /* uncertain.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = uncertain.json; sourceTree = "<group>"; };
+		B04C52F32963950600C10B16 /* angry.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = angry.json; sourceTree = "<group>"; };
+		B04C52F42963950600C10B16 /* nervous.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nervous.json; sourceTree = "<group>"; };
+		B04C52F52963950600C10B16 /* happy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = happy.json; sourceTree = "<group>"; };
+		B04C52F62963950600C10B16 /* love.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = love.json; sourceTree = "<group>"; };
+		B04C52F72963950600C10B16 /* cool.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cool.json; sourceTree = "<group>"; };
+		B04C52F82963950600C10B16 /* sad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sad.json; sourceTree = "<group>"; };
+		B04C52F92963950600C10B16 /* hurt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hurt.json; sourceTree = "<group>"; };
+		B04C52FA2963950600C10B16 /* kissing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kissing.json; sourceTree = "<group>"; };
+		B04C52FB2963950600C10B16 /* sick.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sick.json; sourceTree = "<group>"; };
 		B0885717294FCB300025E835 /* ABCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABCViewController.swift; sourceTree = "<group>"; };
 		B0885719294FD5BC0025E835 /* ABCList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABCList.swift; sourceTree = "<group>"; };
 		B0956B7C2950F6B90056C435 /* BaksoSapi.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BaksoSapi.otf; sourceTree = "<group>"; };
+		B0BE6B592963F1E3008FA8AF /* FeelingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingList.swift; sourceTree = "<group>"; };
 		B0CD055429511B2100953C45 /* PlayTTSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayTTSButton.swift; sourceTree = "<group>"; };
 		B0CD055B2951738D00953C45 /* NumbersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersViewController.swift; sourceTree = "<group>"; };
 		B0CD055D2951772B00953C45 /* NumberButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberButton.swift; sourceTree = "<group>"; };
@@ -97,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B04C52E42963837800C10B16 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +172,7 @@
 				B04C52D429590ADD00C10B16 /* Colors */,
 				B03A07822948323A00B11172 /* Sounds */,
 				B0E671EB294FE9CF0015682D /* Fonts */,
+				B04C52E5296387CC00C10B16 /* Feelings */,
 				B03A076829482F7900B11172 /* Assets.xcassets */,
 				B03A076A29482F7900B11172 /* LaunchScreen.storyboard */,
 				B03A076D29482F7900B11172 /* Info.plist */,
@@ -302,6 +341,63 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		B04C52E5296387CC00C10B16 /* Feelings */ = {
+			isa = PBXGroup;
+			children = (
+				B04C52E8296388CF00C10B16 /* Model */,
+				B04C52E9296388D900C10B16 /* View */,
+				B04C52EA296388E600C10B16 /* Controller */,
+			);
+			path = Feelings;
+			sourceTree = "<group>";
+		};
+		B04C52E8296388CF00C10B16 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B0BE6B592963F1E3008FA8AF /* FeelingList.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B04C52E9296388D900C10B16 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B04C52EB296388FA00C10B16 /* Animations */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B04C52EA296388E600C10B16 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B04C52E6296387E700C10B16 /* FeelingsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B04C52EB296388FA00C10B16 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				B04C52F32963950600C10B16 /* angry.json */,
+				B04C52F72963950600C10B16 /* cool.json */,
+				B04C52EF2963950600C10B16 /* crying.json */,
+				B04C52EE2963950600C10B16 /* evil.json */,
+				B04C52F12963950600C10B16 /* funny.json */,
+				B04C52F52963950600C10B16 /* happy.json */,
+				B04C52F92963950600C10B16 /* hurt.json */,
+				B04C52FA2963950600C10B16 /* kissing.json */,
+				B04C52F62963950600C10B16 /* love.json */,
+				B04C52F42963950600C10B16 /* nervous.json */,
+				B04C52F82963950600C10B16 /* sad.json */,
+				B04C52F02963950600C10B16 /* shocked.json */,
+				B04C52FB2963950600C10B16 /* sick.json */,
+				B04C52EC2963950600C10B16 /* silly.json */,
+				B04C52ED2963950600C10B16 /* sleepy.json */,
+				B04C52F22963950600C10B16 /* uncertain.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		B0885711294FCA780025E835 /* PeekaBoo */ = {
 			isa = PBXGroup;
 			children = (
@@ -446,6 +542,9 @@
 			dependencies = (
 			);
 			name = ParkerPlaysv2;
+			packageProductDependencies = (
+				B04C52E32963837800C10B16 /* Lottie */,
+			);
 			productName = ParkerPlaysv2;
 			productReference = B03A075C29482F7700B11172 /* Parker Plays.app */;
 			productType = "com.apple.product-type.application";
@@ -474,6 +573,9 @@
 				Base,
 			);
 			mainGroup = B03A075329482F7700B11172;
+			packageReferences = (
+				B04C52E22963837800C10B16 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = B03A075D29482F7700B11172 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -488,15 +590,31 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B04C53012963950600C10B16 /* funny.json in Resources */,
 				B0CD056C2956700600953C45 /* Boo - boosted.mp3 in Resources */,
+				B04C52FE2963950600C10B16 /* evil.json in Resources */,
 				B03A07B9294FB7F100B11172 /* buttonclick2.mp3 in Resources */,
 				B03A07B7294FB7F100B11172 /* buttonclick1.mp3 in Resources */,
+				B04C530B2963950600C10B16 /* sick.json in Resources */,
+				B04C52FC2963950600C10B16 /* silly.json in Resources */,
+				B04C53082963950600C10B16 /* sad.json in Resources */,
 				B0956B7D2950F6B90056C435 /* BaksoSapi.otf in Resources */,
+				B04C53062963950600C10B16 /* love.json in Resources */,
 				B0E671ED294FE9E50015682D /* Wash Your Hand.ttf in Resources */,
+				B04C53032963950600C10B16 /* angry.json in Resources */,
+				B04C53002963950600C10B16 /* shocked.json in Resources */,
+				B04C530A2963950600C10B16 /* kissing.json in Resources */,
 				B0CD056A2956676500953C45 /* Peek A - boosted.mp3 in Resources */,
+				B04C52FF2963950600C10B16 /* crying.json in Resources */,
+				B04C53052963950600C10B16 /* happy.json in Resources */,
 				B0CD05702956D0E200953C45 /* magicsounds.mp3 in Resources */,
 				B03A076C29482F7900B11172 /* LaunchScreen.storyboard in Resources */,
+				B04C53042963950600C10B16 /* nervous.json in Resources */,
 				B03A076929482F7900B11172 /* Assets.xcassets in Resources */,
+				B04C53072963950600C10B16 /* cool.json in Resources */,
+				B04C52FD2963950600C10B16 /* sleepy.json in Resources */,
+				B04C53022963950600C10B16 /* uncertain.json in Resources */,
+				B04C53092963950600C10B16 /* hurt.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +627,7 @@
 			files = (
 				B04C52D7295A237B00C10B16 /* GamesViewCollection.swift in Sources */,
 				B03A079029490E3400B11172 /* WeatherView.swift in Sources */,
+				B0BE6B5A2963F1E3008FA8AF /* FeelingList.swift in Sources */,
 				B0CD055C2951738D00953C45 /* NumbersViewController.swift in Sources */,
 				B03A07B1294EE6B700B11172 /* TextToSpeech.swift in Sources */,
 				B0CD05682952572B00953C45 /* ShapesList.swift in Sources */,
@@ -519,6 +638,7 @@
 				B0CD056429523F0000953C45 /* ShapesViewController.swift in Sources */,
 				B03A076029482F7700B11172 /* AppDelegate.swift in Sources */,
 				B03A07A5294D321700B11172 /* CardView.swift in Sources */,
+				B04C52E7296387E700C10B16 /* FeelingsViewController.swift in Sources */,
 				B0E671EA294FE0280015682D /* ABCView.swift in Sources */,
 				B0CD055E2951772B00953C45 /* NumberButton.swift in Sources */,
 				B0CD055529511B2100953C45 /* PlayTTSButton.swift in Sources */,
@@ -744,6 +864,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B04C52E22963837800C10B16 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B04C52E32963837800C10B16 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B04C52E22963837800C10B16 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B03A075429482F7700B11172 /* Project object */;
 }

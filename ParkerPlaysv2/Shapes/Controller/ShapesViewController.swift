@@ -56,7 +56,6 @@ class ShapesViewController: UIViewController {
         cardView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         cardView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.7).isActive = true
         cardView.topAnchor.constraint(equalTo: homeButton.bottomAnchor, constant: 10).isActive = true
-//        cardView.heightAnchor.constraint(equalToConstant: 605).isActive = true
         cardView.widthAnchor.constraint(equalToConstant: 315).isActive = true
     }
     
