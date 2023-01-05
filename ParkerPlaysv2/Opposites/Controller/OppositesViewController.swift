@@ -1,13 +1,13 @@
 //
-//  ColorsViewController.swift
+//  Opposites.swift
 //  ParkerPlaysv2
 //
-//  Created by Suzie on 12/25/22.
+//  Created by Suzie on 1/3/23.
 //
 
 import UIKit
-
-class ColorsViewController: UIViewController {
+ 
+class OppositesViewController: UIViewController {
     let background = UIImageView(frame: UIScreen.main.bounds)
     let label = AnimalLabelView()
     let cardView = CardView()
@@ -18,10 +18,12 @@ class ColorsViewController: UIViewController {
     let colorButton = UIButton()
     let ttsButton = UIButton()
     let TTS = TextToSpeech()
+    let flipIcon = OppositeButton()
     
- 
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        
         setupBackground()
         setupHomeButton()
         setupCardView()
@@ -35,7 +37,6 @@ class ColorsViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationItem.setHidesBackButton(true, animated: true)
     }
-    
     
     func setupBackground(){
         view.addSubview(background)
@@ -61,15 +62,31 @@ class ColorsViewController: UIViewController {
     }
     
     func setupCardView(){
+        let image = "oppositeicon"
+        
         view.addSubview(cardView)
+        view.addSubview(flipIcon)
+        flipIcon.setupButton()
+        flipIcon.setImage(UIImage(named: image), for: .normal)
+        flipIcon.addTarget(self, action: #selector(flipCard), for: .touchUpInside)
         
         //CONSTRANTS
+        flipIcon.translatesAutoresizingMaskIntoConstraints = false
+        flipIcon.rightAnchor.constraint(equalTo: cardView.rightAnchor, constant: -10).isActive = true
+        flipIcon.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        flipIcon.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        flipIcon.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 5).isActive = true
+        
         cardView.translatesAutoresizingMaskIntoConstraints = false
         cardView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         cardView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.7).isActive = true
         cardView.topAnchor.constraint(equalTo: homeButton.bottomAnchor, constant: 10).isActive = true
 //        cardView.heightAnchor.constraint(equalToConstant: 605).isActive = true
         cardView.widthAnchor.constraint(equalToConstant: 315).isActive = true
+    }
+    
+    @objc func flipCard() {
+        //card flip function
     }
     
     func colorImage(){
@@ -102,41 +119,44 @@ class ColorsViewController: UIViewController {
         colorButton.leftAnchor.constraint(equalTo: cardView.leftAnchor).isActive = true
         colorButton.rightAnchor.constraint(equalTo: cardView.rightAnchor).isActive = true
     }
+    
+    func setupTTSButton(){
+        view.addSubview(ttsButton)
+        ttsButton.setImage(UIImage(named: "playcircle.svg"), for: .normal)
+        ttsButton.addTarget(self, action: #selector(toTTS), for: .touchUpInside)
+         
+        //CONSTRAINTS
+        ttsButton.translatesAutoresizingMaskIntoConstraints = false
+        ttsButton.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -10).isActive = true
+        ttsButton.rightAnchor.constraint(equalTo: cardView.rightAnchor, constant: -10).isActive = true
+    }
+    
+    @objc func toTTS() {
+        TTS.playTTS(name: color.colorList[count])
+    }
+     
+     @objc func toHome() {
+         sound.soundFile = "buttonclick2"
+         sound.playSound()
+         self.dismiss(animated: true)
+     }
+     
+     @objc func newColor(){
+         if count < color.colorList.count {
+             count+=1
+         } else {
+             count = 0
+         }
+         
+         let colorVC = ColorsViewController()
+         colorVC.count = count
+         colorVC.modalPresentationStyle = .fullScreen
+         navigationController?.pushViewController(colorVC, animated: true)
+         sound.soundFile = "buttonclick1"
+         sound.playSound()
+     }
 
-   func setupTTSButton(){
-       view.addSubview(ttsButton)
-       ttsButton.setImage(UIImage(named: "playcircle.svg"), for: .normal)
-       ttsButton.addTarget(self, action: #selector(toTTS), for: .touchUpInside)
-        
-       //CONSTRAINTS
-       ttsButton.translatesAutoresizingMaskIntoConstraints = false
-       ttsButton.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -10).isActive = true
-       ttsButton.rightAnchor.constraint(equalTo: cardView.rightAnchor, constant: -10).isActive = true
-   }
-   
-   @objc func toTTS() {
-       TTS.playTTS(name: color.colorList[count])
-   }
     
     
-    @objc func toHome() {
-        sound.soundFile = "buttonclick2"
-        sound.playSound()
-        self.dismiss(animated: true)
-    }
     
-    @objc func newColor(){
-        if count < color.colorList.count {
-            count+=1
-        } else {
-            count = 0
-        }
-        
-        let colorVC = ColorsViewController()
-        colorVC.count = count
-        colorVC.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(colorVC, animated: true)
-        sound.soundFile = "buttonclick1"
-        sound.playSound()
-    }
 }

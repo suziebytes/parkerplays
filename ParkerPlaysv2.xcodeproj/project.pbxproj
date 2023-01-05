@@ -53,6 +53,8 @@
 		B0BE6B792964B863008FA8AF /* hurt.json in Resources */ = {isa = PBXBuildFile; fileRef = B0BE6B6A2964B863008FA8AF /* hurt.json */; };
 		B0BE6B7A2964B863008FA8AF /* amazed.json in Resources */ = {isa = PBXBuildFile; fileRef = B0BE6B6B2964B863008FA8AF /* amazed.json */; };
 		B0BE6B7C2964B8F6008FA8AF /* sleepy.json in Resources */ = {isa = PBXBuildFile; fileRef = B0BE6B7B2964B8F5008FA8AF /* sleepy.json */; };
+		B0BE6B7F29655163008FA8AF /* OppositesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BE6B7E29655163008FA8AF /* OppositesViewController.swift */; };
+		B0BE6B842967480A008FA8AF /* OppositeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BE6B832967480A008FA8AF /* OppositeButton.swift */; };
 		B0CD055529511B2100953C45 /* PlayTTSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD055429511B2100953C45 /* PlayTTSButton.swift */; };
 		B0CD055C2951738D00953C45 /* NumbersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD055B2951738D00953C45 /* NumbersViewController.swift */; };
 		B0CD055E2951772B00953C45 /* NumberButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD055D2951772B00953C45 /* NumberButton.swift */; };
@@ -115,6 +117,8 @@
 		B0BE6B6A2964B863008FA8AF /* hurt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hurt.json; sourceTree = "<group>"; };
 		B0BE6B6B2964B863008FA8AF /* amazed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = amazed.json; sourceTree = "<group>"; };
 		B0BE6B7B2964B8F5008FA8AF /* sleepy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sleepy.json; sourceTree = "<group>"; };
+		B0BE6B7E29655163008FA8AF /* OppositesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OppositesViewController.swift; sourceTree = "<group>"; };
+		B0BE6B832967480A008FA8AF /* OppositeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OppositeButton.swift; sourceTree = "<group>"; };
 		B0CD055429511B2100953C45 /* PlayTTSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayTTSButton.swift; sourceTree = "<group>"; };
 		B0CD055B2951738D00953C45 /* NumbersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersViewController.swift; sourceTree = "<group>"; };
 		B0CD055D2951772B00953C45 /* NumberButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberButton.swift; sourceTree = "<group>"; };
@@ -165,7 +169,6 @@
 				B0CD055329511AFF00953C45 /* Components */,
 				B03A079B294A329500B11172 /* Manager */,
 				B03A078E2948427000B11172 /* Home */,
-				B0885711294FCA780025E835 /* PeekaBoo */,
 				B0885713294FCAB70025E835 /* ABC */,
 				B0CD05572951734400953C45 /* Numbers */,
 				B0CD055F29523ECF00953C45 /* Shapes */,
@@ -173,6 +176,7 @@
 				B03A07822948323A00B11172 /* Sounds */,
 				B0E671EB294FE9CF0015682D /* Fonts */,
 				B04C52E5296387CC00C10B16 /* Feelings */,
+				B0BE6B7D2965514C008FA8AF /* Opposites */,
 				B03A076829482F7900B11172 /* Assets.xcassets */,
 				B03A076A29482F7900B11172 /* LaunchScreen.storyboard */,
 				B03A076D29482F7900B11172 /* Info.plist */,
@@ -284,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				B03A076329482F7700B11172 /* HomeViewController.swift */,
+				B0885711294FCA780025E835 /* PeekaBoo */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -437,6 +442,39 @@
 			isa = PBXGroup;
 			children = (
 				B0885717294FCB300025E835 /* ABCViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B0BE6B7D2965514C008FA8AF /* Opposites */ = {
+			isa = PBXGroup;
+			children = (
+				B0BE6B822965519C008FA8AF /* Controller */,
+				B0BE6B8129655197008FA8AF /* View */,
+				B0BE6B802965518E008FA8AF /* Model */,
+			);
+			path = Opposites;
+			sourceTree = "<group>";
+		};
+		B0BE6B802965518E008FA8AF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B0BE6B8129655197008FA8AF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B0BE6B832967480A008FA8AF /* OppositeButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B0BE6B822965519C008FA8AF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B0BE6B7E29655163008FA8AF /* OppositesViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -636,6 +674,7 @@
 				B04C52D9295A468500C10B16 /* CustomGameViewCell.swift in Sources */,
 				B03A076429482F7700B11172 /* HomeViewController.swift in Sources */,
 				B0CD056429523F0000953C45 /* ShapesViewController.swift in Sources */,
+				B0BE6B842967480A008FA8AF /* OppositeButton.swift in Sources */,
 				B03A076029482F7700B11172 /* AppDelegate.swift in Sources */,
 				B03A07A5294D321700B11172 /* CardView.swift in Sources */,
 				B04C52E7296387E700C10B16 /* FeelingsViewController.swift in Sources */,
@@ -656,6 +695,7 @@
 				B088571A294FD5BC0025E835 /* ABCList.swift in Sources */,
 				B04C52E129623C1F00C10B16 /* ColorButton.swift in Sources */,
 				B0CD05722956DFBE00953C45 /* ShapeLabel.swift in Sources */,
+				B0BE6B7F29655163008FA8AF /* OppositesViewController.swift in Sources */,
 				B03A078D29483C0200B11172 /* GamesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

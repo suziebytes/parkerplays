@@ -243,6 +243,16 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             let navVC = UINavigationController(rootViewController: rootVC)
             navVC.modalPresentationStyle = .fullScreen
             present(navVC, animated: true)
+            
+        case "opposites":
+            sound.soundFile = "buttonclick1"
+            sound.playSound()
+            
+            let oppositesVC = OppositesViewController()
+            let rootVC = oppositesVC
+            let navVC = UINavigationController(rootViewController: rootVC)
+            navVC.modalPresentationStyle = .fullScreen
+            present(navVC, animated: true)
       
         default:
             break
