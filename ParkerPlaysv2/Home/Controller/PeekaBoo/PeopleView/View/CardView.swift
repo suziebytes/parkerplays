@@ -47,4 +47,14 @@ class CardView: UIView {
         imageView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         imageView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
     }
-}
+    
+//    func animate() {
+//        UIView.animate(withDuration: 1.0, delay: 0.0, options: [.transitionFlipFromRight], animations: {
+//            self.cardView.isHidden = true
+//        }, completion: nil)
+//    }
+//
+    
+    
+
+    }
