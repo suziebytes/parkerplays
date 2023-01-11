@@ -41,7 +41,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         setupWeatherView()
         setupGamesView()
         setupSettingsButton()
-//        introSound()
+        introSound()
     }
     func introSound(){
         sound.soundFile = "magicsounds"
@@ -253,6 +253,16 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             let navVC = UINavigationController(rootViewController: rootVC)
             navVC.modalPresentationStyle = .fullScreen
             present(navVC, animated: true)
+            
+        case "faces":
+            sound.soundFile = "buttonclick1"
+            sound.playSound()
+            
+            let faceVC = FacesViewController()
+            let rootVC = faceVC
+            let navVC = UINavigationController(rootViewController: rootVC)
+            navVC.modalPresentationStyle = .fullScreen
+            present(navVC, animated: true)
       
         default:
             break
@@ -278,17 +288,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         // this sets the button to be centered on the screen
         settingsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         }
-        
-       
-        //    @objc func toSubscription(){
-        //        //pop up for option to subscribe
-        //        //include example of what is included in subscription
-        //        //StoreKit
-        //    }
     
-            @objc func openAlert(){
-                let alertController = UIAlertController(title: "Enter Name", message: "", preferredStyle: .alert)
-                alertController.addTextField { (textField) in
+    @objc func openAlert(){
+        let alertController = UIAlertController(title: "Enter Name", message: "", preferredStyle: .alert)
+            alertController.addTextField { (textField) in
                     // configure the properties of the text field
                     textField.placeholder = "Name"
                 }

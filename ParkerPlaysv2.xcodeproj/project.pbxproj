@@ -34,6 +34,9 @@
 		B04C52E42963837800C10B16 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B04C52E32963837800C10B16 /* Lottie */; };
 		B04C52E7296387E700C10B16 /* FeelingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C52E6296387E700C10B16 /* FeelingsViewController.swift */; };
 		B0827483296DD7BE00EE04E1 /* Opposites.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0827482296DD7BE00EE04E1 /* Opposites.swift */; };
+		B0827486296F453200EE04E1 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0827485296F453200EE04E1 /* Model.swift */; };
+		B0827488296F454000EE04E1 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0827487296F454000EE04E1 /* View.swift */; };
+		B082748A296F454900EE04E1 /* FacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0827489296F454900EE04E1 /* FacesViewController.swift */; };
 		B0885718294FCB300025E835 /* ABCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0885717294FCB300025E835 /* ABCViewController.swift */; };
 		B088571A294FD5BC0025E835 /* ABCList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0885719294FD5BC0025E835 /* ABCList.swift */; };
 		B0956B7D2950F6B90056C435 /* BaksoSapi.otf in Resources */ = {isa = PBXBuildFile; fileRef = B0956B7C2950F6B90056C435 /* BaksoSapi.otf */; };
@@ -99,6 +102,9 @@
 		B04C52E029623C1F00C10B16 /* ColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
 		B04C52E6296387E700C10B16 /* FeelingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingsViewController.swift; sourceTree = "<group>"; };
 		B0827482296DD7BE00EE04E1 /* Opposites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Opposites.swift; sourceTree = "<group>"; };
+		B0827485296F453200EE04E1 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		B0827487296F454000EE04E1 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		B0827489296F454900EE04E1 /* FacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacesViewController.swift; sourceTree = "<group>"; };
 		B0885717294FCB300025E835 /* ABCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABCViewController.swift; sourceTree = "<group>"; };
 		B0885719294FD5BC0025E835 /* ABCList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABCList.swift; sourceTree = "<group>"; };
 		B0956B7C2950F6B90056C435 /* BaksoSapi.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BaksoSapi.otf; sourceTree = "<group>"; };
@@ -179,6 +185,7 @@
 				B0E671EB294FE9CF0015682D /* Fonts */,
 				B04C52E5296387CC00C10B16 /* Feelings */,
 				B0BE6B7D2965514C008FA8AF /* Opposites */,
+				B0827484296F451200EE04E1 /* Faces */,
 				B03A076829482F7900B11172 /* Assets.xcassets */,
 				B03A076A29482F7900B11172 /* LaunchScreen.storyboard */,
 				B03A076D29482F7900B11172 /* Info.plist */,
@@ -403,6 +410,16 @@
 				B0BE6B642964B863008FA8AF /* winking.json */,
 			);
 			path = Animations;
+			sourceTree = "<group>";
+		};
+		B0827484296F451200EE04E1 /* Faces */ = {
+			isa = PBXGroup;
+			children = (
+				B0827485296F453200EE04E1 /* Model.swift */,
+				B0827487296F454000EE04E1 /* View.swift */,
+				B0827489296F454900EE04E1 /* FacesViewController.swift */,
+			);
+			path = Faces;
 			sourceTree = "<group>";
 		};
 		B0885711294FCA780025E835 /* PeekaBoo */ = {
@@ -675,6 +692,7 @@
 				B03A07AD294D91A300B11172 /* AnimalLabelView.swift in Sources */,
 				B03A079D294A32A900B11172 /* PlaySound.swift in Sources */,
 				B04C52D9295A468500C10B16 /* CustomGameViewCell.swift in Sources */,
+				B0827488296F454000EE04E1 /* View.swift in Sources */,
 				B03A076429482F7700B11172 /* HomeViewController.swift in Sources */,
 				B0CD056429523F0000953C45 /* ShapesViewController.swift in Sources */,
 				B0BE6B842967480A008FA8AF /* OppositeButton.swift in Sources */,
@@ -693,10 +711,12 @@
 				B0CD05662952406600953C45 /* ShapeButton.swift in Sources */,
 				B0885718294FCB300025E835 /* ABCViewController.swift in Sources */,
 				B03A07A3294D2E9C00B11172 /* PeopleViewController.swift in Sources */,
+				B0827486296F453200EE04E1 /* Model.swift in Sources */,
 				B03A07AF294ED5F800B11172 /* HomeButton.swift in Sources */,
 				B03A079F294A68C900B11172 /* GameButton.swift in Sources */,
 				B03A076229482F7700B11172 /* SceneDelegate.swift in Sources */,
 				B088571A294FD5BC0025E835 /* ABCList.swift in Sources */,
+				B082748A296F454900EE04E1 /* FacesViewController.swift in Sources */,
 				B04C52E129623C1F00C10B16 /* ColorButton.swift in Sources */,
 				B0CD05722956DFBE00953C45 /* ShapeLabel.swift in Sources */,
 				B0BE6B7F29655163008FA8AF /* OppositesViewController.swift in Sources */,
