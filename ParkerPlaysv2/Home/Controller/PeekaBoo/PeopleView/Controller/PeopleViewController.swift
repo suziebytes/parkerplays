@@ -59,8 +59,8 @@ class PeopleViewController: UIViewController {
     
     func peopleImage(){
         let image = String(count)
-        cardView.setupImage(image: image)
-     
+        cardView.setupImage()
+        cardView.setImage(image: image)
     }
     
     func setupToAnimalButton(){

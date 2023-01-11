@@ -77,7 +77,8 @@ class AnimalViewController: UIViewController {
     
     func setupAnimalImage(){
         let animalImage = animal.animalList[randNum]
-        cardView.setupImage(image: animalImage)
+        cardView.setupImage()
+        cardView.setImage(image: animalImage)
         cardView.imageView.contentMode = .scaleAspectFit
     }
     

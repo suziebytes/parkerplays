@@ -9,7 +9,6 @@ import UIKit
 
 class CardView: UIView {
     let imageView = UIImageView()
-    var image = ""
     
     override init(frame: CGRect) {
         super .init(frame: frame)
@@ -20,8 +19,6 @@ class CardView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    
     func setupCard(){
         backgroundColor = .white
         layer.cornerRadius = 15
@@ -31,9 +28,9 @@ class CardView: UIView {
         layer.shadowRadius = 4
     }
     
-    func setupImage(image: String){
+    func setupImage(){
         addSubview(imageView)
-        imageView.image = UIImage(named: image)
+//        imageView.image = UIImage(named: image)
         imageView.layer.cornerRadius = 15
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -44,5 +41,9 @@ class CardView: UIView {
         imageView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         imageView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         imageView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-    }    
+    }
+    
+    func setImage(image: String){
+        imageView.image = UIImage(named: image)
+    }
 }

@@ -74,7 +74,8 @@ class ColorsViewController: UIViewController {
     
     func colorImage(){
         let image = color.colorList[count]
-        cardView.setupImage(image: image)
+        cardView.setupImage()
+        cardView.setImage(image: image)
         cardView.imageView.contentMode = .scaleAspectFit
     }
     
