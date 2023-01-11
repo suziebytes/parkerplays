@@ -9,14 +9,14 @@ import UIKit
  
 class OppositesViewController: UIViewController {
     let background = UIImageView(frame: UIScreen.main.bounds)
-    let label = AnimalLabelView()
+    let frontLabel = AnimalLabelView()
+    let backLabel = AnimalLabelView()
     let frontView = CardView()
     let homeButton = HomeButton()
     var sound = PlaySound()
-    let color = Color()
-    var count = 0
     let nextOppositeButton = UIButton()
-    let ttsButton = UIButton()
+    let ttsFrontButton = UIButton()
+    let ttsBackButton = UIButton()
     let TTS = TextToSpeech()
     let flipButton = OppositeButton()
     let flipButtonA = OppositeButton()
@@ -26,6 +26,7 @@ class OppositesViewController: UIViewController {
     let opposite = Opposite()
     let front = 0
     let back = 1
+    var count = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +35,11 @@ class OppositesViewController: UIViewController {
         setupCardContainer()
         setupBackView()
         setupFrontView()
-        setupLabel()
+        setupBackLabel()
+        setupFrontLabel()
         setupNextOppositeButton()
-        setupTTSButton()
+        setupBackTTSButton()
+        setupFrontTTSButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,6 +80,7 @@ class OppositesViewController: UIViewController {
         frontView.setupImage()
         frontView.setImage(image: frontImage)
         frontView.imageView.contentMode = .scaleAspectFit
+        
 
         cardContainer.addSubview(frontView)
         frontView.addSubview(flipButton)
@@ -110,12 +114,14 @@ class OppositesViewController: UIViewController {
         flipButtonA.setImage(UIImage(named: image), for: .normal)
         flipButtonA.addTarget(self, action: #selector(flipCard), for: .touchUpInside)
         
+        backView.addSubview(ttsBackButton)
+    
         //CONSTRAINTS
         flipButtonA.translatesAutoresizingMaskIntoConstraints = false
         flipButtonA.rightAnchor.constraint(equalTo: backView.rightAnchor, constant: -10).isActive = true
+        flipButtonA.topAnchor.constraint(equalTo: backView.topAnchor, constant: 5).isActive = true
         flipButtonA.heightAnchor.constraint(equalToConstant: 50).isActive = true
         flipButtonA.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        flipButtonA.topAnchor.constraint(equalTo: backView.topAnchor, constant: 5).isActive = true
         
         backView.translatesAutoresizingMaskIntoConstraints = false
         backView.centerXAnchor.constraint(equalTo: cardContainer.centerXAnchor).isActive = true
@@ -132,7 +138,9 @@ class OppositesViewController: UIViewController {
 
         var cardToFlip = frontView
         var bottomCard = backView
-
+        var labelToFlip = frontLabel
+        var bottomLabel = backLabel
+       
         if isFlipped == true {
             cardToFlip = frontView
             bottomCard = backView
@@ -141,9 +149,25 @@ class OppositesViewController: UIViewController {
             bottomCard = frontView
         }
         
+        if isFlipped == true {
+           labelToFlip = frontLabel
+            bottomLabel = backLabel
+        } else {
+            labelToFlip = backLabel
+             bottomLabel = frontLabel
+        }
+        //refractor later so to couple UIView.transitions and if/else into one
         UIView.transition(
             from: cardToFlip,
             to: bottomCard,
+            duration: 1,
+            options: [.transitionFlipFromRight, .showHideTransitionViews],
+            completion: nil
+        )
+        
+        UIView.transition(
+            from: labelToFlip,
+            to: bottomLabel,
             duration: 1,
             options: [.transitionFlipFromRight, .showHideTransitionViews],
             completion: nil
@@ -159,7 +183,6 @@ class OppositesViewController: UIViewController {
         nextOppositeButton.heightAnchor.constraint(equalTo: cardContainer.heightAnchor, multiplier: 0.70).isActive = true
         nextOppositeButton.centerYAnchor.constraint(equalTo: cardContainer.centerYAnchor).isActive = true
         nextOppositeButton.widthAnchor.constraint(equalTo: cardContainer.widthAnchor).isActive = true
-
     }
 
    @objc func nextOpposite(){
@@ -176,50 +199,70 @@ class OppositesViewController: UIViewController {
        backView.setImage(image: backImage)
        frontView.imageView.contentMode = .scaleAspectFit
        backView.imageView.contentMode = .scaleAspectFit
+       frontLabel.animalLabel.text = frontImage
+       backLabel.animalLabel.text = backImage
 
        sound.soundFile = "buttonclick1"
        sound.playSound()
     }
 
-    func setupLabel() {
-        //this needs to match front or back
+    func setupFrontLabel() {
         let frontImage = opposite.oppositeList[count][front]
-        let backImage = opposite.oppositeList[count][back]
-        var labelTitle = ""
-        
-        isFlipped = !isFlipped
 
-        if isFlipped == true {
-            labelTitle = frontImage
-        } else {
-            labelTitle = backImage
-        }
-    
-        cardContainer.addSubview(label)
-        label.animalLabel.text = labelTitle.lowercased()
-        
+        frontLabel.animalLabel.text = frontImage
+        cardContainer.addSubview(frontLabel)
+
         //CONSTRAINTS
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.widthAnchor.constraint(equalToConstant: 315).isActive =  true
-        label.heightAnchor.constraint(equalToConstant: 65).isActive = true
-        label.topAnchor.constraint(equalTo: cardContainer.bottomAnchor, constant: 10).isActive = true
-        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        frontLabel.translatesAutoresizingMaskIntoConstraints = false
+        frontLabel.widthAnchor.constraint(equalToConstant: 315).isActive =  true
+        frontLabel.heightAnchor.constraint(equalToConstant: 65).isActive = true
+        frontLabel.topAnchor.constraint(equalTo: cardContainer.bottomAnchor, constant: 10).isActive = true
+        frontLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
+    func setupBackLabel() {
+        let backImage = opposite.oppositeList[count][back]
 
-    func setupTTSButton(){
-       cardContainer.addSubview(ttsButton)
-        ttsButton.setImage(UIImage(named: "playcircle.svg"), for: .normal)
-        ttsButton.addTarget(self, action: #selector(toTTS), for: .touchUpInside)
+       backLabel.animalLabel.text = backImage
+        cardContainer.addSubview(frontLabel)
+        cardContainer.addSubview(backLabel)
+        
+        //CONSTRAINTS
+        backLabel.translatesAutoresizingMaskIntoConstraints = false
+        backLabel.widthAnchor.constraint(equalToConstant: 315).isActive =  true
+        backLabel.heightAnchor.constraint(equalToConstant: 65).isActive = true
+        backLabel.topAnchor.constraint(equalTo: cardContainer.bottomAnchor, constant: 10).isActive = true
+        backLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    }
+    
+    func setupFrontTTSButton(){
+        cardContainer.addSubview(ttsFrontButton)
+        ttsFrontButton.setImage(UIImage(named: "playcircle.svg"), for: .normal)
+        ttsFrontButton.addTarget(self, action: #selector(toFrontTTS), for: .touchUpInside)
          
         //CONSTRAINTS
-        ttsButton.translatesAutoresizingMaskIntoConstraints = false
-        ttsButton.bottomAnchor.constraint(equalTo: cardContainer.bottomAnchor, constant: -10).isActive = true
-        ttsButton.rightAnchor.constraint(equalTo: cardContainer.rightAnchor, constant: -10).isActive = true
+        ttsFrontButton.translatesAutoresizingMaskIntoConstraints = false
+        ttsFrontButton.bottomAnchor.constraint(equalTo: cardContainer.bottomAnchor, constant: -10).isActive = true
+        ttsFrontButton.rightAnchor.constraint(equalTo: cardContainer.rightAnchor, constant: -10).isActive = true
     }
     
-    @objc func toTTS() {
-        TTS.playTTS(name: color.colorList[count])
+    func setupBackTTSButton(){
+        cardContainer.addSubview(ttsBackButton)
+        ttsBackButton.setImage(UIImage(named: "playcircle.svg"), for: .normal)
+        ttsBackButton.addTarget(self, action: #selector(toBackTTS), for: .touchUpInside)
+         
+        //CONSTRAINTS
+        ttsBackButton.translatesAutoresizingMaskIntoConstraints = false
+        ttsBackButton.bottomAnchor.constraint(equalTo: cardContainer.bottomAnchor, constant: -10).isActive = true
+        ttsBackButton.rightAnchor.constraint(equalTo: cardContainer.rightAnchor, constant: -10).isActive = true
+    }
+    
+    @objc func toFrontTTS() {
+        TTS.playTTS(name: opposite.oppositeList[count][front])
+    }
+    
+    @objc func toBackTTS() {
+        TTS.playTTS(name: opposite.oppositeList[count][back])
     }
      
      @objc func toHome() {
