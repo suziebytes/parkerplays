@@ -140,6 +140,8 @@ class OppositesViewController: UIViewController {
         var bottomCard = backView
         var labelToFlip = frontLabel
         var bottomLabel = backLabel
+        var ttsButton = ttsFrontButton
+        var ttsBottomButton = ttsBackButton
        
         if isFlipped == true {
             cardToFlip = frontView
@@ -156,6 +158,15 @@ class OppositesViewController: UIViewController {
             labelToFlip = backLabel
              bottomLabel = frontLabel
         }
+        
+        if isFlipped == true {
+           ttsButton = ttsFrontButton
+            ttsBottomButton = ttsBackButton
+        } else {
+            ttsButton = ttsBackButton
+             ttsBottomButton = ttsFrontButton
+        }
+        
         //refractor later so to couple UIView.transitions and if/else into one
         UIView.transition(
             from: cardToFlip,
@@ -168,6 +179,13 @@ class OppositesViewController: UIViewController {
         UIView.transition(
             from: labelToFlip,
             to: bottomLabel,
+            duration: 1,
+            options: [.transitionFlipFromRight, .showHideTransitionViews],
+            completion: nil
+        )
+        UIView.transition(
+            from: ttsButton,
+            to: ttsBottomButton,
             duration: 1,
             options: [.transitionFlipFromRight, .showHideTransitionViews],
             completion: nil
