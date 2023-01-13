@@ -21,14 +21,9 @@
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1024 icon transparent" translatesAutoresizingMaskIntoConstraints="NO" id="GPq-ll-9z4">
                                 <rect key="frame" x="134" y="363.66666666666669" width="125" height="125"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="125" id="DNS-qo-n1l"/>
-                                    <constraint firstAttribute="height" constant="125" id="rex-HU-wYI"/>
-                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PARKER PLAYS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p0R-7g-wYO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PARKER PLAYS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p0R-7g-wYO">
                                 <rect key="frame" x="130" y="485" width="133" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -37,14 +32,16 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="GPq-ll-9z4" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="3WZ-5h-Ke1"/>
-                            <constraint firstItem="bx7-lE-kxM" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="HMS-Tw-xk6"/>
-                            <constraint firstAttribute="bottom" secondItem="bx7-lE-kxM" secondAttribute="bottom" id="Hws-3S-fEE"/>
-                            <constraint firstItem="bx7-lE-kxM" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Mr8-LH-apS"/>
-                            <constraint firstAttribute="trailing" secondItem="bx7-lE-kxM" secondAttribute="trailing" id="RmF-Lk-ZqX"/>
-                            <constraint firstItem="bx7-lE-kxM" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="d7l-Vt-Lj0"/>
-                            <constraint firstItem="GPq-ll-9z4" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="hsT-XY-gkT"/>
-                            <constraint firstItem="bx7-lE-kxM" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="lFC-x8-HJW"/>
+                            <constraint firstItem="p0R-7g-wYO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="426" id="Ack-bM-nIG"/>
+                            <constraint firstItem="bx7-lE-kxM" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="CQp-CR-XS9"/>
+                            <constraint firstItem="GPq-ll-9z4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="134" id="DUT-aq-AY8"/>
+                            <constraint firstItem="bx7-lE-kxM" firstAttribute="centerX" secondItem="GPq-ll-9z4" secondAttribute="centerX" id="Q0q-tP-WNS"/>
+                            <constraint firstItem="bx7-lE-kxM" firstAttribute="centerY" secondItem="GPq-ll-9z4" secondAttribute="centerY" id="QYX-aF-2uP"/>
+                            <constraint firstItem="GPq-ll-9z4" firstAttribute="centerX" secondItem="p0R-7g-wYO" secondAttribute="centerX" id="nOx-EY-6cV"/>
+                            <constraint firstItem="bx7-lE-kxM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sH7-fE-FX0"/>
+                            <constraint firstItem="GPq-ll-9z4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="304.66666666666669" id="sx6-yZ-3Oz"/>
+                            <constraint firstItem="bx7-lE-kxM" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" constant="-59" id="waQ-Tt-iWf"/>
+                            <constraint firstItem="bx7-lE-kxM" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="z2Z-oW-NWE"/>
                         </constraints>
                     </view>
                 </viewController>

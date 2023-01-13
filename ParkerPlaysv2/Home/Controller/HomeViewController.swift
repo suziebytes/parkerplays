@@ -157,7 +157,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return array.count
-        
     }
     
     //creates the cell and  applies the ui design

@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Parker Plays would like to add photos to the flashcard</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Parker Plays would like to record your flashcard text</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Wash Your Hand.ttf</string>
@@ -9,6 +13,8 @@
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
+		<key>UIApplicationSupportsTabbedSceneCollection</key>
+		<false/>
 		<key>UIApplicationSupportsMultipleScenes</key>
 		<false/>
 		<key>UISceneConfigurations</key>
