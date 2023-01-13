@@ -54,7 +54,6 @@ class HelloView: UIView {
     func updateName(){
         let name = UserDefaults.standard.string(forKey: "pp-name") ?? ""
         nameLabel.text = name
-        
     }
 }
 

@@ -20,13 +20,14 @@ class HomeButton: UIButton {
     }
     
     func setupHome(){
-        let image = UIImage(named: "houseicon.png")
-        let normalImage = image?.withTintColor(.white)
-        let hightlightImage = image?.withTintColor(UIColor(red: 79/255, green: 151/255, blue: 253/255, alpha: 1))
+        let image = UIImage(systemName: "house.circle.fill")
 
-        setImage(normalImage, for:.normal)
-        setImage(hightlightImage, for: .highlighted)
+        //setting image color
+        setImage(image, for:.normal)
+        tintColor = .white
         
+        imageView?.translatesAutoresizingMaskIntoConstraints = false
+        imageView?.heightAnchor.constraint(equalTo: widthAnchor).isActive = true
+        imageView?.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
     }
-    
 }
