@@ -44,4 +44,9 @@ class AnimalLabelView: UIView{
         animalLabel.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         animalLabel.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
     }
+    
+    func updateLabelText(){
+        let name = UserDefaults.standard.string(forKey: "faces-name") ?? ""
+        animalLabel.text = name
+    }
 }

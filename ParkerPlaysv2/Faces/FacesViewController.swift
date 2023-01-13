@@ -14,22 +14,40 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
     let homeButton = HomeButton()
     var sound = PlaySound()
     let label = AnimalLabelView()
+    let image = UIImage()
+    let labelButton = UIButton()
      
     // Image Picker
     var myImageView : UIImageView!
     let addImageButton = UIButton()
-
     
-    override func viewDidLoad() {
+    override func viewDidLoad(){
        super.viewDidLoad()
         setupBackground()
         setupHomeButton()
         setupCard()
         setupLabel()
         setupAddImageButton()
+        setupLabelButton()
+//        setupTextInput()
+        
+        // Obtaining the Location of the Documents Directory
+        let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+
+        // Create URL
+        let url = documents.appendingPathComponent("image.png")
+
+        // Convert to Data
+        if let data = image.pngData() {
+            do {
+                try data.write(to: url)
+            } catch {
+                print("Unable to Write Image Data to Disk")
+            }
+        }
     }
         
-@objc func displayImagePickerButtonTapped(_ sender: UIButton!) {
+@objc func displayImagePickerButtonTapped(_ sender: UIButton!){
         let myPickerController = UIImagePickerController()
         myPickerController.delegate = self
     //where the image is coming from (library vs camera)
@@ -62,7 +80,6 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
         card.widthAnchor.constraint(equalToConstant: 315).isActive = true
     }
     
-
     func setupAddImageButton() {
         
         view.addSubview(addImageButton)
@@ -82,17 +99,17 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
         addImageButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         }
     
-    @objc func playSound() {
+    @objc func playSound(){
             sound.soundFile = "buttonclick1"
             sound.playSound()
         }
     
-    func setupBackground() {
+    func setupBackground(){
         view.addSubview(background)
         background.image = UIImage(named: "gradientbg")
     }
     
-    func setupHomeButton() {
+    func setupHomeButton(){
         view.addSubview(homeButton)
         homeButton.setupHome()
         homeButton.addTarget(self, action: #selector(toHome), for: .touchUpInside)
@@ -103,17 +120,15 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
         homeButton.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         homeButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25).isActive = true
     }
-    @objc func toHome() {
+    
+    @objc func toHome(){
         sound.soundFile = "buttonclick2"
         sound.playSound()
         self.dismiss(animated: true)
     }
     
-
-    
-    func setupLabel() {
+    func setupLabel(){
         view.addSubview(label)
-        label.animalLabel.text = "grandpa"
         
         //CONSTRAINTS
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -121,9 +136,39 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
         label.heightAnchor.constraint(equalToConstant: 65).isActive = true
         label.topAnchor.constraint(equalTo: card.bottomAnchor, constant: 10).isActive = true
         label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    }
+
+    func setupLabelButton(){
+        label.addSubview(labelButton)
+        labelButton.addTarget(self, action: #selector(updateText), for: .touchUpInside)
         
+        //CONSTRAINTS
+        labelButton.translatesAutoresizingMaskIntoConstraints = false
+        labelButton.widthAnchor.constraint(equalTo: label.widthAnchor).isActive = true
+        labelButton.heightAnchor.constraint(equalTo: label.heightAnchor).isActive = true
     }
     
-    
-    
+    @objc func updateText(){
+        let alertController = UIAlertController(title: "Enter Name", message: "", preferredStyle: .alert)
+            alertController.addTextField { (textField) in
+                    // configure the properties of the text field
+                    textField.placeholder = "Name"
+                }
+        
+                alertController.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (_) in
+                    print("User clicked Edit button")
+                }))
+        
+                alertController.addAction(UIAlertAction(title: "Save", style: .default, handler: {[weak alertController] (_) in
+                    let textField = alertController?.textFields![0]
+                    print("Text field: \(String(describing: textField?.text ?? ""))")
+                    UserDefaults.standard.set(textField?.text ?? "", forKey: "faces-name")
+                    //use the key to grab value data (textField?.text)
+                    //to access the name: let name = UserDefaults.standard.string(forKey: "pp-name") ?? ""
+        
+                    self.label.updateLabelText()
+                }))
+        
+                present(alertController, animated: true, completion: nil)
+    }
 }
