@@ -33,8 +33,7 @@ class ABCViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.setHidesBackButton(true, animated: true)
-    }
+        self.navigationController?.navigationBar.isHidden = true    }
  
     func setupBackground() {
         view.addSubview(background)
@@ -126,6 +125,8 @@ class ABCViewController: UIViewController {
         //CONSTRAINTS
         homeButton.translatesAutoresizingMaskIntoConstraints = false
         homeButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.15).isActive = true
+        homeButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        homeButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         homeButton.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         homeButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25).isActive = true
     }

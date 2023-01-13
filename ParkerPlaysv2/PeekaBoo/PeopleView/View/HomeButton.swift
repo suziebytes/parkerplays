@@ -24,7 +24,10 @@ class HomeButton: UIButton {
 
         //setting image color
         setImage(image, for:.normal)
-        tintColor = .white
+
+        setImage(image, for: .highlighted)
+        
+        imageView?.tintColor = .white
         
         imageView?.translatesAutoresizingMaskIntoConstraints = false
         imageView?.heightAnchor.constraint(equalTo: widthAnchor).isActive = true

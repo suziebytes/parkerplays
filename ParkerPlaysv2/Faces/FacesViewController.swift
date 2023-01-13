@@ -31,6 +31,8 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
         setupLabelButton()
 //        setupTextInput()
         
+        self.navigationController?.navigationBar.isHidden = true
+        
         // Obtaining the Location of the Documents Directory
         let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
 
@@ -119,6 +121,8 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
 //        homeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 75).isActive = true
         homeButton.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         homeButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25).isActive = true
+        homeButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        homeButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
     @objc func toHome(){

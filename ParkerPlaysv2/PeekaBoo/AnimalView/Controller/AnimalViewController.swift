@@ -22,7 +22,7 @@ class AnimalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.setHidesBackButton(true, animated: true)
+        self.navigationController?.navigationBar.isHidden = true
         setupBackground()
         setupHomeButton()
         setupCardView()
@@ -30,6 +30,7 @@ class AnimalViewController: UIViewController {
         setupLabel()
         setupVCButton()
         setupTTSButton()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,7 +42,6 @@ class AnimalViewController: UIViewController {
     func setupHomeButton(){
         view.addSubview(homeButton)
         homeButton.setupHome()
-        homeButton.backgroundColor = .systemPink
         homeButton.addTarget(self, action: #selector(toHome), for: .touchUpInside)
         
         //CONSTRAINTS
