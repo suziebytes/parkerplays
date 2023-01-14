@@ -61,7 +61,7 @@ class NumbersViewController: UIViewController {
         view.addSubview(numButton)
         numButton.setupNumButton(colorCount: colorCount)
         numButton.setTitle(String(count), for: .normal)
-        setupTTS.playTTS(name: String(count))
+//        setupTTS.playTTS(name: String(count))
         numButton.addTarget(self, action: #selector(newCount), for: .touchUpInside)
         
         // CONSTRAINTS
