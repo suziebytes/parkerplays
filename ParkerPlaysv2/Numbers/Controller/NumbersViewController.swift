@@ -97,11 +97,14 @@ class NumbersViewController: UIViewController {
         view.addSubview(ttsButton)
         ttsButton.setImage(UIImage(named: "playcircle.svg"), for: .normal)
         ttsButton.addTarget(self, action: #selector(toTTS), for: .touchUpInside)
+//        ttsButton.backgroundColor = .systemPink
 
         //CONSTRAINTS
         ttsButton.translatesAutoresizingMaskIntoConstraints = false
         ttsButton.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -10).isActive = true
         ttsButton.rightAnchor.constraint(equalTo: cardView.rightAnchor, constant: -10).isActive = true
+        ttsButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        ttsButton.widthAnchor.constraint(equalToConstant: 100).isActive  = true
     }
 
     @objc func toTTS(){
