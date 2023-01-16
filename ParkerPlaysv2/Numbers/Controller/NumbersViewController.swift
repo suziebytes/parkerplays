@@ -18,6 +18,8 @@ class NumbersViewController: UIViewController {
     let setupTTS = TextToSpeech()
     var count = 0
     var colorCount = 0
+    var swipeArea = UILabel()
+    var tapToNext = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,26 +28,147 @@ class NumbersViewController: UIViewController {
         setupCardView()
         setupNumbersButton()
         setupTTSButton()
-        setupSwipe()
+//        setupSwipe()
+        setupSwipeArea()
+        setupLeftSwipe()
+        setupTap()
+    }
+    
+    func setupTap(){
+        view.addSubview(tapToNext)
+        
+        let labelTap = UITapGestureRecognizer(target: self, action: #selector(self.labelTapped(_:)))
+        swipeArea.isUserInteractionEnabled = true
+        swipeArea.addGestureRecognizer(labelTap)
+        
+        //CONSTRAINTS
+        tapToNext.translatesAutoresizingMaskIntoConstraints = false
+        tapToNext.topAnchor.constraint(equalTo: cardView.topAnchor).isActive = true
+        tapToNext.bottomAnchor.constraint(equalTo: cardView.bottomAnchor).isActive = true
+        tapToNext.rightAnchor.constraint(equalTo: cardView.rightAnchor).isActive = true
+        tapToNext.leftAnchor.constraint(equalTo: cardView.leftAnchor).isActive = true
+    }
+    
+ 
+    func setupSwipeArea(){
+        view.addSubview(swipeArea)
+        
+//        let labelTap = UITapGestureRecognizer(target: self, action: #selector(self.labelTapped(_:)))
+//        swipeArea.isUserInteractionEnabled = true
+//        swipeArea.addGestureRecognizer(labelTap)
+//
+        let labelSwipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.swipedRight(_:)))
+        swipeArea.isUserInteractionEnabled = true
+        labelSwipeRight.direction = .right
+        swipeArea.addGestureRecognizer(labelSwipeRight)
+        
+        let labelSwipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.swipedLeft(_:)))
+        swipeArea.isUserInteractionEnabled = true
+        labelSwipeLeft.direction = .left
+        swipeArea.addGestureRecognizer(labelSwipeLeft)
+     
+        
+        //CONSTRAINTS
+        swipeArea.translatesAutoresizingMaskIntoConstraints = false
+        swipeArea.topAnchor.constraint(equalTo: cardView.topAnchor).isActive = true
+        swipeArea.bottomAnchor.constraint(equalTo: cardView.bottomAnchor).isActive = true
+        swipeArea.rightAnchor.constraint(equalTo: cardView.rightAnchor).isActive = true
+        swipeArea.leftAnchor.constraint(equalTo: cardView.leftAnchor).isActive = true
+        
+        view.addGestureRecognizer(labelSwipeRight)
+//        view.addGestureRecognizer(labelSwipeLeft)
+    }
+    
+    func setupLeftSwipe(){
+        view.addSubview(swipeArea)
+        let labelSwipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.swipedLeft(_:)))
+        swipeArea.isUserInteractionEnabled = true
+        labelSwipeLeft.direction = .left
+        swipeArea.addGestureRecognizer(labelSwipeLeft)
+
+        view.addGestureRecognizer(labelSwipeLeft)
+
+        swipeArea.translatesAutoresizingMaskIntoConstraints = false
+        swipeArea.topAnchor.constraint(equalTo: cardView.topAnchor).isActive = true
+        swipeArea.bottomAnchor.constraint(equalTo: cardView.bottomAnchor).isActive = true
+        swipeArea.rightAnchor.constraint(equalTo: cardView.rightAnchor).isActive = true
+        swipeArea.leftAnchor.constraint(equalTo: cardView.leftAnchor).isActive = true
+    }
+    
+    @objc func labelTapped(_ sender: UITapGestureRecognizer){
+        print("labeltapped123")
+        if count < 10 {
+            count+=1
+        } else {
+            count = 0
+        }
+
+        let colorsList = numButton.colorList.count-1
+
+        if colorCount < colorsList {
+            colorCount+=1
+        } else {
+            colorCount = 0
+        }
+
+        let numberVC = NumbersViewController()
+        numberVC.count = count
+        numberVC.colorCount = colorCount
+        navigationController?.pushViewController(numberVC, animated: true)
+    }
+    
+    @objc func swipedRight(_ sender: UISwipeGestureRecognizer){
+        print("tried to swipe right")
+        
+        if count < 10 {
+            count-=1
+        } else {
+            count = 0
+        }
+        
+        let colorsList = numButton.colorList.count-1
+       
+        if colorCount < colorsList {
+            colorCount-=1
+        } else {
+            colorCount = 0
+        }
+            
+        let numberVC = NumbersViewController()
+        numberVC.count = count
+        numberVC.colorCount = colorCount
+//        navigationController?.pushViewController(numberVC, animated: true)
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func swipedLeft(_ sender: UISwipeGestureRecognizer){
+        print("tried to swipeeeeee left")
+        
+        if count < 10 {
+            count+=1
+        } else {
+            count = 0
+        }
+        
+        let colorsList = numButton.colorList.count-1
+       
+               if colorCount < colorsList {
+                   colorCount+=1
+               } else {
+                   colorCount = 0
+               }
+
+        let numberVC = NumbersViewController()
+        numberVC.count = count
+        numberVC.colorCount = colorCount
+        navigationController?.pushViewController(numberVC, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true    }
-    
-    func setupSwipe(){
-        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeLeft))
-        swipeGesture.direction = .right
-        cardView.addGestureRecognizer(swipeGesture)
-        cardView.isUserInteractionEnabled = true
-    }
 
-    @objc func swipeLeft(_ sender: UISwipeGestureRecognizer){
-        let numberVC = NumbersViewController()
-        numberVC.count = count-1
-        navigationController?.popViewController(animated: true)
-    }
-    
+
     func setupBackground() {
         view.addSubview(background)
         background.image = UIImage(named: "gradientbg")
@@ -76,7 +199,7 @@ class NumbersViewController: UIViewController {
         numButton.setupNumButton(colorCount: colorCount)
         numButton.setTitle(String(count), for: .normal)
 //        setupTTS.playTTS(name: String(count))
-        numButton.addTarget(self, action: #selector(newCount), for: .touchUpInside)
+//        numButton.addTarget(self, action: #selector(newCount), for: .touchUpInside)
         
         // CONSTRAINTS
         numButton.translatesAutoresizingMaskIntoConstraints = false
@@ -86,26 +209,26 @@ class NumbersViewController: UIViewController {
         numButton.rightAnchor.constraint(equalTo: cardView.rightAnchor).isActive = true
     }
     
-    @objc func newCount(){
-        if count < 10 {
-            count+=1
-        } else {
-            count = 0
-        }
-        
-        let colorsList = numButton.colorList.count-1
-        
-        if colorCount < colorsList {
-            colorCount+=1
-        } else {
-            colorCount = 0
-        }
-      
-        let numberVC = NumbersViewController()
-        numberVC.count = count
-        numberVC.colorCount = colorCount
-        navigationController?.pushViewController(numberVC, animated: true)
-        }
+//    @objc func newCount(){
+//        if count < 10 {
+//            count+=1
+//        } else {
+//            count = 0
+//        }
+//
+//        let colorsList = numButton.colorList.count-1
+//
+//        if colorCount < colorsList {
+//            colorCount+=1
+//        } else {
+//            colorCount = 0
+//        }
+//
+//        let numberVC = NumbersViewController()
+//        numberVC.count = count
+//        numberVC.colorCount = colorCount
+//        navigationController?.pushViewController(numberVC, animated: true)
+//        }
 
     func setupTTSButton(){
         view.addSubview(ttsButton)

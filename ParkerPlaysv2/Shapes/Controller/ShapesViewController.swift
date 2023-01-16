@@ -93,7 +93,7 @@ class ShapesViewController: UIViewController {
     }
     
     func setupShapeLabel(){
-        view.addSubview(shapeLabel)
+        view.addSubview (shapeLabel)
         let labelTitle = shapeList.shapeList[count]
         shapeLabel.shapeLabel.text = labelTitle.lowercased()
         
