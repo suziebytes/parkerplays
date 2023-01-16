@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ShapesViewController: UIViewController {
+class ShapesViewController: UIViewController{
     let background = UIImageView(frame: UIScreen.main.bounds)
     let cardView = CardView()
     let homeButton = HomeButton()
@@ -19,8 +19,11 @@ class ShapesViewController: UIViewController {
     let shapeLabel = ShapeLabel()
     var count = 0
     
+    var swipeArea = UILabel()
+    var tapToNext = UILabel()
     
-    override func viewDidLoad() {
+    
+    override func viewDidLoad(){
         super.viewDidLoad()
         setupBackground()
         setupHomeButton()
@@ -28,11 +31,96 @@ class ShapesViewController: UIViewController {
         setupShapeButton()
         setupTTSButton()
         setupShapeLabel()
+        setupSwipeArea()
+        setupTap()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool){
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = true    }
+        self.navigationController?.navigationBar.isHidden = true
+        
+    }
+    
+    func setupTap(){
+        view.addSubview(tapToNext)
+        
+        let labelTap = UITapGestureRecognizer(target: self, action: #selector(self.labelTapped(_:)))
+        swipeArea.isUserInteractionEnabled = true
+        swipeArea.addGestureRecognizer(labelTap)
+        
+        //CONSTRAINTS
+        tapToNext.translatesAutoresizingMaskIntoConstraints = false
+        tapToNext.topAnchor.constraint(equalTo: cardView.topAnchor).isActive = true
+        tapToNext.bottomAnchor.constraint(equalTo: cardView.bottomAnchor).isActive = true
+        tapToNext.rightAnchor.constraint(equalTo: cardView.rightAnchor).isActive = true
+        tapToNext.leftAnchor.constraint(equalTo: cardView.leftAnchor).isActive = true
+    }
+    
+    func setupSwipeArea(){
+        view.addSubview(swipeArea)
+
+        let labelSwipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.swipedRight(_:)))
+        swipeArea.isUserInteractionEnabled = true
+        labelSwipeRight.direction = .right
+        swipeArea.addGestureRecognizer(labelSwipeRight)
+        
+        let labelSwipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.swipedLeft(_:)))
+        swipeArea.isUserInteractionEnabled = true
+        labelSwipeLeft.direction = .left
+        swipeArea.addGestureRecognizer(labelSwipeLeft)
+        
+        //CONSTRAINTS
+        swipeArea.translatesAutoresizingMaskIntoConstraints = false
+        swipeArea.topAnchor.constraint(equalTo: cardView.topAnchor).isActive = true
+        swipeArea.bottomAnchor.constraint(equalTo: cardView.bottomAnchor).isActive = true
+        swipeArea.rightAnchor.constraint(equalTo: cardView.rightAnchor).isActive = true
+        swipeArea.leftAnchor.constraint(equalTo: cardView.leftAnchor).isActive = true
+    }
+    
+    @objc func labelTapped(_ sender: UITapGestureRecognizer){
+        print("labeltapped123")
+        let shapesArray = shapeList.shapeList.count-1
+        
+        if count < shapesArray {
+            count+=1
+        } else {
+            count = 0
+        }
+
+        let shapeVC = ShapesViewController()
+        shapeVC.count = count
+        navigationController?.pushViewController(shapeVC, animated: true)
+    }
+    
+    @objc func swipedRight(_ sender: UISwipeGestureRecognizer){
+        print("tried to swipe right")
+        let shapesArray = shapeList.shapeList.count-1
+        
+        if count < shapesArray {
+            count+=1
+        } else {
+            count = 0
+        }
+            
+        let shapeVC = ShapesViewController()
+        shapeVC.count = count
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func swipedLeft(_ sender: UISwipeGestureRecognizer){
+        print("tried to swipeeeeee left")
+        let shapesArray = shapeList.shapeList.count-1
+        
+        if count < shapesArray {
+            count+=1
+        } else {
+            count = 0
+        }
+
+        let shapeVC = ShapesViewController()
+        shapeVC.count = count
+        navigationController?.pushViewController(shapeVC, animated: true)
+    }
     
     func setupBackground() {
         view.addSubview(background)
