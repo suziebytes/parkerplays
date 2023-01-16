@@ -18,7 +18,6 @@ class ColorsViewController: UIViewController {
     let colorButton = UIButton()
     let ttsButton = UIButton()
     let TTS = TextToSpeech()
-    
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +34,6 @@ class ColorsViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
     }
-    
     
     func setupBackground(){
         view.addSubview(background)
@@ -117,6 +115,7 @@ class ColorsViewController: UIViewController {
        ttsButton.rightAnchor.constraint(equalTo: cardView.rightAnchor, constant: -10).isActive = true
        ttsButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
        ttsButton.widthAnchor.constraint(equalToConstant: 100).isActive  = true
+       ttsButton.rightAnchor.constraint(equalTo: cardView.rightAnchor, constant: 20).isActive = true
    }
    
    @objc func toTTS() {

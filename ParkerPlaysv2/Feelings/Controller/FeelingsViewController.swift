@@ -158,6 +158,8 @@ class FeeligsViewController: UIViewController {
         ttsButton.rightAnchor.constraint(equalTo: cardView.rightAnchor, constant: -10).isActive = true
         ttsButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
         ttsButton.widthAnchor.constraint(equalToConstant: 100).isActive  = true
+        ttsButton.rightAnchor.constraint(equalTo: cardView.rightAnchor, constant: 20).isActive = true
+
     }
     
     @objc func toTTS() {

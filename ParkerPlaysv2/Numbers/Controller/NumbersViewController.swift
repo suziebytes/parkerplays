@@ -26,11 +26,25 @@ class NumbersViewController: UIViewController {
         setupCardView()
         setupNumbersButton()
         setupTTSButton()
+        setupSwipe()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true    }
+    
+    func setupSwipe(){
+        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeLeft))
+        swipeGesture.direction = .right
+        cardView.addGestureRecognizer(swipeGesture)
+        cardView.isUserInteractionEnabled = true
+    }
+
+    @objc func swipeLeft(_ sender: UISwipeGestureRecognizer){
+        let numberVC = NumbersViewController()
+        numberVC.count = count-1
+        navigationController?.popViewController(animated: true)
+    }
     
     func setupBackground() {
         view.addSubview(background)
@@ -96,13 +110,13 @@ class NumbersViewController: UIViewController {
     func setupTTSButton(){
         view.addSubview(ttsButton)
         ttsButton.setImage(UIImage(named: "playcircle.svg"), for: .normal)
+//        ttsButton.backgroundColor = .systemCyan
         ttsButton.addTarget(self, action: #selector(toTTS), for: .touchUpInside)
-//        ttsButton.backgroundColor = .systemPink
 
         //CONSTRAINTS
         ttsButton.translatesAutoresizingMaskIntoConstraints = false
         ttsButton.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -10).isActive = true
-        ttsButton.rightAnchor.constraint(equalTo: cardView.rightAnchor, constant: -10).isActive = true
+        ttsButton.rightAnchor.constraint(equalTo: cardView.rightAnchor, constant: 20).isActive = true
         ttsButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
         ttsButton.widthAnchor.constraint(equalToConstant: 100).isActive  = true
     }

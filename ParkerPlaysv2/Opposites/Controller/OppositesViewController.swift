@@ -266,6 +266,8 @@ class OppositesViewController: UIViewController {
         ttsFrontButton.rightAnchor.constraint(equalTo: cardContainer.rightAnchor, constant: -10).isActive = true
         ttsFrontButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
         ttsFrontButton.widthAnchor.constraint(equalToConstant: 100).isActive  = true
+        ttsFrontButton.rightAnchor.constraint(equalTo: cardContainer.rightAnchor, constant: 20).isActive = true
+
     }
     
     func setupBackTTSButton(){
@@ -279,6 +281,8 @@ class OppositesViewController: UIViewController {
         ttsBackButton.rightAnchor.constraint(equalTo: cardContainer.rightAnchor, constant: -10).isActive = true
         ttsBackButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
         ttsBackButton.widthAnchor.constraint(equalToConstant: 100).isActive  = true
+        ttsBackButton.rightAnchor.constraint(equalTo: cardContainer.rightAnchor, constant: 20).isActive = true
+
     }
     
     @objc func toFrontTTS() {
