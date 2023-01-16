@@ -28,9 +28,7 @@ class NumbersViewController: UIViewController {
         setupCardView()
         setupNumbersButton()
         setupTTSButton()
-//        setupSwipe()
         setupSwipeArea()
-        setupLeftSwipe()
         setupTap()
     }
     
@@ -49,14 +47,9 @@ class NumbersViewController: UIViewController {
         tapToNext.leftAnchor.constraint(equalTo: cardView.leftAnchor).isActive = true
     }
     
- 
     func setupSwipeArea(){
         view.addSubview(swipeArea)
-        
-//        let labelTap = UITapGestureRecognizer(target: self, action: #selector(self.labelTapped(_:)))
-//        swipeArea.isUserInteractionEnabled = true
-//        swipeArea.addGestureRecognizer(labelTap)
-//
+
         let labelSwipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.swipedRight(_:)))
         swipeArea.isUserInteractionEnabled = true
         labelSwipeRight.direction = .right
@@ -66,28 +59,8 @@ class NumbersViewController: UIViewController {
         swipeArea.isUserInteractionEnabled = true
         labelSwipeLeft.direction = .left
         swipeArea.addGestureRecognizer(labelSwipeLeft)
-     
         
         //CONSTRAINTS
-        swipeArea.translatesAutoresizingMaskIntoConstraints = false
-        swipeArea.topAnchor.constraint(equalTo: cardView.topAnchor).isActive = true
-        swipeArea.bottomAnchor.constraint(equalTo: cardView.bottomAnchor).isActive = true
-        swipeArea.rightAnchor.constraint(equalTo: cardView.rightAnchor).isActive = true
-        swipeArea.leftAnchor.constraint(equalTo: cardView.leftAnchor).isActive = true
-        
-        view.addGestureRecognizer(labelSwipeRight)
-//        view.addGestureRecognizer(labelSwipeLeft)
-    }
-    
-    func setupLeftSwipe(){
-        view.addSubview(swipeArea)
-        let labelSwipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.swipedLeft(_:)))
-        swipeArea.isUserInteractionEnabled = true
-        labelSwipeLeft.direction = .left
-        swipeArea.addGestureRecognizer(labelSwipeLeft)
-
-        view.addGestureRecognizer(labelSwipeLeft)
-
         swipeArea.translatesAutoresizingMaskIntoConstraints = false
         swipeArea.topAnchor.constraint(equalTo: cardView.topAnchor).isActive = true
         swipeArea.bottomAnchor.constraint(equalTo: cardView.bottomAnchor).isActive = true
@@ -137,7 +110,6 @@ class NumbersViewController: UIViewController {
         let numberVC = NumbersViewController()
         numberVC.count = count
         numberVC.colorCount = colorCount
-//        navigationController?.pushViewController(numberVC, animated: true)
         navigationController?.popViewController(animated: true)
     }
     
