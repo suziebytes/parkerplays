@@ -90,6 +90,8 @@ class ShapesViewController: UIViewController{
         let shapeVC = ShapesViewController()
         shapeVC.count = count
         navigationController?.pushViewController(shapeVC, animated: true)
+        sound.soundFile = "buttonclick1"
+        sound.playSound()
     }
     
     @objc func swipedRight(_ sender: UISwipeGestureRecognizer){
@@ -105,6 +107,8 @@ class ShapesViewController: UIViewController{
         let shapeVC = ShapesViewController()
         shapeVC.count = count
         navigationController?.popViewController(animated: true)
+        sound.soundFile = "buttonclick1"
+        sound.playSound()
     }
     
     @objc func swipedLeft(_ sender: UISwipeGestureRecognizer){
@@ -120,6 +124,8 @@ class ShapesViewController: UIViewController{
         let shapeVC = ShapesViewController()
         shapeVC.count = count
         navigationController?.pushViewController(shapeVC, animated: true)
+        sound.soundFile = "buttonclick1"
+        sound.playSound()
     }
     
     func setupBackground() {

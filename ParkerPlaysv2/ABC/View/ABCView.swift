@@ -26,7 +26,7 @@ class ABCButton: UIButton {
         
         setTitleColor((color),for: .normal)
         setTitle(letter, for: .normal )
-        titleLabel?.font = UIFont(name: "BaksoSapi", size: 300)
+        titleLabel?.font = UIFont(name: "Winkle-Regular", size: 300)
     }
 
 

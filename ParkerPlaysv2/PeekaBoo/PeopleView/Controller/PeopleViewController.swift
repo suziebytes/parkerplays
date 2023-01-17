@@ -31,7 +31,7 @@ class PeopleViewController: UIViewController {
         peopleImage()
         self.navigationController?.navigationBar.isHidden = true
     }
-    
+
     func setupBackground(){
         view.addSubview(background)
         background.image = UIImage(named: "gradientbg")
@@ -53,7 +53,6 @@ class PeopleViewController: UIViewController {
         cardView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         cardView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.75).isActive = true
         cardView.topAnchor.constraint(equalTo: homeButton.bottomAnchor, constant: 10).isActive = true
-//        cardView.heightAnchor.constraint(equalToConstant: 605).isActive = true
         cardView.widthAnchor.constraint(equalToConstant: 315).isActive = true
     }
     
@@ -66,7 +65,6 @@ class PeopleViewController: UIViewController {
     func setupToAnimalButton(){
         view.addSubview(toAnimalButton)
         toAnimalButton.addTarget(self, action: #selector(toAnimal), for: .touchUpInside)
-        
         //CONSTRAINTS
         toAnimalButton.translatesAutoresizingMaskIntoConstraints = false
         toAnimalButton.topAnchor.constraint(equalTo: cardView.topAnchor).isActive = true
@@ -86,8 +84,7 @@ class PeopleViewController: UIViewController {
         
 //        sound.soundFile = "Boo"
 //        sound.playSound()
-        
-    
+
         let animalVC = AnimalViewController()
         animalVC.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(animalVC, animated: true)
@@ -97,8 +94,6 @@ class PeopleViewController: UIViewController {
         view.addSubview(homeButton)
         homeButton.setupHome()
         homeButton.addTarget(self, action: #selector(toHome), for: .touchUpInside)
-        
-        
         //CONSTRAINTS
         homeButton.translatesAutoresizingMaskIntoConstraints = false
         homeButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.15).isActive = true
@@ -113,6 +108,5 @@ class PeopleViewController: UIViewController {
         sound.playSound()
         self.dismiss(animated: true)
     }
-
 }
    

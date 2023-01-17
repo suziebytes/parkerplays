@@ -88,6 +88,8 @@ class NumbersViewController: UIViewController {
         numberVC.count = count
         numberVC.colorCount = colorCount
         navigationController?.pushViewController(numberVC, animated: true)
+        sound.soundFile = "buttonclick1"
+        sound.playSound()
     }
     
     @objc func swipedRight(_ sender: UISwipeGestureRecognizer){
@@ -111,6 +113,8 @@ class NumbersViewController: UIViewController {
         numberVC.count = count
         numberVC.colorCount = colorCount
         navigationController?.popViewController(animated: true)
+        sound.soundFile = "buttonclick1"
+        sound.playSound()
     }
     
     @objc func swipedLeft(_ sender: UISwipeGestureRecognizer){
@@ -134,6 +138,8 @@ class NumbersViewController: UIViewController {
         numberVC.count = count
         numberVC.colorCount = colorCount
         navigationController?.pushViewController(numberVC, animated: true)
+        sound.soundFile = "buttonclick1"
+        sound.playSound()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -180,32 +186,10 @@ class NumbersViewController: UIViewController {
         numButton.leftAnchor.constraint(equalTo: cardView.leftAnchor).isActive = true
         numButton.rightAnchor.constraint(equalTo: cardView.rightAnchor).isActive = true
     }
-    
-//    @objc func newCount(){
-//        if count < 10 {
-//            count+=1
-//        } else {
-//            count = 0
-//        }
-//
-//        let colorsList = numButton.colorList.count-1
-//
-//        if colorCount < colorsList {
-//            colorCount+=1
-//        } else {
-//            colorCount = 0
-//        }
-//
-//        let numberVC = NumbersViewController()
-//        numberVC.count = count
-//        numberVC.colorCount = colorCount
-//        navigationController?.pushViewController(numberVC, animated: true)
-//        }
 
     func setupTTSButton(){
         view.addSubview(ttsButton)
         ttsButton.setImage(UIImage(named: "playcircle.svg"), for: .normal)
-//        ttsButton.backgroundColor = .systemCyan
         ttsButton.addTarget(self, action: #selector(toTTS), for: .touchUpInside)
 
         //CONSTRAINTS

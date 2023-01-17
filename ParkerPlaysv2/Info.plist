@@ -4,6 +4,8 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Winkle-Regular.ttf</string>
+		<string>Lemonella.ttf</string>
 		<string>Wash Your Hand.ttf</string>
 		<string>BaksoSapi.otf</string>
 	</array>
