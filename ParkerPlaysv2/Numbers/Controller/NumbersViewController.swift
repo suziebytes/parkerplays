@@ -92,7 +92,6 @@ class NumbersViewController: UIViewController {
         incrementCounterPushNewVC()
     }
     
-    
     @objc func swipedRight(_ sender: UISwipeGestureRecognizer){
 //        if count < 10 {
 //            count-=1
