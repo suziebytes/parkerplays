@@ -22,7 +22,6 @@ class ABCViewController: UIViewController {
     var swipeArea = UILabel()
     var tapToNext = UILabel()
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBackground()
@@ -36,7 +35,8 @@ class ABCViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = true    }
+        self.navigationController?.navigationBar.isHidden = true
+    }
     
     func setupTap(){
         view.addSubview(tapToNext)
@@ -75,77 +75,61 @@ class ABCViewController: UIViewController {
     }
     
     @objc func labelTapped(_ sender: UITapGestureRecognizer){
-        print("labeltapped123")
+        incrementCounterPushNewVC()
+    }
+    
+    func incrementCounterPushNewVC() {
+        //create instance of NEXT VC
+        let abcVC = ABCViewController()
+
+        //local current count
         if count < 25 {
-            count+=1
+            //update the NEW VC *by using* current count + 1 of CURRENT VC
+            abcVC.count = count + 1
         } else {
             count = 0
         }
 
         let colorsList = abcButton.colorList.count-1
-
+        
         if colorCount < colorsList {
-            colorCount+=1
+            abcVC.colorCount = colorCount + 1
         } else {
             colorCount = 0
         }
-
-        let abcVC = ABCViewController()
-        abcVC.count = count
-        abcVC.colorCount = colorCount
+        
         navigationController?.pushViewController(abcVC, animated: true)
         sound.soundFile = "buttonclick1"
         sound.playSound()
     }
     
+    // COMPARE WITH THE ONE BELOW ON HOW VC IS BEING PRESENTED / VARIABLES USED
     @objc func swipedRight(_ sender: UISwipeGestureRecognizer){
-        print("tried to swipe right")
-        
-        if count < 25 {
-            count-=1
-        } else {
-            count = 0
-        }
-        
-        let colorsList = abcButton.colorList.count-1
-       
-        if colorCount < colorsList {
-            colorCount-=1
-        } else {
-            colorCount = 0
-        }
-            
-        let abcVC = ABCViewController()
-        abcVC.count = count
-        abcVC.colorCount = colorCount
+//        if count < 25 {
+//            count-=1
+//        } else {
+//            count = 0
+//        }
+//
+//        let colorsList = abcButton.colorList.count-1
+//
+//        if colorCount < colorsList {
+//            colorCount-=1
+//        } else {
+//            colorCount = 0
+//        }
+//
+//        let abcVC = ABCViewController()
+//        abcVC.count = count
+//        abcVC.colorCount = colorCount
+//        count+=1
         navigationController?.popViewController(animated: true)
         sound.soundFile = "buttonclick1"
         sound.playSound()
     }
     
     @objc func swipedLeft(_ sender: UISwipeGestureRecognizer){
-        print("tried to swipeeeeee left")
-        
-        if count < 25 {
-            count+=1
-        } else {
-            count = 0
-        }
-        
-        let colorsList = abcButton.colorList.count-1
-       
-        if colorCount < colorsList {
-            colorCount+=1
-        } else {
-            colorCount = 0
-        }
-
-        let abcVC = ABCViewController()
-        abcVC.count = count
-        abcVC.colorCount = colorCount
-        navigationController?.pushViewController(abcVC, animated: true)
-        sound.soundFile = "buttonclick1"
-        sound.playSound()
+        incrementCounterPushNewVC()
     }
  
     func setupBackground() {
@@ -169,11 +153,11 @@ class ABCViewController: UIViewController {
         cardView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         cardView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.7).isActive = true
         cardView.topAnchor.constraint(equalTo: homeButton.bottomAnchor, constant: 10).isActive = true
-//        cardView.heightAnchor.constraint(equalToConstant: 605).isActive = true
         cardView.widthAnchor.constraint(equalToConstant: 315).isActive = true
     }
     
     func setupLetter(){
+        print("this is the \(count)")
         let letter = alphabet.alphabet[count]
         cardView.addSubview(abcButton)
         abcButton.setupButton(letter: letter, colorCount: colorCount)

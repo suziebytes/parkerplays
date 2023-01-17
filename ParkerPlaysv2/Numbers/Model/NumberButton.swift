@@ -22,7 +22,7 @@ class NumberButton: UIButton {
     func setupNumButton(colorCount: Int){
         let color: UIColor = colorList[colorCount]
         setTitleColor((color),for: .normal)
-        titleLabel?.font = UIFont(name: "Lemonella", size: 300)
+        titleLabel?.font = UIFont(name: "Lemonella", size: 250)
     }
 }
 

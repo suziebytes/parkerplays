@@ -18,7 +18,6 @@ class ABCButton: UIButton {
         UIColor(red: 220/255, green: 163/255, blue: 35/255, alpha: 1),
         UIColor(red: 239/255, green: 101/255, blue: 123/255, alpha: 1),
         UIColor(red: 164/255, green: 99/255, blue: 218/255, alpha: 1)
-        
     ]
     
     func setupButton(letter: String, colorCount: Int){
@@ -26,8 +25,6 @@ class ABCButton: UIButton {
         
         setTitleColor((color),for: .normal)
         setTitle(letter, for: .normal )
-        titleLabel?.font = UIFont(name: "Winkle-Regular", size: 300)
+        titleLabel?.font = UIFont(name: "Winkle-Regular", size: 350)
     }
-
-
 }

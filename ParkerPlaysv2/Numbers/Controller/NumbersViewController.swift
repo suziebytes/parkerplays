@@ -68,78 +68,56 @@ class NumbersViewController: UIViewController {
         swipeArea.leftAnchor.constraint(equalTo: cardView.leftAnchor).isActive = true
     }
     
-    @objc func labelTapped(_ sender: UITapGestureRecognizer){
-        print("labeltapped123")
+    func incrementCounterPushNewVC() {
+        let numberVC = NumbersViewController()
         if count < 10 {
-            count+=1
+            numberVC.count = count + 1
         } else {
             count = 0
         }
 
         let colorsList = numButton.colorList.count-1
-
         if colorCount < colorsList {
-            colorCount+=1
+            numberVC.colorCount = colorCount + 1
         } else {
             colorCount = 0
         }
 
-        let numberVC = NumbersViewController()
-        numberVC.count = count
-        numberVC.colorCount = colorCount
         navigationController?.pushViewController(numberVC, animated: true)
         sound.soundFile = "buttonclick1"
         sound.playSound()
     }
     
+    @objc func labelTapped(_ sender: UITapGestureRecognizer){
+        incrementCounterPushNewVC()
+    }
+    
+    
     @objc func swipedRight(_ sender: UISwipeGestureRecognizer){
-        print("tried to swipe right")
-        
-        if count < 10 {
-            count-=1
-        } else {
-            count = 0
-        }
-        
-        let colorsList = numButton.colorList.count-1
-       
-        if colorCount < colorsList {
-            colorCount-=1
-        } else {
-            colorCount = 0
-        }
-            
-        let numberVC = NumbersViewController()
-        numberVC.count = count
-        numberVC.colorCount = colorCount
+//        if count < 10 {
+//            count-=1
+//        } else {
+//            count = 0
+//        }
+//
+//        let colorsList = numButton.colorList.count-1
+//
+//        if colorCount < colorsList {
+//            colorCount-=1
+//        } else {
+//            colorCount = 0
+//        }
+//
+//        let numberVC = NumbersViewController()
+//        numberVC.count = count
+//        numberVC.colorCount = colorCount
         navigationController?.popViewController(animated: true)
         sound.soundFile = "buttonclick1"
         sound.playSound()
     }
     
     @objc func swipedLeft(_ sender: UISwipeGestureRecognizer){
-        print("tried to swipeeeeee left")
-        
-        if count < 10 {
-            count+=1
-        } else {
-            count = 0
-        }
-        
-        let colorsList = numButton.colorList.count-1
-       
-               if colorCount < colorsList {
-                   colorCount+=1
-               } else {
-                   colorCount = 0
-               }
-
-        let numberVC = NumbersViewController()
-        numberVC.count = count
-        numberVC.colorCount = colorCount
-        navigationController?.pushViewController(numberVC, animated: true)
-        sound.soundFile = "buttonclick1"
-        sound.playSound()
+       incrementCounterPushNewVC()
     }
     
     override func viewWillAppear(_ animated: Bool) {

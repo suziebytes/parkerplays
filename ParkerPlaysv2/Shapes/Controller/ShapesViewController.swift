@@ -77,55 +77,46 @@ class ShapesViewController: UIViewController{
         swipeArea.leftAnchor.constraint(equalTo: cardView.leftAnchor).isActive = true
     }
     
+    
     @objc func labelTapped(_ sender: UITapGestureRecognizer){
-        print("labeltapped123")
-        let shapesArray = shapeList.shapeList.count-1
-        
-        if count < shapesArray {
-            count+=1
+        incrementCounterPushNewVC()
+    }
+    
+    func incrementCounterPushNewVC() {
+        //create instance of NEXT VC
+        let shapesVC = ShapesViewController()
+
+        //local current count
+        if count < 25 {
+            //update the NEW VC *by using* current count + 1 of CURRENT VC
+            shapesVC.count = count + 1
         } else {
             count = 0
         }
 
-        let shapeVC = ShapesViewController()
-        shapeVC.count = count
-        navigationController?.pushViewController(shapeVC, animated: true)
+        navigationController?.pushViewController(shapesVC, animated: true)
         sound.soundFile = "buttonclick1"
         sound.playSound()
     }
     
     @objc func swipedRight(_ sender: UISwipeGestureRecognizer){
-        print("tried to swipe right")
-        let shapesArray = shapeList.shapeList.count-1
-        
-        if count < shapesArray {
-            count+=1
-        } else {
-            count = 0
-        }
-            
-        let shapeVC = ShapesViewController()
-        shapeVC.count = count
+//        let shapesArray = shapeList.shapeList.count-1
+//
+//        if count < shapesArray {
+//            count+=1
+//        } else {
+//            count = 0
+//        }
+//
+//        let shapeVC = ShapesViewController()
+//        shapeVC.count = count
         navigationController?.popViewController(animated: true)
         sound.soundFile = "buttonclick1"
         sound.playSound()
     }
     
     @objc func swipedLeft(_ sender: UISwipeGestureRecognizer){
-        print("tried to swipeeeeee left")
-        let shapesArray = shapeList.shapeList.count-1
-        
-        if count < shapesArray {
-            count+=1
-        } else {
-            count = 0
-        }
-
-        let shapeVC = ShapesViewController()
-        shapeVC.count = count
-        navigationController?.pushViewController(shapeVC, animated: true)
-        sound.soundFile = "buttonclick1"
-        sound.playSound()
+   incrementCounterPushNewVC()
     }
     
     func setupBackground() {
@@ -170,7 +161,7 @@ class ShapesViewController: UIViewController{
     }
     
     @objc func newShape(){
-        
+
         if count < shapeList.shapeList.count {
             count+=1
         } else {
