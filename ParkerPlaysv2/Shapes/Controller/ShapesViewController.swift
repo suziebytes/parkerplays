@@ -87,7 +87,7 @@ class ShapesViewController: UIViewController{
         let shapesVC = ShapesViewController()
 
         //local current count
-        if count < 25 {
+        if count < 11 {
             //update the NEW VC *by using* current count + 1 of CURRENT VC
             shapesVC.count = count + 1
         } else {
