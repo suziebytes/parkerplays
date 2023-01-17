@@ -177,9 +177,6 @@ class ABCViewController: UIViewController {
         let letter = alphabet.alphabet[count]
         cardView.addSubview(abcButton)
         abcButton.setupButton(letter: letter, colorCount: colorCount)
-//        abcButton.addTarget(self, action: #selector(newLetter), for: .touchUpInside)
-        
-        //add target to go to the next button / dismiss and call ABCbutton again?
         
         //CONSTRAINTS
         abcButton.translatesAutoresizingMaskIntoConstraints = false
@@ -188,31 +185,6 @@ class ABCViewController: UIViewController {
         abcButton.leftAnchor.constraint(equalTo: cardView.leftAnchor).isActive = true
         abcButton.rightAnchor.constraint(equalTo: cardView.rightAnchor).isActive = true
     }
-    
-//    @objc func newLetter(){
-//        if count < 25 {
-//            count+=1
-//        } else {
-//            count = 0
-//        }
-//
-//
-//        let colorsList = abcButton.colorList.count-1
-//        if colorCount < colorsList {
-//            colorCount+=1
-//        } else {
-//            colorCount = 0
-//        }
-//
-//
-//        let abcVC = ABCViewController()
-//        abcVC.count = count
-//        abcVC.colorCount = colorCount
-//        abcVC.modalPresentationStyle = .fullScreen
-//        navigationController?.pushViewController(abcVC, animated: true)
-//        sound.soundFile = "buttonclick1"
-//        sound.playSound()
-//    }
      
     func setupTTSButton(){
         view.addSubview(ttsButton)

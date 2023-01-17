@@ -26,7 +26,7 @@ class PeopleViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        sound.soundFile = "Peek A - boosted"
+        sound.soundFile = "PeekASound-boosted"
         sound.playSound()
         peopleImage()
         self.navigationController?.navigationBar.isHidden = true
@@ -82,8 +82,8 @@ class PeopleViewController: UIViewController {
         }
         print("this is \(count)")
         
-//        sound.soundFile = "Boo"
-//        sound.playSound()
+        sound.soundFile = "BooSound-boosted"
+        sound.playSound()
 
         let animalVC = AnimalViewController()
         animalVC.modalPresentationStyle = .fullScreen

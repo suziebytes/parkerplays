@@ -143,7 +143,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
 //        gamesView.addSubview(pageControl)
         
-        pageControl.numberOfPages = 1
+//        pageControl.numberOfPages = 1
         pageControl.currentPage = array.count/4
         pageControl.pageIndicatorTintColor = .lightGray
         pageControl.currentPageIndicatorTintColor = .gray

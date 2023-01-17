@@ -35,7 +35,7 @@ class AnimalViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        sound.soundFile = "Boo - boosted"
+        sound.soundFile = "BooSound-boosted"
         sound.playSound()
     }
     
@@ -129,7 +129,7 @@ class AnimalViewController: UIViewController {
     
     @objc func backToPeople(){
         navigationController?.popViewController(animated: true)
-        sound.soundFile = "Peek A "
+        sound.soundFile = "PeekASound-boosted"
         sound.playSound()
     }
         
