@@ -33,21 +33,6 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
 //        setupTextInput()
         
         self.navigationController?.navigationBar.isHidden = true
-        
-        // Obtaining the Location of the Documents Directory
-        let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-
-        // Create URL
-        let url = documents.appendingPathComponent("image.png")
-
-        // Convert to Data
-        if let data = image.pngData() {
-            do {
-                try data.write(to: url)
-            } catch {
-                print("Unable to Write Image Data to Disk")
-            }
-        }
     }
         
 @objc func displayImagePickerButtonTapped(_ sender: UIButton!){
@@ -60,15 +45,37 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-            dismiss(animated: true, completion: nil)
-                        card.imageView.image = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.originalImage.rawValue) ] as? UIImage
-                        card.imageView.contentMode = UIView.ContentMode.scaleAspectFill
+            card.imageView.image = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.originalImage.rawValue) ] as? UIImage
+            card.imageView.contentMode = UIView.ContentMode.scaleAspectFill
+        storeImage(info: info)
             self.dismiss(animated: true, completion: nil)
-            
-            }
-        
+    }
     
+    func storeImage(info: [UIImagePickerController.InfoKey : Any]){
+        // Obtaining the Location of the Documents Directory
+        let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+
+        // Create URL
+        let url = documents.appendingPathComponent("image.png")
+        print("this is image path \(url)")
+
+        // Convert to Data - grabbing image converting to UIImage
+        let image = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.originalImage.rawValue) ] as? UIImage
+        if let data = image?.pngData() {
+            do {
+                try data.write(to: url)
+            } catch {
+                print("Unable to Write Image Data to Disk")
+            }
+        }
+    }
+    
+    func setupGetImage(){
+        //grab image store in documents foler
+        //access url path for image in documents
+        //assign image to UIImageView of cardView
+    }
+        
      override func didReceiveMemoryWarning() {
          super.didReceiveMemoryWarning()
          // Dispose of any resources that can be recreated.
