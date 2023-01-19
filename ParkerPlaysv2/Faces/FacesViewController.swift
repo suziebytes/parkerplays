@@ -16,7 +16,8 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
     let label = AnimalLabelView()
     let image = UIImage()
     let labelButton = UIButton()
-     
+    let picker = UIImagePickerController()
+    
     // Image Picker
     var myImageView : UIImageView!
     let addImageButton = UIButton()
@@ -53,17 +54,20 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
         let myPickerController = UIImagePickerController()
         myPickerController.delegate = self
     //where the image is coming from (library vs camera)
-        myPickerController.sourceType = UIImagePickerController.SourceType.camera
+        myPickerController.sourceType = UIImagePickerController.SourceType.photoLibrary
               
         self.present(myPickerController, animated: true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        card.imageView.image = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.originalImage.rawValue) ] as? UIImage
+        
+            dismiss(animated: true, completion: nil)
+                        card.imageView.image = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.originalImage.rawValue) ] as? UIImage
+                        card.imageView.contentMode = UIView.ContentMode.scaleAspectFill
+            self.dismiss(animated: true, completion: nil)
             
-        card.imageView.contentMode = UIView.ContentMode.scaleAspectFill
-               self.dismiss(animated: true, completion: nil)
-    }
+            }
+        
     
      override func didReceiveMemoryWarning() {
          super.didReceiveMemoryWarning()

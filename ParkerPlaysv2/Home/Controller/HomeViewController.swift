@@ -30,9 +30,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var facesButton = GameButton()
     
     //COLLECTIONVIEW
-//    var array = ["peekaboo", "numbers", "abc", "shapes", "colors","opposites", "feelings", "faces"]
-    var array = ["peekaboo", "numbers", "abc", "shapes"]
-
+    var array = ["peekaboo", "numbers", "abc", "shapes", "colors","opposites", "feelings", "faces"]
     var imgArray = ["lionicon", "numbersicon", "abcicon", "shapesicon", "crayon2", "oppositeicon", "feelingsicon", "faceicon"]
     
     override func viewDidLoad() {
@@ -143,7 +141,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
 //        gamesView.addSubview(pageControl)
         
-//        pageControl.numberOfPages = 1
+        pageControl.numberOfPages = 2
         pageControl.currentPage = array.count/4
         pageControl.pageIndicatorTintColor = .lightGray
         pageControl.currentPageIndicatorTintColor = .gray
