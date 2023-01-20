@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "thin.png",
+      "filename" : "thin-min.png",
       "idiom" : "universal",
       "scale" : "1x"
     },

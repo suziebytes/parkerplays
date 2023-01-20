@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "small.png",
+      "filename" : "small-min.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
