@@ -30,7 +30,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var facesButton = GameButton()
     
     //COLLECTIONVIEW
-    var array = ["peekaboo", "numbers", "abc", "shapes", "colors","opposites", "feelings", "faces"]
+//    var array = ["peekaboo", "numbers", "abc", "shapes", "colors","opposites", "feelings", "faces"]
+    var array = ["peekaboo", "numbers", "abc", "shapes"]
+
     var imgArray = ["lionicon", "numbersicon", "abcicon", "shapesicon", "crayon2", "oppositeicon", "feelingsicon", "faceicon"]
     
     override func viewDidLoad() {
@@ -141,7 +143,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
 //        gamesView.addSubview(pageControl)
         
-        pageControl.numberOfPages = 2
+//        pageControl.numberOfPages = 2
         pageControl.currentPage = array.count/4
         pageControl.pageIndicatorTintColor = .lightGray
         pageControl.currentPageIndicatorTintColor = .gray
@@ -271,7 +273,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             sound.soundFile = "buttonclick1"
             sound.playSound()
             
-            let faceVC = FacesViewController()
+            let faceVC = FacesViewController(id: 0)
             let rootVC = faceVC
             let navVC = UINavigationController(rootViewController: rootVC)
             navVC.modalPresentationStyle = .fullScreen

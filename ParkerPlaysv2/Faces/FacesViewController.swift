@@ -17,6 +17,17 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
     let image = UIImage()
     let labelButton = UIButton()
     let picker = UIImagePickerController()
+    let id: Int
+    
+    init(id: Int) {
+        self.id = id
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     
     // Image Picker
     var myImageView : UIImageView!
@@ -34,15 +45,6 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         self.navigationController?.navigationBar.isHidden = true
     }
-        
-@objc func displayImagePickerButtonTapped(_ sender: UIButton!){
-        let myPickerController = UIImagePickerController()
-        myPickerController.delegate = self
-    //where the image is coming from (library vs camera)
-        myPickerController.sourceType = UIImagePickerController.SourceType.photoLibrary
-              
-        self.present(myPickerController, animated: true, completion: nil)
-    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             card.imageView.image = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.originalImage.rawValue) ] as? UIImage
@@ -54,7 +56,6 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
     func storeImage(info: [UIImagePickerController.InfoKey : Any]){
         // Obtaining the Location of the Documents Directory
         let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-
         // Create URL
         let url = documents.appendingPathComponent("image.png")
         print("this is image path \(url)")
@@ -71,9 +72,10 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     func setupGetImage(){
-        //grab image store in documents foler
-        //access url path for image in documents
-        //assign image to UIImageView of cardView
+//        CardView.imageView.image = url
+//        //grab image store in documents foler
+//        //access url path for image in documents
+//        //assign image to UIImageView of cardView
     }
         
      override func didReceiveMemoryWarning() {
@@ -84,7 +86,6 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
     func setupCard(){
         view.addSubview(card)
         card.setupImage()
-        
         //CONSTRAINT
         card.translatesAutoresizingMaskIntoConstraints = false
         card.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -94,7 +95,6 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     func setupAddImageButton() {
-        
         view.addSubview(addImageButton)
         addImageButton.backgroundColor = UIColor(red: 79/255, green: 151/255, blue: 253/255, alpha: 1)
         addImageButton.tintColor = .white
@@ -102,7 +102,7 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
         addImageButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .medium)
         addImageButton.layer.cornerRadius = 22
         addImageButton.addTarget(self, action: #selector(playSound), for: .touchUpInside)
-        addImageButton.addTarget(self, action: #selector(displayImagePickerButtonTapped), for: .touchUpInside)
+        addImageButton.addTarget(self, action: #selector(addImageButtonTapped), for: .touchUpInside)
         
         addImageButton.translatesAutoresizingMaskIntoConstraints = false
         addImageButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
@@ -110,6 +110,14 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
         addImageButton.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 10).isActive = true
         // this sets the button to be centered on the screen
         addImageButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        }
+    
+    @objc func addImageButtonTapped(_ sender: UIButton!){
+            let pickerController = UIImagePickerController()
+            pickerController.delegate = self
+        //where the image is coming from (library vs camera)
+        pickerController.sourceType = .photoLibrary
+            self.present(pickerController, animated: true, completion: nil)
         }
     
     @objc func playSound(){
@@ -129,7 +137,6 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
         //CONSTRAINTS
         homeButton.translatesAutoresizingMaskIntoConstraints = false
         homeButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.15).isActive = true
-//        homeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 75).isActive = true
         homeButton.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         homeButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25).isActive = true
         homeButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
@@ -142,9 +149,9 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.dismiss(animated: true)
     }
     
+// MARK: - Setup, Store, Get Label Name
     func setupLabel(){
         view.addSubview(label)
-        
         //CONSTRAINTS
         label.translatesAutoresizingMaskIntoConstraints = false
         label.widthAnchor.constraint(equalToConstant: 315).isActive =  true
@@ -152,15 +159,22 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
         label.topAnchor.constraint(equalTo: card.bottomAnchor, constant: 10).isActive = true
         label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
-
+    
     func setupLabelButton(){
         label.addSubview(labelButton)
         labelButton.addTarget(self, action: #selector(updateText), for: .touchUpInside)
-        
         //CONSTRAINTS
         labelButton.translatesAutoresizingMaskIntoConstraints = false
         labelButton.widthAnchor.constraint(equalTo: label.widthAnchor).isActive = true
         labelButton.heightAnchor.constraint(equalTo: label.heightAnchor).isActive = true
+    }
+    
+    func storePersonName(name: String) {
+        UserDefaults.standard.set(name, forKey: "\(id)-person-name")
+    }
+    
+    func getPerosnName(name: String) {
+        UserDefaults.standard.set(name, forKey: "\(id)-person-name")
     }
     
     @objc func updateText(){
@@ -176,12 +190,14 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
                 alertController.addAction(UIAlertAction(title: "Save", style: .default, handler: {[weak alertController] (_) in
                     let textField = alertController?.textFields![0]
+                    let name = alertController?.textFields![0].text ?? "no-name-entered"
                     print("Text field: \(String(describing: textField?.text ?? ""))")
                     UserDefaults.standard.set(textField?.text ?? "", forKey: "faces-name")
                     //use the key to grab value data (textField?.text)
                     //to access the name: let name = UserDefaults.standard.string(forKey: "pp-name") ?? ""
         
                     self.label.updateLabelText()
+                    self.storePersonName(name: name)
                 }))
         
                 present(alertController, animated: true, completion: nil)
