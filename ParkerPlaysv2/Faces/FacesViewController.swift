@@ -57,6 +57,7 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
         view.addSubview(backButton)
         backButton.setupButton()
         backButton.setTitle("back", for: .normal)
+        backButton.addTarget(self, action: #selector(previousCard), for: .touchUpInside)
         
         backButton.translatesAutoresizingMaskIntoConstraints = false
         backButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
@@ -83,6 +84,7 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
         view.addSubview(nextButton)
         nextButton.setupButton()
         nextButton.setTitle("next", for: .normal)
+        nextButton.addTarget(self, action: #selector(nextCard), for: .touchUpInside)
         
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         nextButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
@@ -95,6 +97,22 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
             sound.soundFile = "buttonclick1"
             sound.playSound()
         }
+    
+    @objc func nextCard(){
+        let faceGameViewController = FacesViewController(id: id+1)
+        navigationController?.pushViewController(faceGameViewController, animated: true)
+    }
+    
+    @objc func previousCard(){
+        if id > 0 {
+            let faceGameViewController = FacesViewController(id: id-1)
+            navigationController?.popViewController(animated: true)
+        }
+//        let faceGameViewController = FacesViewController(id: id-1)
+//        navigationController?.pushViewController(faceGameViewController, animated: true)
+        //how to handle this if there are no cards prior
+    }
+    
     //Alert : Select Camera or Photo Library
     @objc func selectSource(){
        picker.delegate = self
