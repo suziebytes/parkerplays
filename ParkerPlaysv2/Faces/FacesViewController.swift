@@ -20,17 +20,7 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
     let backButton = NavigationButton()
     let cameraButton = NavigationButton()
     let nextButton = NavigationButton()
-    let id: Int
-    
-    init(id: Int) {
-        self.id = id
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
+    var id = 0
     
     // Image Picker
     var myImageView : UIImageView!
@@ -48,11 +38,16 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
         setupBackButton()
         setupCameraButton()
         setupNextButton()
+        setupGetImage()
         
         self.navigationController?.navigationBar.isHidden = true
     }
     
-    //MARK: Navigation Buttons
+    override func viewWillAppear(_ animated: Bool) {
+        setupGetImage()
+    }
+    
+//MARK: Navigation Buttons
     func setupBackButton(){
         view.addSubview(backButton)
         backButton.setupButton()
@@ -99,18 +94,15 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
     
     @objc func nextCard(){
-        let faceGameViewController = FacesViewController(id: id+1)
+        let faceGameViewController = FacesViewController()
+        faceGameViewController.id = id+1 //self.id+1
         navigationController?.pushViewController(faceGameViewController, animated: true)
     }
     
     @objc func previousCard(){
         if id > 0 {
-            let faceGameViewController = FacesViewController(id: id-1)
             navigationController?.popViewController(animated: true)
         }
-//        let faceGameViewController = FacesViewController(id: id-1)
-//        navigationController?.pushViewController(faceGameViewController, animated: true)
-        //how to handle this if there are no cards prior
     }
     
     //Alert : Select Camera or Photo Library
@@ -133,23 +125,24 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.present(alert, animated: true, completion: nil)
     }
     
-    //MARK: Setup Image Picker
+//MARK: Setup, Store, Get Images
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            card.imageView.image = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.originalImage.rawValue) ] as? UIImage
+        let image = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.originalImage.rawValue) ] as? UIImage
+        
             card.imageView.contentMode = UIView.ContentMode.scaleAspectFill
-        storeImage(info: info)
+        card.imageView.image = image
+        storeImage(image: image)
             self.dismiss(animated: true, completion: nil)
     }
     
-    func storeImage(info: [UIImagePickerController.InfoKey : Any]){
+    func storeImage(image: UIImage?){
         // Obtaining the Location of the Documents Directory
         let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         // Create URL
-        let url = documents.appendingPathComponent("image.png")
+        let url = documents.appendingPathComponent("\(id)image.png")
         print("this is image path \(url)")
 
         // Convert to Data - grabbing image converting to UIImage
-        let image = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.originalImage.rawValue) ] as? UIImage
         if let data = image?.pngData() {
             do {
                 try data.write(to: url)
@@ -160,17 +153,22 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     func setupGetImage(){
-//        CardView.imageView.image = url
 //        //grab image store in documents foler
 //        //access url path for image in documents
 //        //assign image to UIImageView of cardView
-    }
+//        let imageName = "\(id)-image.png"
+        let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let url = documents.appendingPathComponent("\(id)image.png")
         
+        if let imageData = try? Data(contentsOf: url) {
+            card.imageView.image = UIImage(data: imageData)
+        }
+    }
+    
      override func didReceiveMemoryWarning() {
          super.didReceiveMemoryWarning()
          // Dispose of any resources that can be recreated.
      }
- 
     
 // MARK: - Setup, Store, Get Label Name
     func setupLabel(){

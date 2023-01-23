@@ -271,7 +271,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             sound.soundFile = "buttonclick1"
             sound.playSound()
             
-            let faceVC = FacesViewController(id: 0)
+            let faceVC = FacesViewController()
             let rootVC = faceVC
             let navVC = UINavigationController(rootViewController: rootVC)
             navVC.modalPresentationStyle = .fullScreen
