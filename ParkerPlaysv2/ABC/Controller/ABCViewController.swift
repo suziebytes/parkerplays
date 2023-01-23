@@ -28,9 +28,9 @@ class ABCViewController: UIViewController {
         setupHomeButton()
         setupCardView()
         setupLetter()
-        setupTTSButton()
         setupSwipeArea()
         setupTap()
+        setupTTSButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {

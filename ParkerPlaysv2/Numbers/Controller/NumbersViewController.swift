@@ -27,9 +27,9 @@ class NumbersViewController: UIViewController {
         setupHomeButton()
         setupCardView()
         setupNumbersButton()
-        setupTTSButton()
         setupSwipeArea()
         setupTap()
+        setupTTSButton()
     }
     
     func setupTap(){

@@ -39,8 +39,7 @@
 		B07F417E2977190700B924FD /* PeekASound-boosted.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B07F417C2977190700B924FD /* PeekASound-boosted.mp3 */; };
 		B07F41822979FEA900B924FD /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F41812979FEA900B924FD /* WeatherViewController.swift */; };
 		B0827483296DD7BE00EE04E1 /* Opposites.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0827482296DD7BE00EE04E1 /* Opposites.swift */; };
-		B0827486296F453200EE04E1 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0827485296F453200EE04E1 /* Model.swift */; };
-		B0827488296F454000EE04E1 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0827487296F454000EE04E1 /* View.swift */; };
+		B0827488296F454000EE04E1 /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0827487296F454000EE04E1 /* NavigationButton.swift */; };
 		B082748A296F454900EE04E1 /* FacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0827489296F454900EE04E1 /* FacesViewController.swift */; };
 		B0885718294FCB300025E835 /* ABCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0885717294FCB300025E835 /* ABCViewController.swift */; };
 		B088571A294FD5BC0025E835 /* ABCList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0885719294FD5BC0025E835 /* ABCList.swift */; };
@@ -110,8 +109,7 @@
 		B07F417C2977190700B924FD /* PeekASound-boosted.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "PeekASound-boosted.mp3"; sourceTree = "<group>"; };
 		B07F41812979FEA900B924FD /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		B0827482296DD7BE00EE04E1 /* Opposites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Opposites.swift; sourceTree = "<group>"; };
-		B0827485296F453200EE04E1 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		B0827487296F454000EE04E1 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		B0827487296F454000EE04E1 /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
 		B0827489296F454900EE04E1 /* FacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacesViewController.swift; sourceTree = "<group>"; };
 		B0885717294FCB300025E835 /* ABCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABCViewController.swift; sourceTree = "<group>"; };
 		B0885719294FD5BC0025E835 /* ABCList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABCList.swift; sourceTree = "<group>"; };
@@ -422,8 +420,7 @@
 		B0827484296F451200EE04E1 /* Faces */ = {
 			isa = PBXGroup;
 			children = (
-				B0827485296F453200EE04E1 /* Model.swift */,
-				B0827487296F454000EE04E1 /* View.swift */,
+				B0827487296F454000EE04E1 /* NavigationButton.swift */,
 				B0827489296F454900EE04E1 /* FacesViewController.swift */,
 			);
 			path = Faces;
@@ -704,7 +701,7 @@
 				B03A07AD294D91A300B11172 /* AnimalLabelView.swift in Sources */,
 				B03A079D294A32A900B11172 /* PlaySound.swift in Sources */,
 				B04C52D9295A468500C10B16 /* CustomGameViewCell.swift in Sources */,
-				B0827488296F454000EE04E1 /* View.swift in Sources */,
+				B0827488296F454000EE04E1 /* NavigationButton.swift in Sources */,
 				B03A076429482F7700B11172 /* HomeViewController.swift in Sources */,
 				B0CD056429523F0000953C45 /* ShapesViewController.swift in Sources */,
 				B0BE6B842967480A008FA8AF /* OppositeButton.swift in Sources */,
@@ -723,7 +720,6 @@
 				B0CD05662952406600953C45 /* ShapeButton.swift in Sources */,
 				B0885718294FCB300025E835 /* ABCViewController.swift in Sources */,
 				B03A07A3294D2E9C00B11172 /* PeopleViewController.swift in Sources */,
-				B0827486296F453200EE04E1 /* Model.swift in Sources */,
 				B03A07AF294ED5F800B11172 /* HomeButton.swift in Sources */,
 				B03A079F294A68C900B11172 /* GameButton.swift in Sources */,
 				B03A076229482F7700B11172 /* SceneDelegate.swift in Sources */,
@@ -870,7 +866,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = MAKTT332B3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ParkerPlaysv2/Info.plist;
@@ -887,7 +883,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.suziebytes.ParkerPlaysv2;
 				PRODUCT_NAME = "Parker Plays";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -905,7 +901,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = MAKTT332B3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ParkerPlaysv2/Info.plist;
@@ -922,7 +918,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.suziebytes.ParkerPlaysv2;
 				PRODUCT_NAME = "Parker Plays";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

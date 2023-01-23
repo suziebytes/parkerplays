@@ -29,10 +29,10 @@ class ShapesViewController: UIViewController{
         setupHomeButton()
         setupCardView()
         setupShapeButton()
-        setupTTSButton()
         setupShapeLabel()
         setupSwipeArea()
         setupTap()
+        setupTTSButton()
     }
     
     override func viewWillAppear(_ animated: Bool){

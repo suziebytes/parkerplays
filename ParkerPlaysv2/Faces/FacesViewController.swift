@@ -17,6 +17,9 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
     let image = UIImage()
     let labelButton = UIButton()
     let picker = UIImagePickerController()
+    let backButton = NavigationButton()
+    let cameraButton = NavigationButton()
+    let nextButton = NavigationButton()
     let id: Int
     
     init(id: Int) {
@@ -39,12 +42,69 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
         setupHomeButton()
         setupCard()
         setupLabel()
-        setupAddImageButton()
         setupLabelButton()
+        getPersonName()
 //        setupTextInput()
+        setupBackButton()
+        setupCameraButton()
+        setupNextButton()
         
         self.navigationController?.navigationBar.isHidden = true
     }
+    
+    //MARK: Navigation Buttons
+    func setupBackButton(){
+        view.addSubview(backButton)
+        backButton.setupButton()
+        backButton.setTitle("back", for: .normal)
+        
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        backButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        backButton.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 10).isActive = true
+        backButton.leftAnchor.constraint(equalTo: label.leftAnchor, constant: 0).isActive = true
+    }
+    
+    func setupCameraButton(){
+        view.addSubview(cameraButton)
+        cameraButton.setupButton()
+        cameraButton.setTitle("cam", for: .normal)
+        cameraButton.addTarget(self, action: #selector(addImageButtonTapped), for: .touchUpInside)
+        addImageButton.addTarget(self, action: #selector(playSound), for: .touchUpInside)
+
+        cameraButton.translatesAutoresizingMaskIntoConstraints = false
+        cameraButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        cameraButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        cameraButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        cameraButton.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 10).isActive = true
+    }
+    
+    func setupNextButton (){
+        view.addSubview(nextButton)
+        nextButton.setupButton()
+        nextButton.setTitle("next", for: .normal)
+        
+        nextButton.translatesAutoresizingMaskIntoConstraints = false
+        nextButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        nextButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        nextButton.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 10).isActive = true
+        nextButton.rightAnchor.constraint(equalTo: label.rightAnchor, constant: 0).isActive = true
+    }
+    
+    @objc func addImageButtonTapped(_ sender: UIButton!){
+            let pickerController = UIImagePickerController()
+            pickerController.delegate = self
+        //where the image is coming from (library vs camera)
+        pickerController.sourceType = .photoLibrary
+            self.present(pickerController, animated: true, completion: nil)
+        }
+    
+    @objc func playSound(){
+            sound.soundFile = "buttonclick1"
+            sound.playSound()
+        }
+    
+    //MARK: Setup Image Picker
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             card.imageView.image = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.originalImage.rawValue) ] as? UIImage
@@ -94,37 +154,6 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
         card.widthAnchor.constraint(equalToConstant: 315).isActive = true
     }
     
-    func setupAddImageButton() {
-        view.addSubview(addImageButton)
-        addImageButton.backgroundColor = UIColor(red: 79/255, green: 151/255, blue: 253/255, alpha: 1)
-        addImageButton.tintColor = .white
-        addImageButton.setTitle("ADD PHOTOS", for: .normal)
-        addImageButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .medium)
-        addImageButton.layer.cornerRadius = 22
-        addImageButton.addTarget(self, action: #selector(playSound), for: .touchUpInside)
-        addImageButton.addTarget(self, action: #selector(addImageButtonTapped), for: .touchUpInside)
-        
-        addImageButton.translatesAutoresizingMaskIntoConstraints = false
-        addImageButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        addImageButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
-        addImageButton.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 10).isActive = true
-        // this sets the button to be centered on the screen
-        addImageButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        }
-    
-    @objc func addImageButtonTapped(_ sender: UIButton!){
-            let pickerController = UIImagePickerController()
-            pickerController.delegate = self
-        //where the image is coming from (library vs camera)
-        pickerController.sourceType = .photoLibrary
-            self.present(pickerController, animated: true, completion: nil)
-        }
-    
-    @objc func playSound(){
-            sound.soundFile = "buttonclick1"
-            sound.playSound()
-        }
-    
     func setupBackground(){
         view.addSubview(background)
         background.image = UIImage(named: "gradientbg")
@@ -173,8 +202,9 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
         UserDefaults.standard.set(name, forKey: "\(id)-person-name")
     }
     
-    func getPerosnName(name: String) {
-        UserDefaults.standard.set(name, forKey: "\(id)-person-name")
+    func getPersonName() {
+        let name = UserDefaults.standard.string(forKey: "\(id)-person-name")
+        labelButton.setTitle(name, for: .normal)
     }
     
     @objc func updateText(){
