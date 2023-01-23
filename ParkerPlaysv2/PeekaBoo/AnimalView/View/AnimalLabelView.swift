@@ -49,4 +49,7 @@ class AnimalLabelView: UIView{
         let name = UserDefaults.standard.string(forKey: "faces-name") ?? ""
         animalLabel.text = name
     }
+    
+    //used for Faces
+  
 }

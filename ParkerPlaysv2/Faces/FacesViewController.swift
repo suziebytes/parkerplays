@@ -69,7 +69,7 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
         view.addSubview(cameraButton)
         cameraButton.setupButton()
         cameraButton.setTitle("cam", for: .normal)
-        cameraButton.addTarget(self, action: #selector(addImageButtonTapped), for: .touchUpInside)
+        cameraButton.addTarget(self, action: #selector(selectSource), for: .touchUpInside)
         addImageButton.addTarget(self, action: #selector(playSound), for: .touchUpInside)
 
         cameraButton.translatesAutoresizingMaskIntoConstraints = false
@@ -90,22 +90,32 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
         nextButton.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 10).isActive = true
         nextButton.rightAnchor.constraint(equalTo: label.rightAnchor, constant: 0).isActive = true
     }
-    
-    @objc func addImageButtonTapped(_ sender: UIButton!){
-            let pickerController = UIImagePickerController()
-            pickerController.delegate = self
-        //where the image is coming from (library vs camera)
-        pickerController.sourceType = .photoLibrary
-            self.present(pickerController, animated: true, completion: nil)
-        }
-    
+
     @objc func playSound(){
             sound.soundFile = "buttonclick1"
             sound.playSound()
         }
+    //Alert : Select Camera or Photo Library
+    @objc func selectSource(){
+       picker.delegate = self
+       
+        let alert = UIAlertController(title: nil, message: "Take Photo or Add From Library", preferredStyle: UIAlertController.Style.alert)
+
+        alert.addAction(UIAlertAction(title: "Camera", style: .default) { (result : UIAlertAction) -> Void in
+          print("Camera Selected")
+            self.picker.sourceType = .camera
+          self.present(self.picker, animated: true, completion: nil)
+        })
+        alert.addAction(UIAlertAction(title: "Photo library", style: .default) { (result : UIAlertAction) -> Void in
+          print("Photo Selected")
+            self.picker.sourceType = .photoLibrary
+          self.present(self.picker, animated: true, completion: nil)
+        })
+
+        self.present(alert, animated: true, completion: nil)
+    }
     
     //MARK: Setup Image Picker
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             card.imageView.image = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.originalImage.rawValue) ] as? UIImage
             card.imageView.contentMode = UIView.ContentMode.scaleAspectFill
@@ -142,7 +152,58 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
          super.didReceiveMemoryWarning()
          // Dispose of any resources that can be recreated.
      }
+ 
     
+// MARK: - Setup, Store, Get Label Name
+    func setupLabel(){
+        view.addSubview(label)
+        //CONSTRAINTS
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.widthAnchor.constraint(equalToConstant: 315).isActive =  true
+        label.heightAnchor.constraint(equalToConstant: 65).isActive = true
+        label.topAnchor.constraint(equalTo: card.bottomAnchor, constant: 10).isActive = true
+        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    }
+    
+    func setupLabelButton(){
+        label.addSubview(labelButton)
+        labelButton.addTarget(self, action: #selector(updateText), for: .touchUpInside)
+        //CONSTRAINTS
+        labelButton.translatesAutoresizingMaskIntoConstraints = false
+        labelButton.widthAnchor.constraint(equalTo: label.widthAnchor).isActive = true
+        labelButton.heightAnchor.constraint(equalTo: label.heightAnchor).isActive = true
+    }
+    
+    func storePersonName(name: String) {
+        UserDefaults.standard.set(name, forKey: "\(id)-person-name")
+    }
+
+    func getPersonName() {
+        let name = UserDefaults.standard.string(forKey: "\(id)-person-name")
+//        labelButton.setTitle(name, for: .normal)
+        label.animalLabel.text = name
+    }
+
+    @objc func updateText(){
+        let alertController = UIAlertController(title: "Enter a name", message: nil, preferredStyle: .alert)
+        alertController.addTextField()
+
+        let saveAction = UIAlertAction(title: "Save", style: .default, handler: { action in
+            let name = alertController.textFields?[0].text ?? "no-name-entered"
+
+            // Set name to button title
+            self.label.animalLabel.text = name
+
+            // Store name in user defaults
+            self.storePersonName(name: name)
+            
+        })
+
+        alertController.addAction(saveAction)
+        present(alertController, animated: true)
+    }
+    
+//MARK: General Setup of bg, card, home button, etc
     func setupCard(){
         view.addSubview(card)
         card.setupImage()
@@ -176,60 +237,5 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
         sound.soundFile = "buttonclick2"
         sound.playSound()
         self.dismiss(animated: true)
-    }
-    
-// MARK: - Setup, Store, Get Label Name
-    func setupLabel(){
-        view.addSubview(label)
-        //CONSTRAINTS
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.widthAnchor.constraint(equalToConstant: 315).isActive =  true
-        label.heightAnchor.constraint(equalToConstant: 65).isActive = true
-        label.topAnchor.constraint(equalTo: card.bottomAnchor, constant: 10).isActive = true
-        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-    }
-    
-    func setupLabelButton(){
-        label.addSubview(labelButton)
-        labelButton.addTarget(self, action: #selector(updateText), for: .touchUpInside)
-        //CONSTRAINTS
-        labelButton.translatesAutoresizingMaskIntoConstraints = false
-        labelButton.widthAnchor.constraint(equalTo: label.widthAnchor).isActive = true
-        labelButton.heightAnchor.constraint(equalTo: label.heightAnchor).isActive = true
-    }
-    
-    func storePersonName(name: String) {
-        UserDefaults.standard.set(name, forKey: "\(id)-person-name")
-    }
-    
-    func getPersonName() {
-        let name = UserDefaults.standard.string(forKey: "\(id)-person-name")
-        labelButton.setTitle(name, for: .normal)
-    }
-    
-    @objc func updateText(){
-        let alertController = UIAlertController(title: "Enter Name", message: "", preferredStyle: .alert)
-            alertController.addTextField { (textField) in
-                    // configure the properties of the text field
-                    textField.placeholder = "Name"
-                }
-        
-                alertController.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (_) in
-                    print("User clicked Edit button")
-                }))
-        
-                alertController.addAction(UIAlertAction(title: "Save", style: .default, handler: {[weak alertController] (_) in
-                    let textField = alertController?.textFields![0]
-                    let name = alertController?.textFields![0].text ?? "no-name-entered"
-                    print("Text field: \(String(describing: textField?.text ?? ""))")
-                    UserDefaults.standard.set(textField?.text ?? "", forKey: "faces-name")
-                    //use the key to grab value data (textField?.text)
-                    //to access the name: let name = UserDefaults.standard.string(forKey: "pp-name") ?? ""
-        
-                    self.label.updateLabelText()
-                    self.storePersonName(name: name)
-                }))
-        
-                present(alertController, animated: true, completion: nil)
     }
 }
