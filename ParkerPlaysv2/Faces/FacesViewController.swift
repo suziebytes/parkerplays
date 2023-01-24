@@ -20,6 +20,7 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
     let backButton = NavigationButton()
     let cameraButton = NavigationButton()
     let nextButton = NavigationButton()
+    let premiumView = PremiumView()
     var id = 0
     
     // Image Picker
@@ -34,17 +35,32 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
         setupLabel()
         setupLabelButton()
         getPersonName()
-//        setupTextInput()
         setupBackButton()
         setupCameraButton()
         setupNextButton()
-        setupGetImage()
+//        setupGetImage()
+        setupPremium()
         
         self.navigationController?.navigationBar.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        setupGetImage()
+//        setupGetImage()
+    }
+    
+//MARK: Premium View
+    func setupPremium(){
+        view.addSubview(premiumView)
+        premiumView.setupPremiumView()
+        premiumView.setupLogo()
+        premiumView.setupHeader()
+     
+        premiumView.translatesAutoresizingMaskIntoConstraints = false
+        premiumView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        premiumView.topAnchor.constraint(equalTo: card.topAnchor).isActive = true
+        premiumView.bottomAnchor.constraint(equalTo: card.bottomAnchor).isActive = true
+        premiumView.widthAnchor.constraint(equalTo: card.widthAnchor).isActive = true
+        premiumView.heightAnchor.constraint(equalTo: card.heightAnchor).isActive = true
     }
     
 //MARK: Navigation Buttons

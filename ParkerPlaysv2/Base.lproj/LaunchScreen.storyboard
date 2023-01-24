@@ -20,7 +20,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradientbg" translatesAutoresizingMaskIntoConstraints="NO" id="bx7-lE-kxM">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1024 icon transparent" translatesAutoresizingMaskIntoConstraints="NO" id="GPq-ll-9z4">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pplogo" translatesAutoresizingMaskIntoConstraints="NO" id="GPq-ll-9z4">
                                 <rect key="frame" x="146.66666666666666" y="376" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="mUm-5s-wOW"/>
@@ -54,8 +54,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1024 icon transparent" width="500" height="500"/>
         <image name="gradientbg" width="1700" height="3500"/>
+        <image name="pplogo" width="500" height="500"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
