@@ -39,6 +39,7 @@
 		B07F417E2977190700B924FD /* PeekASound-boosted.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B07F417C2977190700B924FD /* PeekASound-boosted.mp3 */; };
 		B07F41822979FEA900B924FD /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F41812979FEA900B924FD /* WeatherViewController.swift */; };
 		B07F4187297F9E4B00B924FD /* PremiumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F4186297F9E4B00B924FD /* PremiumView.swift */; };
+		B07F418D29807B9200B924FD /* FeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F418C29807B9200B924FD /* FeatureView.swift */; };
 		B0827483296DD7BE00EE04E1 /* Opposites.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0827482296DD7BE00EE04E1 /* Opposites.swift */; };
 		B0827488296F454000EE04E1 /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0827487296F454000EE04E1 /* NavigationButton.swift */; };
 		B082748A296F454900EE04E1 /* FacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0827489296F454900EE04E1 /* FacesViewController.swift */; };
@@ -110,6 +111,7 @@
 		B07F417C2977190700B924FD /* PeekASound-boosted.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "PeekASound-boosted.mp3"; sourceTree = "<group>"; };
 		B07F41812979FEA900B924FD /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		B07F4186297F9E4B00B924FD /* PremiumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumView.swift; sourceTree = "<group>"; };
+		B07F418C29807B9200B924FD /* FeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureView.swift; sourceTree = "<group>"; };
 		B0827482296DD7BE00EE04E1 /* Opposites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Opposites.swift; sourceTree = "<group>"; };
 		B0827487296F454000EE04E1 /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
 		B0827489296F454900EE04E1 /* FacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacesViewController.swift; sourceTree = "<group>"; };
@@ -463,6 +465,7 @@
 		B07F418A298052CD00B924FD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B07F418C29807B9200B924FD /* FeatureView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -761,6 +764,7 @@
 				B03A07AD294D91A300B11172 /* AnimalLabelView.swift in Sources */,
 				B03A079D294A32A900B11172 /* PlaySound.swift in Sources */,
 				B04C52D9295A468500C10B16 /* CustomGameViewCell.swift in Sources */,
+				B07F418D29807B9200B924FD /* FeatureView.swift in Sources */,
 				B0827488296F454000EE04E1 /* NavigationButton.swift in Sources */,
 				B03A076429482F7700B11172 /* HomeViewController.swift in Sources */,
 				B0CD056429523F0000953C45 /* ShapesViewController.swift in Sources */,

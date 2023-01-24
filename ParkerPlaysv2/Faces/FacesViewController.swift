@@ -22,6 +22,7 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
     let nextButton = NavigationButton()
     let premiumView = PremiumViewController()
     var id = 0
+    let feature = FeatureView()
     
     // Image Picker
     var myImageView : UIImageView!
@@ -56,6 +57,12 @@ present(premiumView, animated: true)
     
 //MARK: Navigation Buttons
     func setupBackButton(){
+//        view.addSubview(feature)
+//        let bold = "FEELIINGS"
+//        let reg = " includes animations to enhance emotional development"
+//        feature.setupLabel(boldText: bold, regText: reg)
+    
+
         view.addSubview(backButton)
         backButton.setupButton()
         backButton.setTitle("back", for: .normal)
