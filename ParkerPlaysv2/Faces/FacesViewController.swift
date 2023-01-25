@@ -57,12 +57,6 @@ present(premiumView, animated: true)
     
 //MARK: Navigation Buttons
     func setupBackButton(){
-//        view.addSubview(feature)
-//        let bold = "FEELIINGS"
-//        let reg = " includes animations to enhance emotional development"
-//        feature.setupLabel(boldText: bold, regText: reg)
-    
-
         view.addSubview(backButton)
         backButton.setupButton()
         backButton.setTitle("back", for: .normal)
@@ -241,7 +235,7 @@ present(premiumView, animated: true)
         card.translatesAutoresizingMaskIntoConstraints = false
         card.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         card.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.65).isActive = true
-        card.topAnchor.constraint(equalTo: homeButton.bottomAnchor).isActive = true
+        card.topAnchor.constraint(equalTo: homeButton.bottomAnchor, constant: -20).isActive = true
         card.widthAnchor.constraint(equalToConstant: 315).isActive = true
     }
     
