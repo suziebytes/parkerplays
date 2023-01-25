@@ -48,7 +48,8 @@ class PremiumViewController: UIViewController {
         card.translatesAutoresizingMaskIntoConstraints = false
         card.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         card.widthAnchor.constraint(equalToConstant: 315).isActive = true
-        card.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        card.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -30
+        ).isActive = true
     }
     
     func setupExitButton(){
