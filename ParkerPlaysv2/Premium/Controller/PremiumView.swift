@@ -20,23 +20,21 @@ class PremiumViewController: UIViewController {
     let featFour = FeatureView()
     let featFive = UILabel()
     let horizontalLine = UIView()
-//    let boldAttribute = [
-//       NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-Bold", size: 15.0)!
-//    ]
-//    let regularAttribute = [
-//       NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-Light", size: 15.0)!
-//    ]
     let stackView = UIStackView()
+    let exitButton = ExitButton()
+    let buyButton = BuyButton()
     
     override func viewDidLoad() {
         setupBackground()
         setupCard()
+        setupExitButton()
         setupLogo()
         setupHeader()
         setupLine()
         configureStackView()
         addFeatToStackView()
         setupfeatFive()
+        setupBuyButton()
     }
     
     func setupBackground(){
@@ -47,12 +45,24 @@ class PremiumViewController: UIViewController {
     func setupCard(){
         view.addSubview(card)
         card.backgroundColor = UIColor(red: 32/255, green: 11/255, blue: 48/255, alpha: 0.65)
-
         card.translatesAutoresizingMaskIntoConstraints = false
         card.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        card.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.65).isActive = true
         card.widthAnchor.constraint(equalToConstant: 315).isActive = true
         card.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    }
+    
+    func setupExitButton(){
+        card.addSubview(exitButton)
+        exitButton.setupButton()
+        exitButton.addTarget(self, action: #selector(closePremiumView), for: .touchUpInside)
+        
+        exitButton.translatesAutoresizingMaskIntoConstraints = false
+        exitButton.leftAnchor.constraint(equalTo: card.leftAnchor, constant: 10).isActive = true
+        exitButton.topAnchor.constraint(equalTo: card.topAnchor, constant: 10).isActive = true
+    }
+    
+    @objc func closePremiumView(){
+        self.dismiss(animated: true)
     }
     
     func setupLogo(){
@@ -60,7 +70,7 @@ class PremiumViewController: UIViewController {
         logoView.image = image
     
         logoView.translatesAutoresizingMaskIntoConstraints = false
-        logoView.topAnchor.constraint(equalTo: card.topAnchor, constant: 40).isActive = true
+        logoView.topAnchor.constraint(equalTo: exitButton.topAnchor, constant: 30).isActive = true
         logoView.widthAnchor.constraint(equalToConstant: 150).isActive = true
         logoView.heightAnchor.constraint(equalToConstant: 150).isActive = true
         logoView.centerXAnchor.constraint(equalTo: card.centerXAnchor).isActive = true
@@ -89,6 +99,7 @@ class PremiumViewController: UIViewController {
         horizontalLine.leftAnchor.constraint(equalTo: card.leftAnchor, constant: 15).isActive = true
     }
     
+    //MARK: Feature StackView
     func configureStackView(){
         card.addSubview(stackView)
         stackView.axis = .vertical
@@ -137,4 +148,22 @@ class PremiumViewController: UIViewController {
         featFive.bottomAnchor.constraint(equalTo: card.bottomAnchor, constant: -15).isActive = true
     }
     
+    //MARK: BuyButton
+    func setupBuyButton(){
+        view.addSubview(buyButton)
+        buyButton.setupButton()
+        buyButton.setTitle("GET PREMIUM", for: .normal)
+        buyButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        buyButton.addTarget(self, action: #selector(buyPremium), for: .touchUpInside)
+        
+        buyButton.translatesAutoresizingMaskIntoConstraints = false
+        buyButton.widthAnchor.constraint(equalToConstant: 315).isActive =  true
+        buyButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
+        buyButton.topAnchor.constraint(equalTo: card.bottomAnchor, constant: 10).isActive = true
+        buyButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    }
+    
+    @objc func buyPremium(){
+        print("YOLO")
+    }
 }

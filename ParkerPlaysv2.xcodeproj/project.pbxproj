@@ -40,6 +40,8 @@
 		B07F41822979FEA900B924FD /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F41812979FEA900B924FD /* WeatherViewController.swift */; };
 		B07F4187297F9E4B00B924FD /* PremiumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F4186297F9E4B00B924FD /* PremiumView.swift */; };
 		B07F418D29807B9200B924FD /* FeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F418C29807B9200B924FD /* FeatureView.swift */; };
+		B07F418F2980E4FE00B924FD /* ExitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F418E2980E4FD00B924FD /* ExitButton.swift */; };
+		B07F41912980EBFB00B924FD /* BuyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F41902980EBFB00B924FD /* BuyButton.swift */; };
 		B0827483296DD7BE00EE04E1 /* Opposites.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0827482296DD7BE00EE04E1 /* Opposites.swift */; };
 		B0827488296F454000EE04E1 /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0827487296F454000EE04E1 /* NavigationButton.swift */; };
 		B082748A296F454900EE04E1 /* FacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0827489296F454900EE04E1 /* FacesViewController.swift */; };
@@ -112,6 +114,8 @@
 		B07F41812979FEA900B924FD /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		B07F4186297F9E4B00B924FD /* PremiumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumView.swift; sourceTree = "<group>"; };
 		B07F418C29807B9200B924FD /* FeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureView.swift; sourceTree = "<group>"; };
+		B07F418E2980E4FD00B924FD /* ExitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitButton.swift; sourceTree = "<group>"; };
+		B07F41902980EBFB00B924FD /* BuyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyButton.swift; sourceTree = "<group>"; };
 		B0827482296DD7BE00EE04E1 /* Opposites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Opposites.swift; sourceTree = "<group>"; };
 		B0827487296F454000EE04E1 /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
 		B0827489296F454900EE04E1 /* FacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacesViewController.swift; sourceTree = "<group>"; };
@@ -466,6 +470,8 @@
 			isa = PBXGroup;
 			children = (
 				B07F418C29807B9200B924FD /* FeatureView.swift */,
+				B07F418E2980E4FD00B924FD /* ExitButton.swift */,
+				B07F41902980EBFB00B924FD /* BuyButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -775,7 +781,9 @@
 				B0E671EA294FE0280015682D /* ABCView.swift in Sources */,
 				B0CD055E2951772B00953C45 /* NumberButton.swift in Sources */,
 				B0CD055529511B2100953C45 /* PlayTTSButton.swift in Sources */,
+				B07F41912980EBFB00B924FD /* BuyButton.swift in Sources */,
 				B03A07AB294D894B00B11172 /* Animal.swift in Sources */,
+				B07F418F2980E4FE00B924FD /* ExitButton.swift in Sources */,
 				B04C52D329590AD600C10B16 /* ColorsViewController.swift in Sources */,
 				B04C52DF2962384500C10B16 /* Color.swift in Sources */,
 				B0827483296DD7BE00EE04E1 /* Opposites.swift in Sources */,
