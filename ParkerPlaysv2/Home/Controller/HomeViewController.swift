@@ -281,7 +281,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             break
         }
     }
-    
         
     func setupSettingsButton(){
 //        view.addSubview(settingsButton)

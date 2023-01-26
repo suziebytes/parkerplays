@@ -24,6 +24,7 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
     var id = 0
     let feature = FeatureView()
     
+    
     // Image Picker
     var myImageView : UIImageView!
     let addImageButton = UIButton()
@@ -43,7 +44,10 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
         showPremium()
         
         self.navigationController?.navigationBar.isHidden = true
-    }
+        
+        //true
+        
+      }
     
     override func viewWillAppear(_ animated: Bool) {
         setupGetImage()
@@ -51,49 +55,106 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
 //MARK: Premium View
     func showPremium(){
+
+        let hasPremium = UserDefaults.standard.bool(forKey: "PPPremium")
+
+        if hasPremium {
+            return
+        }
+        
         premiumView.modalPresentationStyle = .fullScreen
 present(premiumView, animated: true)
     }
     
 //MARK: Navigation Buttons
     func setupBackButton(){
+        let image = UIImage(systemName: "arrow.left") as UIImage?
+        
         view.addSubview(backButton)
         backButton.setupButton()
-        backButton.setTitle("back", for: .normal)
         backButton.addTarget(self, action: #selector(previousCard), for: .touchUpInside)
+        backButton.setImage(image, for: .normal)
+        backButton.tintColor = .white
+        
+        
+                let hasPremium = UserDefaults.standard.bool(forKey: "PPPremium")
+        
+                if hasPremium {
+                    backButton.isEnabled = true
+                } else {
+                    backButton.isEnabled = false
+                }
         
         backButton.translatesAutoresizingMaskIntoConstraints = false
         backButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
         backButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
         backButton.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 10).isActive = true
         backButton.leftAnchor.constraint(equalTo: label.leftAnchor, constant: 0).isActive = true
+        backButton.imageView?.translatesAutoresizingMaskIntoConstraints = false
+        backButton.imageView?.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        backButton.imageView?.widthAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
     func setupCameraButton(){
+        let image = UIImage(systemName: "camera") as UIImage?
+        
         view.addSubview(cameraButton)
         cameraButton.setupButton()
-        cameraButton.setTitle("cam", for: .normal)
-        cameraButton.addTarget(self, action: #selector(selectSource), for: .touchUpInside)
+        cameraButton.backgroundColor = UIColor(red: 183/255, green: 105/255, blue: 219/255, alpha: 1)
+        cameraButton.addTarget(self, action: #selector(displayPremium), for: .touchUpInside)
         addImageButton.addTarget(self, action: #selector(playSound), for: .touchUpInside)
+        cameraButton.setImage(image, for: .normal)
+        cameraButton.tintColor = .white
+        
+        let hasPremium = UserDefaults.standard.bool(forKey: "PPPremium")
+
+        if hasPremium {
+            cameraButton.isEnabled = true
+        } else {
+            cameraButton.addTarget(self, action: #selector(selectSource), for: .touchUpInside)
+        }
 
         cameraButton.translatesAutoresizingMaskIntoConstraints = false
         cameraButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        cameraButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        cameraButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
         cameraButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         cameraButton.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 10).isActive = true
+        cameraButton.imageView?.translatesAutoresizingMaskIntoConstraints = false
+        cameraButton.imageView?.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        cameraButton.imageView?.widthAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
+    @objc func displayPremium(){
+        premiumView.modalPresentationStyle = .fullScreen
+present(premiumView, animated: true)
+    }
+    
+    
     func setupNextButton (){
+        let image = UIImage(systemName: "arrow.forward") as UIImage?
+        
         view.addSubview(nextButton)
         nextButton.setupButton()
-        nextButton.setTitle("next", for: .normal)
         nextButton.addTarget(self, action: #selector(nextCard), for: .touchUpInside)
+        nextButton.setImage(image, for: .normal)
+        nextButton.tintColor = .white
+        
+        let hasPremium = UserDefaults.standard.bool(forKey: "PPPremium")
+
+        if hasPremium {
+            cameraButton.isEnabled = true
+        } else {
+            nextButton.isEnabled = false
+        }
         
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         nextButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
         nextButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
         nextButton.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 10).isActive = true
         nextButton.rightAnchor.constraint(equalTo: label.rightAnchor, constant: 0).isActive = true
+        nextButton.imageView?.translatesAutoresizingMaskIntoConstraints = false
+        nextButton.imageView?.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        nextButton.imageView?.widthAnchor.constraint(equalToConstant: 50).isActive = true
     }
 
     @objc func playSound(){
@@ -181,6 +242,8 @@ present(premiumView, animated: true)
 // MARK: - Setup, Store, Get Label Name
     func setupLabel(){
         view.addSubview(label)
+       label.animalLabel.text = "Grandpa"
+        
         //CONSTRAINTS
         label.translatesAutoresizingMaskIntoConstraints = false
         label.widthAnchor.constraint(equalToConstant: 315).isActive =  true
@@ -192,6 +255,16 @@ present(premiumView, animated: true)
     func setupLabelButton(){
         label.addSubview(labelButton)
         labelButton.addTarget(self, action: #selector(updateText), for: .touchUpInside)
+        
+        let hasPremium = UserDefaults.standard.bool(forKey: "PPPremium")
+
+        if hasPremium {
+            labelButton.isEnabled = true
+        } else {
+            labelButton.isEnabled = false
+            label.animalLabel.text = "Grandpa"
+        }
+
         //CONSTRAINTS
         labelButton.translatesAutoresizingMaskIntoConstraints = false
         labelButton.widthAnchor.constraint(equalTo: label.widthAnchor).isActive = true
@@ -203,14 +276,17 @@ present(premiumView, animated: true)
     }
 
     func getPersonName() {
+        label.animalLabel.text = "Grandpa"
         let name = UserDefaults.standard.string(forKey: "\(id)-person-name")
 //        labelButton.setTitle(name, for: .normal)
         label.animalLabel.text = name
     }
 
     @objc func updateText(){
+        
         let alertController = UIAlertController(title: "Enter a name", message: nil, preferredStyle: .alert)
         alertController.addTextField()
+       
 
         let saveAction = UIAlertAction(title: "Save", style: .default, handler: { action in
             let name = alertController.textFields?[0].text ?? "no-name-entered"
@@ -231,6 +307,9 @@ present(premiumView, animated: true)
     func setupCard(){
         view.addSubview(card)
         card.setupImage()
+        card.imageView.image = UIImage(named: "Grandpa.png")
+        card.imageView.contentMode = .scaleAspectFill
+        
         //CONSTRAINT
         card.translatesAutoresizingMaskIntoConstraints = false
         card.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
