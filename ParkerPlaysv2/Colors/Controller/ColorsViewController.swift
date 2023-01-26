@@ -20,7 +20,9 @@ class ColorsViewController: UIViewController {
     let TTS = TextToSpeech()
     var swipeArea = UILabel()
     var tapToNext = UILabel()
- 
+    let premiumView = PremiumViewController()
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBackground()
@@ -39,6 +41,10 @@ class ColorsViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
     }
     
+    //MARK: Paywall Func
+    
+    
+    //MARK: Swipe Func
     func setupTap(){
         view.addSubview(tapToNext)
         
@@ -77,15 +83,29 @@ class ColorsViewController: UIViewController {
     
     func incrementCounterPushNewVC() {
         let colorsVC = ColorsViewController()
-        if count < color.colorList.count-1 {
-            colorsVC.count = count + 1
+        let hasPremium = UserDefaults.standard.bool(forKey: "PPPremium")
+        
+        if hasPremium {
+            if count < color.colorList.count-1 {
+                colorsVC.count = count + 1
+            } else {
+                count = 0
+            }
+            navigationController?.pushViewController(colorsVC, animated: true)
+            sound.soundFile = "buttonclick1"
+            sound.playSound()
+            
         } else {
-            count = 0
+            if count == 2 {
+                premiumView.modalPresentationStyle = .fullScreen
+                present(premiumView, animated: true)
+            } else {
+                colorsVC.count = count + 1
+                navigationController?.pushViewController(colorsVC, animated: true)
+                sound.soundFile = "buttonclick1"
+                sound.playSound()
+            }
         }
-
-        navigationController?.pushViewController(colorsVC, animated: true)
-        sound.soundFile = "buttonclick1"
-        sound.playSound()
     }
     
     @objc func labelTapped(_ sender: UITapGestureRecognizer){
@@ -102,7 +122,7 @@ class ColorsViewController: UIViewController {
        incrementCounterPushNewVC()
     }
     
-    
+    //MARK: UI Setup
     func setupBackground(){
         view.addSubview(background)
         background.image = UIImage(named: "gradientbg")
@@ -171,7 +191,8 @@ class ColorsViewController: UIViewController {
         colorButton.leftAnchor.constraint(equalTo: cardView.leftAnchor).isActive = true
         colorButton.rightAnchor.constraint(equalTo: cardView.rightAnchor).isActive = true
     }
-
+    
+    //MARK: TTS
    func setupTTSButton(){
        view.addSubview(ttsButton)
        ttsButton.setImage(UIImage(named: "playcircle.svg"), for: .normal)
@@ -185,10 +206,21 @@ class ColorsViewController: UIViewController {
        ttsButton.widthAnchor.constraint(equalToConstant: 100).isActive  = true
    }
    
+    func showPremium(){
+
+        let hasPremium = UserDefaults.standard.bool(forKey: "PPPremium")
+
+        if hasPremium {
+            return
+        }
+        
+        premiumView.modalPresentationStyle = .fullScreen
+present(premiumView, animated: true)
+    }
+    
    @objc func toTTS() {
        TTS.playTTS(name: color.colorList[count])
    }
-    
     
     @objc func toHome() {
         sound.soundFile = "buttonclick2"
