@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import StoreKit
 
-class PremiumViewController: UIViewController {
+class PremiumViewController: UIViewController, SKProductsRequestDelegate, SKPaymentTransactionObserver {
+
+    
   
     let background = UIImageView(frame: UIScreen.main.bounds)
     let card = CardView()
@@ -35,6 +38,7 @@ class PremiumViewController: UIViewController {
         addFeatToStackView()
         setupfeatFive()
         setupBuyButton()
+        fetchProducts()
     }
     
     func setupBackground(){
@@ -148,6 +152,48 @@ class PremiumViewController: UIViewController {
         featFive.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 20).isActive = true
         featFive.bottomAnchor.constraint(equalTo: card.bottomAnchor, constant: -15).isActive = true
     }
+    //MARK: IAP
+    //fetch product from app store
+    var myProduct: SKProduct?
+
+    
+    func fetchProducts(){
+        let request = SKProductsRequest(productIdentifiers: ["PPPremium"])
+        request.delegate = self
+        request.start()
+    }
+    
+    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+        if let product = response.products.first{
+            myProduct = product
+            print(product.productIdentifier)
+            print(product.price)
+            print(product.localizedTitle)
+            print(product.localizedDescription)
+        }
+    }
+    
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        for transaction in transactions {
+            switch transaction.transactionState {
+            case .purchasing:
+                //no op
+                break
+            case .purchased, .restored:
+                //unlock their item
+                SKPaymentQueue.default().finishTransaction(transaction)
+                SKPaymentQueue.default().remove(self)
+                break
+            case .failed, .deferred:
+                
+                SKPaymentQueue.default().finishTransaction(transaction)
+                SKPaymentQueue.default().remove(self)
+                break
+            default:
+                break
+            }
+        }
+    }
     
     //MARK: BuyButton
     func setupBuyButton(){
@@ -165,6 +211,17 @@ class PremiumViewController: UIViewController {
     }
     
     @objc func buyPremium(){
-        print("YOLO")
+
+        guard let myProduct = myProduct else{
+            return
+        }
+        
+        if SKPaymentQueue.canMakePayments() {
+            let payment = SKPayment(product: myProduct)
+            SKPaymentQueue.default().add(self)
+            SKPaymentQueue.default().add(payment)
+        }
     }
+    
+    
 }

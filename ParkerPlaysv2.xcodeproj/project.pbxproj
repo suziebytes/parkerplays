@@ -48,6 +48,8 @@
 		B0885718294FCB300025E835 /* ABCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0885717294FCB300025E835 /* ABCViewController.swift */; };
 		B088571A294FD5BC0025E835 /* ABCList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0885719294FD5BC0025E835 /* ABCList.swift */; };
 		B0956B7D2950F6B90056C435 /* BaksoSapi.otf in Resources */ = {isa = PBXBuildFile; fileRef = B0956B7C2950F6B90056C435 /* BaksoSapi.otf */; };
+		B0ACAFD32981A99E00664508 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ACAFD22981A99E00664508 /* IAPManager.swift */; };
+		B0ACAFD52981BE9100664508 /* Easy to Learn-Baby Flash Cards.storekit in Resources */ = {isa = PBXBuildFile; fileRef = B0ACAFD42981BE9100664508 /* Easy to Learn-Baby Flash Cards.storekit */; };
 		B0BE6B5A2963F1E3008FA8AF /* FeelingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BE6B592963F1E3008FA8AF /* FeelingList.swift */; };
 		B0BE6B6C2964B863008FA8AF /* love.json in Resources */ = {isa = PBXBuildFile; fileRef = B0BE6B5D2964B862008FA8AF /* love.json */; };
 		B0BE6B6D2964B863008FA8AF /* sick.json in Resources */ = {isa = PBXBuildFile; fileRef = B0BE6B5E2964B862008FA8AF /* sick.json */; };
@@ -122,6 +124,8 @@
 		B0885717294FCB300025E835 /* ABCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABCViewController.swift; sourceTree = "<group>"; };
 		B0885719294FD5BC0025E835 /* ABCList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABCList.swift; sourceTree = "<group>"; };
 		B0956B7C2950F6B90056C435 /* BaksoSapi.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BaksoSapi.otf; sourceTree = "<group>"; };
+		B0ACAFD22981A99E00664508 /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
+		B0ACAFD42981BE9100664508 /* Easy to Learn-Baby Flash Cards.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Easy to Learn-Baby Flash Cards.storekit"; sourceTree = "<group>"; };
 		B0BE6B592963F1E3008FA8AF /* FeelingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingList.swift; sourceTree = "<group>"; };
 		B0BE6B5D2964B862008FA8AF /* love.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = love.json; sourceTree = "<group>"; };
 		B0BE6B5E2964B862008FA8AF /* sick.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sick.json; sourceTree = "<group>"; };
@@ -480,6 +484,8 @@
 			isa = PBXGroup;
 			children = (
 				B07F4186297F9E4B00B924FD /* PremiumView.swift */,
+				B0ACAFD42981BE9100664508 /* Easy to Learn-Baby Flash Cards.storekit */,
+				B0ACAFD22981A99E00664508 /* IAPManager.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -729,6 +735,7 @@
 				B0BE6B722964B863008FA8AF /* happy.json in Resources */,
 				B0BE6B7A2964B863008FA8AF /* amazed.json in Resources */,
 				B0BE6B6D2964B863008FA8AF /* sick.json in Resources */,
+				B0ACAFD52981BE9100664508 /* Easy to Learn-Baby Flash Cards.storekit in Resources */,
 				B0BE6B732964B863008FA8AF /* winking.json in Resources */,
 				B07F4172297661D600B924FD /* Winkle-Regular.ttf in Resources */,
 				B0BE6B742964B863008FA8AF /* angry.json in Resources */,
@@ -798,6 +805,7 @@
 				B088571A294FD5BC0025E835 /* ABCList.swift in Sources */,
 				B082748A296F454900EE04E1 /* FacesViewController.swift in Sources */,
 				B04C52E129623C1F00C10B16 /* ColorButton.swift in Sources */,
+				B0ACAFD32981A99E00664508 /* IAPManager.swift in Sources */,
 				B0CD05722956DFBE00953C45 /* ShapeLabel.swift in Sources */,
 				B0BE6B7F29655163008FA8AF /* OppositesViewController.swift in Sources */,
 				B03A078D29483C0200B11172 /* GamesView.swift in Sources */,
