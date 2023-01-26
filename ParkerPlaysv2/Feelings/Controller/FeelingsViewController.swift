@@ -21,22 +21,89 @@ class FeeligsViewController: UIViewController {
     let label = AnimalLabelView()
     let feelingList = FeelingList()
     var count = 0
+    var swipeArea = UILabel()
+    var tapToNext = UILabel()
 
     override func viewDidLoad() {
       super.viewDidLoad()
-        
         setupBackground()
         setupHomeButton()
         setupCardView()
         setupAnimation()
         setupNextFeeling()
         setupLabel()
+        setupSwipeArea()
+        setupTap()
         setupTTSButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    
+    func setupTap(){
+        view.addSubview(tapToNext)
+        
+        let labelTap = UITapGestureRecognizer(target: self, action: #selector(self.labelTapped(_:)))
+        swipeArea.isUserInteractionEnabled = true
+        swipeArea.addGestureRecognizer(labelTap)
+        
+        //CONSTRAINTS
+        tapToNext.translatesAutoresizingMaskIntoConstraints = false
+        tapToNext.topAnchor.constraint(equalTo: cardView.topAnchor).isActive = true
+        tapToNext.bottomAnchor.constraint(equalTo: cardView.bottomAnchor).isActive = true
+        tapToNext.rightAnchor.constraint(equalTo: cardView.rightAnchor).isActive = true
+        tapToNext.leftAnchor.constraint(equalTo: cardView.leftAnchor).isActive = true
+    }
+    
+    func setupSwipeArea(){
+        view.addSubview(swipeArea)
+
+        let labelSwipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.swipedRight(_:)))
+        swipeArea.isUserInteractionEnabled = true
+        labelSwipeRight.direction = .right
+        swipeArea.addGestureRecognizer(labelSwipeRight)
+        
+        let labelSwipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.swipedLeft(_:)))
+        swipeArea.isUserInteractionEnabled = true
+        labelSwipeLeft.direction = .left
+        swipeArea.addGestureRecognizer(labelSwipeLeft)
+        
+        //CONSTRAINTS
+        swipeArea.translatesAutoresizingMaskIntoConstraints = false
+        swipeArea.topAnchor.constraint(equalTo: cardView.topAnchor).isActive = true
+        swipeArea.bottomAnchor.constraint(equalTo: cardView.bottomAnchor).isActive = true
+        swipeArea.rightAnchor.constraint(equalTo: cardView.rightAnchor).isActive = true
+        swipeArea.leftAnchor.constraint(equalTo: cardView.leftAnchor).isActive = true
+    }
+    
+    func incrementCounterPushNewVC() {
+        let feelingsVC = FeeligsViewController()
+        if count < feelingList.feelingArray.count-1 {
+            feelingsVC.count = count + 1
+        } else {
+            count = 0
+        }
+
+        navigationController?.pushViewController(feelingsVC, animated: true)
+        sound.soundFile = "buttonclick1"
+        sound.playSound()
+    }
+    
+    @objc func labelTapped(_ sender: UITapGestureRecognizer){
+        incrementCounterPushNewVC()
+    }
+    
+    @objc func swipedRight(_ sender: UISwipeGestureRecognizer){
+        navigationController?.popViewController(animated: true)
+        sound.soundFile = "buttonclick1"
+        sound.playSound()
+    }
+    
+    @objc func swipedLeft(_ sender: UISwipeGestureRecognizer){
+       incrementCounterPushNewVC()
     }
     
     func setupAnimation() {
@@ -155,11 +222,9 @@ class FeeligsViewController: UIViewController {
         //CONSTRAINTS
         ttsButton.translatesAutoresizingMaskIntoConstraints = false
         ttsButton.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -10).isActive = true
-        ttsButton.rightAnchor.constraint(equalTo: cardView.rightAnchor, constant: -10).isActive = true
+        ttsButton.rightAnchor.constraint(equalTo: cardView.rightAnchor, constant: 20).isActive = true
         ttsButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
         ttsButton.widthAnchor.constraint(equalToConstant: 100).isActive  = true
-        ttsButton.rightAnchor.constraint(equalTo: cardView.rightAnchor, constant: 20).isActive = true
-
     }
     
     @objc func toTTS() {

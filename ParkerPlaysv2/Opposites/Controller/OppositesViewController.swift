@@ -27,6 +27,8 @@ class OppositesViewController: UIViewController {
     let front = 0
     let back = 1
     var count = 0
+    var swipeArea = UILabel()
+    var tapToNext = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +40,8 @@ class OppositesViewController: UIViewController {
         setupBackLabel()
         setupFrontLabel()
         setupNextOppositeButton()
+        setupSwipeArea()
+        setupTap()
         setupBackTTSButton()
         setupFrontTTSButton()
     }
@@ -47,6 +51,70 @@ class OppositesViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
     }
  
+    func setupTap(){
+        view.addSubview(tapToNext)
+        
+        let labelTap = UITapGestureRecognizer(target: self, action: #selector(self.labelTapped(_:)))
+        swipeArea.isUserInteractionEnabled = true
+        swipeArea.addGestureRecognizer(labelTap)
+        
+        //CONSTRAINTS
+        tapToNext.translatesAutoresizingMaskIntoConstraints = false
+        tapToNext.topAnchor.constraint(equalTo: cardContainer.topAnchor).isActive = true
+        tapToNext.bottomAnchor.constraint(equalTo: cardContainer.bottomAnchor, constant: -100).isActive = true
+        tapToNext.rightAnchor.constraint(equalTo: cardContainer.rightAnchor).isActive = true
+        tapToNext.leftAnchor.constraint(equalTo: cardContainer.leftAnchor).isActive = true
+    }
+    
+    func setupSwipeArea(){
+        view.addSubview(swipeArea)
+
+        let labelSwipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.swipedRight(_:)))
+        swipeArea.isUserInteractionEnabled = true
+        labelSwipeRight.direction = .right
+        swipeArea.addGestureRecognizer(labelSwipeRight)
+
+        
+        let labelSwipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.swipedLeft(_:)))
+        swipeArea.isUserInteractionEnabled = true
+        labelSwipeLeft.direction = .left
+        swipeArea.addGestureRecognizer(labelSwipeLeft)
+        
+        //CONSTRAINTS
+        swipeArea.translatesAutoresizingMaskIntoConstraints = false
+        swipeArea.topAnchor.constraint(equalTo: cardContainer.topAnchor).isActive = true
+        swipeArea.bottomAnchor.constraint(equalTo: cardContainer.bottomAnchor, constant: -100).isActive = true
+        swipeArea.rightAnchor.constraint(equalTo: cardContainer.rightAnchor).isActive = true
+        swipeArea.leftAnchor.constraint(equalTo: cardContainer.leftAnchor).isActive = true
+    }
+    
+    func incrementCounterPushNewVC() {
+        let oppositeVC = OppositesViewController()
+        if count < opposite.oppositeList.count-1 {
+            oppositeVC.count = count + 1
+        } else {
+            count = 0
+        }
+
+        navigationController?.pushViewController(oppositeVC, animated: true)
+        sound.soundFile = "buttonclick1"
+        sound.playSound()
+    }
+    
+    @objc func labelTapped(_ sender: UITapGestureRecognizer){
+        incrementCounterPushNewVC()
+    }
+    
+    @objc func swipedRight(_ sender: UISwipeGestureRecognizer){
+        navigationController?.popViewController(animated: true)
+        sound.soundFile = "buttonclick1"
+        sound.playSound()
+    }
+    
+    @objc func swipedLeft(_ sender: UISwipeGestureRecognizer){
+       incrementCounterPushNewVC()
+    }
+    
     func setupBackground(){
         view.addSubview(background)
         background.image = UIImage(named: "gradientbg")
@@ -263,10 +331,9 @@ class OppositesViewController: UIViewController {
         //CONSTRAINTS
         ttsFrontButton.translatesAutoresizingMaskIntoConstraints = false
         ttsFrontButton.bottomAnchor.constraint(equalTo: cardContainer.bottomAnchor, constant: -10).isActive = true
-        ttsFrontButton.rightAnchor.constraint(equalTo: cardContainer.rightAnchor, constant: -10).isActive = true
+        ttsFrontButton.rightAnchor.constraint(equalTo: cardContainer.rightAnchor, constant: 20).isActive = true
         ttsFrontButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
         ttsFrontButton.widthAnchor.constraint(equalToConstant: 100).isActive  = true
-        ttsFrontButton.rightAnchor.constraint(equalTo: cardContainer.rightAnchor, constant: 20).isActive = true
 
     }
     
@@ -278,11 +345,9 @@ class OppositesViewController: UIViewController {
         //CONSTRAINTS
         ttsBackButton.translatesAutoresizingMaskIntoConstraints = false
         ttsBackButton.bottomAnchor.constraint(equalTo: cardContainer.bottomAnchor, constant: -10).isActive = true
-        ttsBackButton.rightAnchor.constraint(equalTo: cardContainer.rightAnchor, constant: -10).isActive = true
+        ttsBackButton.rightAnchor.constraint(equalTo: cardContainer.rightAnchor, constant: 20).isActive = true
         ttsBackButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
         ttsBackButton.widthAnchor.constraint(equalToConstant: 100).isActive  = true
-        ttsBackButton.rightAnchor.constraint(equalTo: cardContainer.rightAnchor, constant: 20).isActive = true
-
     }
     
     @objc func toFrontTTS() {
@@ -298,9 +363,7 @@ class OppositesViewController: UIViewController {
          sound.playSound()
          self.dismiss(animated: true)
      }
-     
-
-    }
+}
 
     
    
