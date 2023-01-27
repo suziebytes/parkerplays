@@ -178,8 +178,6 @@ class PremiumViewController: UIViewController, SKProductsRequestDelegate, SKPaym
             SKPaymentQueue.default().add(payment)
         }
     }
-    
-    
     //MARK: IAP
     //fetch product from app store
     var myProduct: SKProduct?
@@ -213,6 +211,8 @@ class PremiumViewController: UIViewController, SKProductsRequestDelegate, SKPaym
                 UserDefaults.standard.set(true, forKey: "PPPremium")
                 SKPaymentQueue.default().finishTransaction(transaction)
                 SKPaymentQueue.default().remove(self)
+                
+                dismiss(animated: true)
                 break
             case .failed, .deferred:
                 

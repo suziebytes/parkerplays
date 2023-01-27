@@ -23,7 +23,7 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
     let premiumView = PremiumViewController()
     var id = 0
     let feature = FeatureView()
-    
+//    let addYourOwnButton = NavigationButton()
     
     // Image Picker
     var myImageView : UIImageView!
@@ -41,12 +41,7 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
         setupCameraButton()
         setupNextButton()
         setupGetImage()
-//        showPremium()
-        
         self.navigationController?.navigationBar.isHidden = true
-        
-        //true
-        
       }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -105,14 +100,6 @@ present(premiumView, animated: true)
         cameraButton.setImage(image, for: .normal)
         cameraButton.tintColor = .white
         
-        let hasPremium = UserDefaults.standard.bool(forKey: "PPPremium")
-
-        if hasPremium {
-            cameraButton.isEnabled = true
-        } else {
-            cameraButton.addTarget(self, action: #selector(selectSource), for: .touchUpInside)
-        }
-
         cameraButton.translatesAutoresizingMaskIntoConstraints = false
         cameraButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
         cameraButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
@@ -124,8 +111,14 @@ present(premiumView, animated: true)
     }
     
     @objc func displayPremium(){
-        premiumView.modalPresentationStyle = .fullScreen
-present(premiumView, animated: true)
+        let hasPremium = UserDefaults.standard.bool(forKey: "PPPremium")
+
+        if hasPremium {
+            cameraButton.addTarget(self, action: #selector(selectSource), for: .touchUpInside)
+        } else {
+            premiumView.modalPresentationStyle = .fullScreen
+    present(premiumView, animated: true)
+        }
     }
     
     
@@ -163,6 +156,7 @@ present(premiumView, animated: true)
     
     @objc func nextCard(){
         let faceGameViewController = FacesViewController()
+
         faceGameViewController.id = id+1 //self.id+1
         navigationController?.pushViewController(faceGameViewController, animated: true)
     }
@@ -175,6 +169,7 @@ present(premiumView, animated: true)
     
     //Alert : Select Camera or Photo Library
     @objc func selectSource(){
+  
        picker.delegate = self
        
         let alert = UIAlertController(title: nil, message: "Take Photo or Add From Library", preferredStyle: UIAlertController.Style.alert)
@@ -241,7 +236,6 @@ present(premiumView, animated: true)
 // MARK: - Setup, Store, Get Label Name
     func setupLabel(){
         view.addSubview(label)
-       label.animalLabel.text = "Grandpa"
         
         //CONSTRAINTS
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -304,12 +298,34 @@ present(premiumView, animated: true)
         present(alertController, animated: true)
     }
     
+//    func setupAddYourOwn(){
+//        card.addSubview(addYourOwnButton)
+//        addYourOwnButton.backgroundColor = UIColor(red: 183/255, green: 106/255, blue: 219/255, alpha: 1)
+//        addYourOwnButton.setTitle("ADD YOUR OWN IMAGE", for: .normal)
+//        addYourOwnButton.titleLabel?.numberOfLines = 0
+//        addYourOwnButton.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+//        addYourOwnButton.addTarget(self, action: #selector(displayPremium), for: .touchUpInside)
+//        addYourOwnButton.layer.cornerRadius = 50
+//
+//
+//        addYourOwnButton.translatesAutoresizingMaskIntoConstraints = false
+//        addYourOwnButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
+//        addYourOwnButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
+//        addYourOwnButton.rightAnchor.constraint(equalTo: card.rightAnchor, constant: -20).isActive = true
+//        addYourOwnButton.bottomAnchor.constraint(equalTo: card.bottomAnchor, constant: -10).isActive = true
+//
+//    }
+    
 //MARK: General Setup of bg, card, home button, etc
     func setupCard(){
         view.addSubview(card)
         card.setupImage()
-        card.imageView.image = UIImage(named: "Grandpa.png")
         card.imageView.contentMode = .scaleAspectFill
+        
+        let hasPremium = UserDefaults.standard.bool(forKey: "PPPremium")
+        if !hasPremium {
+            card.imageView.image = UIImage(named: "Grandpa.png")
+        }
         
         //CONSTRAINT
         card.translatesAutoresizingMaskIntoConstraints = false

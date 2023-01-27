@@ -77,7 +77,7 @@
 		B0CD05682952572B00953C45 /* ShapesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD05672952572B00953C45 /* ShapesList.swift */; };
 		B0CD05702956D0E200953C45 /* magicsounds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B0CD056F2956D0E200953C45 /* magicsounds.mp3 */; };
 		B0CD05722956DFBE00953C45 /* ShapeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD05712956DFBE00953C45 /* ShapeLabel.swift */; };
-		B0E671EA294FE0280015682D /* ABCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E671E9294FE0280015682D /* ABCView.swift */; };
+		B0E671EA294FE0280015682D /* ABCColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E671E9294FE0280015682D /* ABCColors.swift */; };
 		B0E671ED294FE9E50015682D /* Wash Your Hand.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B0E671EC294FE9E50015682D /* Wash Your Hand.ttf */; };
 /* End PBXBuildFile section */
 
@@ -153,7 +153,7 @@
 		B0CD05672952572B00953C45 /* ShapesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapesList.swift; sourceTree = "<group>"; };
 		B0CD056F2956D0E200953C45 /* magicsounds.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = magicsounds.mp3; sourceTree = "<group>"; };
 		B0CD05712956DFBE00953C45 /* ShapeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeLabel.swift; sourceTree = "<group>"; };
-		B0E671E9294FE0280015682D /* ABCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABCView.swift; sourceTree = "<group>"; };
+		B0E671E9294FE0280015682D /* ABCColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABCColors.swift; sourceTree = "<group>"; };
 		B0E671EC294FE9E50015682D /* Wash Your Hand.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Wash Your Hand.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -522,6 +522,7 @@
 		B0885714294FCAD00025E835 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B0E671E9294FE0280015682D /* ABCColors.swift */,
 				B0885719294FD5BC0025E835 /* ABCList.swift */,
 			);
 			path = Model;
@@ -530,7 +531,6 @@
 		B0885715294FCAD90025E835 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B0E671E9294FE0280015682D /* ABCView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -785,7 +785,7 @@
 				B03A076029482F7700B11172 /* AppDelegate.swift in Sources */,
 				B03A07A5294D321700B11172 /* CardView.swift in Sources */,
 				B04C52E7296387E700C10B16 /* FeelingsViewController.swift in Sources */,
-				B0E671EA294FE0280015682D /* ABCView.swift in Sources */,
+				B0E671EA294FE0280015682D /* ABCColors.swift in Sources */,
 				B0CD055E2951772B00953C45 /* NumberButton.swift in Sources */,
 				B0CD055529511B2100953C45 /* PlayTTSButton.swift in Sources */,
 				B07F41912980EBFB00B924FD /* BuyButton.swift in Sources */,
