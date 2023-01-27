@@ -29,6 +29,7 @@ class OppositesViewController: UIViewController {
     var count = 0
     var swipeArea = UILabel()
     var tapToNext = UILabel()
+    let premiumView = PremiumViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,15 +91,29 @@ class OppositesViewController: UIViewController {
     
     func incrementCounterPushNewVC() {
         let oppositeVC = OppositesViewController()
-        if count < opposite.oppositeList.count-1 {
-            oppositeVC.count = count + 1
+        let hasPremium = UserDefaults.standard.bool(forKey: "PPPremium")
+        
+        if hasPremium {
+            if count < opposite.oppositeList.count-1 {
+                oppositeVC.count = count + 1
+            } else {
+                count = 0
+            }
+            navigationController?.pushViewController(oppositeVC, animated: true)
+            sound.soundFile = "buttonclick1"
+            sound.playSound()
+            
         } else {
-            count = 0
+            if count == 2 {
+                premiumView.modalPresentationStyle = .fullScreen
+                present(premiumView, animated: true)
+            } else {
+                oppositeVC.count = count + 1
+                navigationController?.pushViewController(oppositeVC, animated: true)
+                sound.soundFile = "buttonclick1"
+                sound.playSound()
+            }
         }
-
-        navigationController?.pushViewController(oppositeVC, animated: true)
-        sound.soundFile = "buttonclick1"
-        sound.playSound()
     }
     
     @objc func labelTapped(_ sender: UITapGestureRecognizer){
