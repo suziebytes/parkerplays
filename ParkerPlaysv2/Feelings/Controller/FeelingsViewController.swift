@@ -23,6 +23,7 @@ class FeeligsViewController: UIViewController {
     var count = 0
     var swipeArea = UILabel()
     var tapToNext = UILabel()
+    let premiumView = PremiumViewController()
 
     override func viewDidLoad() {
       super.viewDidLoad()
@@ -30,7 +31,6 @@ class FeeligsViewController: UIViewController {
         setupHomeButton()
         setupCardView()
         setupAnimation()
-        setupNextFeeling()
         setupLabel()
         setupSwipeArea()
         setupTap()
@@ -80,16 +80,30 @@ class FeeligsViewController: UIViewController {
     }
     
     func incrementCounterPushNewVC() {
-        let feelingsVC = FeeligsViewController()
-        if count < feelingList.feelingArray.count-1 {
-            feelingsVC.count = count + 1
+        let feelingVC = FeeligsViewController()
+        let hasPremium = UserDefaults.standard.bool(forKey: "PPPremium")
+        
+        if hasPremium {
+            if count < feelingList.feelingArray.count-1 {
+                feelingVC.count = count + 1
+            } else {
+                count = 0
+            }
+            navigationController?.pushViewController(feelingVC, animated: true)
+            sound.soundFile = "buttonclick1"
+            sound.playSound()
+            
         } else {
-            count = 0
+            if count == 2 {
+                premiumView.modalPresentationStyle = .fullScreen
+                present(premiumView, animated: true)
+            } else {
+                feelingVC.count = count + 1
+                navigationController?.pushViewController(feelingVC, animated: true)
+                sound.soundFile = "buttonclick1"
+                sound.playSound()
+            }
         }
-
-        navigationController?.pushViewController(feelingsVC, animated: true)
-        sound.soundFile = "buttonclick1"
-        sound.playSound()
     }
     
     @objc func labelTapped(_ sender: UITapGestureRecognizer){
