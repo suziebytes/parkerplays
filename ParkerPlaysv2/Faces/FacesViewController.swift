@@ -69,6 +69,7 @@ present(premiumView, animated: true)
         backButton.addTarget(self, action: #selector(previousCard), for: .touchUpInside)
         backButton.setImage(image, for: .normal)
         backButton.tintColor = .white
+        backButton.setImage(image, for: .highlighted)
         
         
                 let hasPremium = UserDefaults.standard.bool(forKey: "PPPremium")
@@ -99,6 +100,7 @@ present(premiumView, animated: true)
         addImageButton.addTarget(self, action: #selector(playSound), for: .touchUpInside)
         cameraButton.setImage(image, for: .normal)
         cameraButton.tintColor = .white
+        cameraButton.setImage(image, for: .highlighted)
         
         cameraButton.translatesAutoresizingMaskIntoConstraints = false
         cameraButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
@@ -130,6 +132,7 @@ present(premiumView, animated: true)
         nextButton.addTarget(self, action: #selector(nextCard), for: .touchUpInside)
         nextButton.setImage(image, for: .normal)
         nextButton.tintColor = .white
+        nextButton.setImage(image, for: .highlighted)
         
         let hasPremium = UserDefaults.standard.bool(forKey: "PPPremium")
 
