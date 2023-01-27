@@ -41,7 +41,7 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
         setupCameraButton()
         setupNextButton()
         setupGetImage()
-        showPremium()
+//        showPremium()
         
         self.navigationController?.navigationBar.isHidden = true
         
@@ -61,7 +61,6 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
         if hasPremium {
             return
         }
-        
         premiumView.modalPresentationStyle = .fullScreen
 present(premiumView, animated: true)
     }
@@ -255,15 +254,6 @@ present(premiumView, animated: true)
     func setupLabelButton(){
         label.addSubview(labelButton)
         labelButton.addTarget(self, action: #selector(updateText), for: .touchUpInside)
-        
-        let hasPremium = UserDefaults.standard.bool(forKey: "PPPremium")
-
-        if hasPremium {
-            labelButton.isEnabled = true
-        } else {
-            labelButton.isEnabled = false
-            label.animalLabel.text = "Grandpa"
-        }
 
         //CONSTRAINTS
         labelButton.translatesAutoresizingMaskIntoConstraints = false
@@ -276,18 +266,29 @@ present(premiumView, animated: true)
     }
 
     func getPersonName() {
-        label.animalLabel.text = "Grandpa"
-        let name = UserDefaults.standard.string(forKey: "\(id)-person-name")
-//        labelButton.setTitle(name, for: .normal)
-        label.animalLabel.text = name
-    }
+        let hasPremium = UserDefaults.standard.bool(forKey: "PPPremium")
+
+        if hasPremium {
+            labelButton.isEnabled = true
+            let name = UserDefaults.standard.string(forKey: "\(id)-person-name")
+    //        labelButton.setTitle(name, for: .normal)
+            label.animalLabel.text = name
+
+        } else {
+            label.animalLabel.text = "Grandpa"
+        }
+            }
 
     @objc func updateText(){
+        let hasPremium = UserDefaults.standard.bool(forKey: "PPPremium")
+        if !hasPremium {
+            showPremium()
+            return
+        }
         
         let alertController = UIAlertController(title: "Enter a name", message: nil, preferredStyle: .alert)
         alertController.addTextField()
        
-
         let saveAction = UIAlertAction(title: "Save", style: .default, handler: { action in
             let name = alertController.textFields?[0].text ?? "no-name-entered"
 
