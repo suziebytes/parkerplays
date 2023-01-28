@@ -30,7 +30,7 @@ class PeopleViewController: UIViewController {
         sound.playSound()
         peopleImage()
         
-        if count < 21 {
+        if count < 20 {
             count+=1
         } else {
             count = 0

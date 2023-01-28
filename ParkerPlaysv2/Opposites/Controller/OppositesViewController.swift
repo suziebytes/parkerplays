@@ -36,13 +36,13 @@ class OppositesViewController: UIViewController {
         setupBackground()
         setupHomeButton()
         setupCardContainer()
+        setupNextOppositeButton()
+        setupSwipeArea()
+        setupTap()
         setupBackView()
         setupFrontView()
         setupBackLabel()
         setupFrontLabel()
-        setupNextOppositeButton()
-        setupSwipeArea()
-        setupTap()
         setupBackTTSButton()
         setupFrontTTSButton()
     }
@@ -61,7 +61,7 @@ class OppositesViewController: UIViewController {
         
         //CONSTRAINTS
         tapToNext.translatesAutoresizingMaskIntoConstraints = false
-        tapToNext.topAnchor.constraint(equalTo: cardContainer.topAnchor).isActive = true
+        tapToNext.topAnchor.constraint(equalTo: cardContainer.topAnchor,constant: 100).isActive = true
         tapToNext.bottomAnchor.constraint(equalTo: cardContainer.bottomAnchor, constant: -100).isActive = true
         tapToNext.rightAnchor.constraint(equalTo: cardContainer.rightAnchor).isActive = true
         tapToNext.leftAnchor.constraint(equalTo: cardContainer.leftAnchor).isActive = true
@@ -83,7 +83,7 @@ class OppositesViewController: UIViewController {
         
         //CONSTRAINTS
         swipeArea.translatesAutoresizingMaskIntoConstraints = false
-        swipeArea.topAnchor.constraint(equalTo: cardContainer.topAnchor).isActive = true
+        swipeArea.topAnchor.constraint(equalTo: cardContainer.topAnchor, constant: 100).isActive = true
         swipeArea.bottomAnchor.constraint(equalTo: cardContainer.bottomAnchor, constant: -100).isActive = true
         swipeArea.rightAnchor.constraint(equalTo: cardContainer.rightAnchor).isActive = true
         swipeArea.leftAnchor.constraint(equalTo: cardContainer.leftAnchor).isActive = true

@@ -188,8 +188,29 @@ present(premiumView, animated: true)
         
             card.imageView.contentMode = UIView.ContentMode.scaleAspectFill
         card.imageView.image = image
-        storeImage(image: image)
+        let newImage = normalizedImage(image: image)
+        storeImage(image: newImage)
             self.dismiss(animated: true, completion: nil)
+    }
+    
+    func normalizedImage(image: UIImage?) -> UIImage? {
+
+        guard let image = image
+        else {
+            return nil
+        }
+        
+        if image.imageOrientation == .up {
+          return image
+      }
+
+      UIGraphicsBeginImageContextWithOptions(image.size, false, image.scale);
+      let rect = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+        image.draw(in: rect)
+
+      let normalizedImage = UIGraphicsGetImageFromCurrentImageContext()
+      UIGraphicsEndImageContext()
+      return normalizedImage
     }
     
     func storeImage(image: UIImage?){

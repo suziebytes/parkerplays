@@ -305,7 +305,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let alertController = UIAlertController(title: "Enter Name", message: "", preferredStyle: .alert)
             alertController.addTextField { (textField) in
                     // configure the properties of the text field
-                    textField.placeholder = "Name"
+                textField.placeholder = "Name"
                 }
         
                 alertController.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (_) in
@@ -314,7 +314,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
                 alertController.addAction(UIAlertAction(title: "Save", style: .default, handler: {[weak alertController] (_) in
                     let textField = alertController?.textFields![0]
-                    print("Text field: \(String(describing: textField?.text ?? ""))")
+//                    print("Text field: \(String(describing: textField?.text ?? ""))")
                     UserDefaults.standard.set(textField?.text ?? "", forKey: "pp-name")
                     //use the key to grab value data (textField?.text)
                     //to access the name: let name = UserDefaults.standard.string(forKey: "pp-name") ?? ""

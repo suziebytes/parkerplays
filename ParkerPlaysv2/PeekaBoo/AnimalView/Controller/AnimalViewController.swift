@@ -95,7 +95,7 @@ class AnimalViewController: UIViewController {
     }
     
     func incrementCount(){
-        if AnimalViewController.count < animal.animalList.count {
+        if AnimalViewController.count < animal.animalList.count-1 {
             AnimalViewController.count+=1
         } else {
             AnimalViewController.count = 0
