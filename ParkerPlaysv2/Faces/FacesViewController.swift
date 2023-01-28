@@ -46,6 +46,16 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     override func viewWillAppear(_ animated: Bool) {
         setupGetImage()
+        let hasPremium = UserDefaults.standard.bool(forKey: "PPPremium")
+        if hasPremium {
+            backButton.isEnabled = true
+            cameraButton.isEnabled = true
+            nextButton.isEnabled = true
+        } else {
+            backButton.isEnabled = false
+            cameraButton.isEnabled = false
+            nextButton.isEnabled = false
+        }
     }
     
 //MARK: Premium View
@@ -70,15 +80,6 @@ present(premiumView, animated: true)
         backButton.setImage(image, for: .normal)
         backButton.tintColor = .white
         backButton.setImage(image, for: .highlighted)
-        
-        
-                let hasPremium = UserDefaults.standard.bool(forKey: "PPPremium")
-        
-                if hasPremium {
-                    backButton.isEnabled = true
-                } else {
-                    backButton.isEnabled = false
-                }
         
         backButton.translatesAutoresizingMaskIntoConstraints = false
         backButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
@@ -133,14 +134,6 @@ present(premiumView, animated: true)
         nextButton.setImage(image, for: .normal)
         nextButton.tintColor = .white
         nextButton.setImage(image, for: .highlighted)
-        
-        let hasPremium = UserDefaults.standard.bool(forKey: "PPPremium")
-
-        if hasPremium {
-            cameraButton.isEnabled = true
-        } else {
-            nextButton.isEnabled = false
-        }
         
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         nextButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
