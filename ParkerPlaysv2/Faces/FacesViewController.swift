@@ -16,16 +16,14 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
     let label = AnimalLabelView()
     let image = UIImage()
     let labelButton = UIButton()
-    let picker = UIImagePickerController()
+    private lazy var picker = UIImagePickerController()
     let backButton = NavigationButton()
     let cameraButton = NavigationButton()
     let nextButton = NavigationButton()
     let premiumView = PremiumViewController()
     var id = 0
     let feature = FeatureView()
-//    let addYourOwnButton = NavigationButton()
-    
-    // Image Picker
+
     var myImageView : UIImageView!
     let addImageButton = UIButton()
     
@@ -117,7 +115,7 @@ present(premiumView, animated: true)
         let hasPremium = UserDefaults.standard.bool(forKey: "PPPremium")
 
         if hasPremium {
-            cameraButton.addTarget(self, action: #selector(selectSource), for: .touchUpInside)
+            selectSource()
         } else {
             premiumView.modalPresentationStyle = .fullScreen
     present(premiumView, animated: true)
@@ -164,7 +162,7 @@ present(premiumView, animated: true)
     }
     
     //Alert : Select Camera or Photo Library
-    @objc func selectSource(){
+ func selectSource(){
   
        picker.delegate = self
        
