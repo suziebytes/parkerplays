@@ -13,7 +13,7 @@ class PeopleViewController: UIViewController {
     let toAnimalButton = UIButton()
     let homeButton = HomeButton()
     var sound = PlaySound()
-    var count = 1
+    var count = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +29,16 @@ class PeopleViewController: UIViewController {
         sound.soundFile = "PeekASound-boosted"
         sound.playSound()
         peopleImage()
+        
+        if count < 21 {
+            count+=1
+        } else {
+            count = 0
+        }
+        
+        let image = String(count)
+        cardView.setImage(image: image)
+        
         self.navigationController?.navigationBar.isHidden = true
     }
 
@@ -74,18 +84,11 @@ class PeopleViewController: UIViewController {
     }
     
     @objc func toAnimal(){
-        
-        if count < 21 {
-            count+=1
-        } else {
-            count = 1
-        }
-        print("this is \(count)")
-        
         sound.soundFile = "BooSound-boosted"
         sound.playSound()
 
         let animalVC = AnimalViewController()
+        animalVC.incrementCount()
         animalVC.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(animalVC, animated: true)
     }

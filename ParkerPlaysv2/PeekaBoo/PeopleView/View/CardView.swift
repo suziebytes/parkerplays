@@ -30,7 +30,6 @@ class CardView: UIView {
     
     func setupImage(){
         addSubview(imageView)
-//        imageView.image = UIImage(named: image)
         imageView.layer.cornerRadius = 15
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true

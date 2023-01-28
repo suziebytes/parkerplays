@@ -13,13 +13,12 @@ class AnimalViewController: UIViewController {
     let cardView = CardView()
     let animalLabelView = AnimalLabelView()
     let toPeople = UIButton()
-    let randNum = Int.random(in: 0..<40)
     var sound = PlaySound()
     let homeButton = HomeButton()
     let ttsButton = UIButton()
     let TTS = TextToSpeech()
+    static var count = 0
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
@@ -78,7 +77,7 @@ class AnimalViewController: UIViewController {
     }
     
     func setupAnimalImage(){
-        let animalImage = animal.animalList[randNum]
+        let animalImage = animal.animalList[AnimalViewController.count]
         cardView.setupImage()
         cardView.setImage(image: animalImage)
         cardView.imageView.contentMode = .scaleAspectFit
@@ -93,6 +92,20 @@ class AnimalViewController: UIViewController {
         toPeople.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         toPeople.heightAnchor.constraint(equalToConstant: 400).isActive = true
         toPeople.widthAnchor.constraint(equalToConstant: 315).isActive = true
+    }
+    
+    func incrementCount(){
+        if AnimalViewController.count < animal.animalList.count {
+            AnimalViewController.count+=1
+        } else {
+            AnimalViewController.count = 0
+        }
+    }
+    
+    @objc func backToPeople(){
+        navigationController?.popViewController(animated: true)
+        sound.soundFile = "PeekASound-boosted"
+        sound.playSound()
     }
     
     func setupTTSButton() {
@@ -110,11 +123,11 @@ class AnimalViewController: UIViewController {
     
     @objc func toTTS() {
       print("play tapped")
-        TTS.playTTS(name: animal.animalList[randNum])
+        TTS.playTTS(name: animal.animalList[AnimalViewController.count])
     }
     
     func setupLabel(){
-        let labelTitle = animal.animalList[randNum]
+        let labelTitle = animal.animalList[AnimalViewController.count]
         view.addSubview(animalLabelView)
         animalLabelView.animalLabel.text = labelTitle.lowercased()
         
@@ -124,12 +137,6 @@ class AnimalViewController: UIViewController {
         animalLabelView.heightAnchor.constraint(equalToConstant: 65).isActive = true
         animalLabelView.topAnchor.constraint(equalTo: cardView.bottomAnchor, constant: 10).isActive = true
         animalLabelView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-    }
-    
-    @objc func backToPeople(){
-        navigationController?.popViewController(animated: true)
-        sound.soundFile = "PeekASound-boosted"
-        sound.playSound()
     }
         
     @objc func toHome() {
