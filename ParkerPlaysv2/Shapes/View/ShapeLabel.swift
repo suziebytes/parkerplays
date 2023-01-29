@@ -10,7 +10,6 @@ import UIKit
 class ShapeLabel: UIView {
     let shapeLabel = UILabel()
     
-    
     override init(frame: CGRect) {
         super .init(frame: frame)
         setupLabelView()

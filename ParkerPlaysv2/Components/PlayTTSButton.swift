@@ -12,7 +12,6 @@ class PlayTTSButton: UIButton {
     //move playButton in AnimalVC to be a reuable component
     let TTS = TextToSpeech()
     let text: String = ""
-
     
     func setupPlayButton(){
         setImage(UIImage(named: "playcircle.svg"), for: .normal)
@@ -25,7 +24,6 @@ class PlayTTSButton: UIButton {
         func TTS(name: String){
             
             let synthesizer = AVSpeechSynthesizer()
-        
             
             func playTTS (name: String){
                 

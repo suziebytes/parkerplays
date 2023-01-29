@@ -12,8 +12,6 @@ class CollectionView: UICollectionView {
         
         self.backgroundColor = .systemRed
         self.layer.cornerRadius = 20
-        
     }
-    
 }
 

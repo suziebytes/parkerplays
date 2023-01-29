@@ -93,23 +93,6 @@ class NumbersViewController: UIViewController {
     }
     
     @objc func swipedRight(_ sender: UISwipeGestureRecognizer){
-//        if count < 10 {
-//            count-=1
-//        } else {
-//            count = 0
-//        }
-//
-//        let colorsList = numButton.colorList.count-1
-//
-//        if colorCount < colorsList {
-//            colorCount-=1
-//        } else {
-//            colorCount = 0
-//        }
-//
-//        let numberVC = NumbersViewController()
-//        numberVC.count = count
-//        numberVC.colorCount = colorCount
         navigationController?.popViewController(animated: true)
         sound.soundFile = "buttonclick1"
         sound.playSound()
@@ -145,7 +128,6 @@ class NumbersViewController: UIViewController {
         cardView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         cardView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.7).isActive = true
         cardView.topAnchor.constraint(equalTo: homeButton.bottomAnchor, constant: 10).isActive = true
-//        cardView.heightAnchor.constraint(equalToConstant: 605).isActive = true
         cardView.widthAnchor.constraint(equalToConstant: 315).isActive = true
     }
     
@@ -153,8 +135,6 @@ class NumbersViewController: UIViewController {
         view.addSubview(numButton)
         numButton.setupNumButton(colorCount: colorCount)
         numButton.setTitle(String(count), for: .normal)
-//        setupTTS.playTTS(name: String(count))
-//        numButton.addTarget(self, action: #selector(newCount), for: .touchUpInside)
         
         // CONSTRAINTS
         numButton.translatesAutoresizingMaskIntoConstraints = false

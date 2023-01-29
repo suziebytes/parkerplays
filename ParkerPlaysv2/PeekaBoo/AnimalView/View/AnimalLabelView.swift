@@ -10,7 +10,6 @@ import UIKit
 class AnimalLabelView: UIView{
     let animalLabel = UILabel()
     
-    
     override init(frame: CGRect) {
         super .init(frame: frame)
         setupLabelView()
@@ -48,8 +47,5 @@ class AnimalLabelView: UIView{
     func updateLabelText(){
         let name = UserDefaults.standard.string(forKey: "faces-name") ?? ""
         animalLabel.text = name
-    }
-    
-    //used for Faces
-  
+    }  
 }

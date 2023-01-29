@@ -100,16 +100,6 @@ class ShapesViewController: UIViewController{
     }
     
     @objc func swipedRight(_ sender: UISwipeGestureRecognizer){
-//        let shapesArray = shapeList.shapeList.count-1
-//
-//        if count < shapesArray {
-//            count+=1
-//        } else {
-//            count = 0
-//        }
-//
-//        let shapeVC = ShapesViewController()
-//        shapeVC.count = count
         navigationController?.popViewController(animated: true)
         sound.soundFile = "buttonclick1"
         sound.playSound()

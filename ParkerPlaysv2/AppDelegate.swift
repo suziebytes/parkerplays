@@ -11,7 +11,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        IAPManager.shared.fetchProducts()
+//        IAPManager.shared.fetchProducts()
         return true
     }
 

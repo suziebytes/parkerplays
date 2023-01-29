@@ -22,7 +22,6 @@ class ColorsViewController: UIViewController {
     var tapToNext = UILabel()
     let premiumView = PremiumViewController()
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBackground()
@@ -40,9 +39,6 @@ class ColorsViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
     }
-    
-    //MARK: Paywall Func
-    
     
     //MARK: Swipe Func
     func setupTap(){
@@ -142,7 +138,6 @@ class ColorsViewController: UIViewController {
         //CONSTRAINTS
         homeButton.translatesAutoresizingMaskIntoConstraints = false
         homeButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.15).isActive = true
-//        homeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 75).isActive = true
         homeButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
         homeButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         homeButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25).isActive = true
@@ -156,7 +151,6 @@ class ColorsViewController: UIViewController {
         cardView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         cardView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.7).isActive = true
         cardView.topAnchor.constraint(equalTo: homeButton.bottomAnchor, constant: 10).isActive = true
-//        cardView.heightAnchor.constraint(equalToConstant: 605).isActive = true
         cardView.widthAnchor.constraint(equalToConstant: 315).isActive = true
     }
     

@@ -157,7 +157,6 @@ class FeeligsViewController: UIViewController {
     func setupNextFeeling(){
         cardView.addSubview(nextButton)
         nextButton.addTarget(self, action: #selector(nextFeeling), for: .touchUpInside)
-//        nextButton.backgroundColor = .green
         
         //CONSTRAINTS
         nextButton.translatesAutoresizingMaskIntoConstraints = false

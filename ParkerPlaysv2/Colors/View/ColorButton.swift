@@ -11,7 +11,5 @@ class ColorButton: UIButton{
     let image = ""
     
     func setupButton(image: String){
-        
     }
-    
 }

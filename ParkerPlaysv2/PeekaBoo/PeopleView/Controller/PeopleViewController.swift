@@ -41,7 +41,7 @@ class PeopleViewController: UIViewController {
         
         self.navigationController?.navigationBar.isHidden = true
     }
-
+    
     func setupBackground(){
         view.addSubview(background)
         background.image = UIImage(named: "gradientbg")
@@ -86,7 +86,7 @@ class PeopleViewController: UIViewController {
     @objc func toAnimal(){
         sound.soundFile = "BooSound-boosted"
         sound.playSound()
-
+        
         let animalVC = AnimalViewController()
         animalVC.incrementCount()
         animalVC.modalPresentationStyle = .fullScreen
@@ -112,4 +112,4 @@ class PeopleViewController: UIViewController {
         self.dismiss(animated: true)
     }
 }
-   
+

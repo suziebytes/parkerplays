@@ -144,9 +144,5 @@ class AnimalViewController: UIViewController {
         sound.playSound()
         self.dismiss(animated: true)
         }
-    
 }
-
-
-//check to see if there's random as in array.randomelement
 

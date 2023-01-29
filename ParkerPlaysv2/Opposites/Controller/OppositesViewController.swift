@@ -152,7 +152,6 @@ class OppositesViewController: UIViewController {
         //CONSTRAINTS
         homeButton.translatesAutoresizingMaskIntoConstraints = false
         homeButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.15).isActive = true
-//        homeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 75).isActive = true
         homeButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
         homeButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         homeButton.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -165,8 +164,6 @@ class OppositesViewController: UIViewController {
         frontView.setupImage()
         frontView.setImage(image: frontImage)
         frontView.imageView.contentMode = .scaleAspectFit
-        
-
         cardContainer.addSubview(frontView)
         frontView.addSubview(flipButton)
         flipButton.setupButton()

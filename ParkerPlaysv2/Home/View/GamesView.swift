@@ -10,13 +10,10 @@ import UIKit
 class GamesView: UIView {
     
     let gamesButton = GameButton()
-//    var title = UILabel()
-//    var icon = UIImageView()
     
     override init(frame: CGRect) { //essentially *like* a viewDidLoad, so all function calls will be done here
         super.init(frame: frame)
         setupView()
-//        setupGamesButton()
     }
     
     required init?(coder: NSCoder) {
@@ -34,5 +31,5 @@ class GamesView: UIView {
         clipsToBounds = true
     }
 }
-   
+
 

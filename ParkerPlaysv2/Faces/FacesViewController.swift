@@ -47,11 +47,9 @@ class FacesViewController: UIViewController, UIImagePickerControllerDelegate, UI
         let hasPremium = UserDefaults.standard.bool(forKey: "PPPremium")
         if hasPremium {
             backButton.isEnabled = true
-            cameraButton.isEnabled = true
             nextButton.isEnabled = true
         } else {
             backButton.isEnabled = false
-            cameraButton.isEnabled = false
             nextButton.isEnabled = false
         }
     }

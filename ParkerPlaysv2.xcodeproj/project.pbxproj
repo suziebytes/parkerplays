@@ -37,7 +37,6 @@
 		B07F4172297661D600B924FD /* Winkle-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B07F4171297661D600B924FD /* Winkle-Regular.ttf */; };
 		B07F417D2977190700B924FD /* BooSound-boosted.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B07F417B2977190700B924FD /* BooSound-boosted.mp3 */; };
 		B07F417E2977190700B924FD /* PeekASound-boosted.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B07F417C2977190700B924FD /* PeekASound-boosted.mp3 */; };
-		B07F41822979FEA900B924FD /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F41812979FEA900B924FD /* WeatherViewController.swift */; };
 		B07F4187297F9E4B00B924FD /* PremiumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F4186297F9E4B00B924FD /* PremiumView.swift */; };
 		B07F418D29807B9200B924FD /* FeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F418C29807B9200B924FD /* FeatureView.swift */; };
 		B07F418F2980E4FE00B924FD /* ExitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F418E2980E4FD00B924FD /* ExitButton.swift */; };
@@ -113,7 +112,6 @@
 		B07F4171297661D600B924FD /* Winkle-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Winkle-Regular.ttf"; sourceTree = "<group>"; };
 		B07F417B2977190700B924FD /* BooSound-boosted.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "BooSound-boosted.mp3"; sourceTree = "<group>"; };
 		B07F417C2977190700B924FD /* PeekASound-boosted.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "PeekASound-boosted.mp3"; sourceTree = "<group>"; };
-		B07F41812979FEA900B924FD /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		B07F4186297F9E4B00B924FD /* PremiumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumView.swift; sourceTree = "<group>"; };
 		B07F418C29807B9200B924FD /* FeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureView.swift; sourceTree = "<group>"; };
 		B07F418E2980E4FD00B924FD /* ExitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitButton.swift; sourceTree = "<group>"; };
@@ -315,7 +313,6 @@
 			isa = PBXGroup;
 			children = (
 				B03A076329482F7700B11172 /* HomeViewController.swift */,
-				B07F41812979FEA900B924FD /* WeatherViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -674,6 +671,7 @@
 				B03A075829482F7700B11172 /* Sources */,
 				B03A075929482F7700B11172 /* Frameworks */,
 				B03A075A29482F7700B11172 /* Resources */,
+				B0ACAFD829862EF000664508 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -761,6 +759,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B0ACAFD829862EF000664508 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B03A075829482F7700B11172 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -771,7 +789,6 @@
 				B07F4187297F9E4B00B924FD /* PremiumView.swift in Sources */,
 				B0BE6B5A2963F1E3008FA8AF /* FeelingList.swift in Sources */,
 				B0CD055C2951738D00953C45 /* NumbersViewController.swift in Sources */,
-				B07F41822979FEA900B924FD /* WeatherViewController.swift in Sources */,
 				B03A07B1294EE6B700B11172 /* TextToSpeech.swift in Sources */,
 				B0CD05682952572B00953C45 /* ShapesList.swift in Sources */,
 				B03A07AD294D91A300B11172 /* AnimalLabelView.swift in Sources */,
@@ -946,7 +963,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = MAKTT332B3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ParkerPlaysv2/Info.plist;
@@ -963,7 +980,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.suziebytes.ParkerPlaysv2;
 				PRODUCT_NAME = "Parker Plays";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -981,7 +998,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = MAKTT332B3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ParkerPlaysv2/Info.plist;
@@ -998,7 +1015,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.suziebytes.ParkerPlaysv2;
 				PRODUCT_NAME = "Parker Plays";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

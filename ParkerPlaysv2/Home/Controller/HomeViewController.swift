@@ -67,7 +67,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func setupBackground() {
-//        view.addSubview(background)
         background.image = UIImage(named: "gradientbg")
         background.contentMode = .scaleAspectFill
         
@@ -80,8 +79,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func setupHelloView(){
-//        view.addSubview(helloView)
-        
         //CONSTRAINTS
         helloView.translatesAutoresizingMaskIntoConstraints = false
         helloView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
@@ -90,14 +87,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         helloView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -25).isActive = true
     }
     func setupWeatherView(){
-//        view.addSubview(weatherView)
-        
         //CONSTRAINTS
         weatherView.translatesAutoresizingMaskIntoConstraints = false
         weatherView.topAnchor.constraint(equalTo: helloView.bottomAnchor).isActive = true
         weatherView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.2).isActive = true
         weatherView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 5).isActive = true
-//        weatherView.widthAnchor.constraint(equalTo: gamesView.widthAnchor).isActive = true
         weatherView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -5).isActive = true
     }
     
@@ -106,13 +100,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func setupGamesView(){
-//        view.addSubview(gamesView)
-        
-//        let layout = UICollectionViewFlowLayout()
-//        layout.scrollDirection = .horizontal
-//        layout.itemSize = CGSize(width: 0, height: 0)
-//        self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        
         //how to unwrap optional into variable
         guard let collectionView = collectionView else {
             return
@@ -123,8 +110,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionView.delegate = self
         collectionView.isPagingEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
-        
-//        gamesView.addSubview(collectionView)
         
         // CONSTRAINTS
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -138,8 +123,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         gamesView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.45).isActive = true
         gamesView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15).isActive = true
         gamesView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15).isActive = true
-        
-//        gamesView.addSubview(pageControl)
         
         pageControl.numberOfPages = 2
         pageControl.currentPage = array.count/4
@@ -194,7 +177,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
         return UICollectionViewCell()
     }
-    
+    //MARK: Navigation
     //function called when cell is selected - indexPath tells you which cell was tapped
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     
@@ -283,7 +266,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
         
     func setupSettingsButton(){
-//        view.addSubview(settingsButton)
         settingsButton.backgroundColor = UIColor(red: 79/255, green: 151/255, blue: 253/255, alpha: 1)
         settingsButton.tintColor = .white
         settingsButton.setTitle("SETTINGS", for: .normal)
@@ -314,7 +296,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
                 alertController.addAction(UIAlertAction(title: "Save", style: .default, handler: {[weak alertController] (_) in
                     let textField = alertController?.textFields![0]
-//                    print("Text field: \(String(describing: textField?.text ?? ""))")
                     UserDefaults.standard.set(textField?.text ?? "", forKey: "pp-name")
                     //use the key to grab value data (textField?.text)
                     //to access the name: let name = UserDefaults.standard.string(forKey: "pp-name") ?? ""

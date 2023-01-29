@@ -23,7 +23,7 @@ class PremiumViewController: UIViewController, SKProductsRequestDelegate, SKPaym
     let horizontalLine = UIView()
     let stackView = UIStackView()
     let exitButton = ExitButton()
-    let buyButton = BuyButton()
+    let buyButton = BuyButton(type: .system)
     
     override func viewDidLoad() {
         setupBackground()
@@ -157,6 +157,7 @@ class PremiumViewController: UIViewController, SKProductsRequestDelegate, SKPaym
         buyButton.setupButton()
         buyButton.setTitle("GET PREMIUM", for: .normal)
         buyButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        buyButton.setTitleColor(.white, for: .normal)
         buyButton.addTarget(self, action: #selector(buyPremium), for: .touchUpInside)
         
         buyButton.translatesAutoresizingMaskIntoConstraints = false
@@ -190,7 +191,7 @@ class PremiumViewController: UIViewController, SKProductsRequestDelegate, SKPaym
     }
     
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-        if let product = response.products.first{
+        if let product = response.products.first {
             myProduct = product
             print(product.productIdentifier)
             print(product.price)
@@ -224,7 +225,4 @@ class PremiumViewController: UIViewController, SKProductsRequestDelegate, SKPaym
             }
         }
     }
-
-    
-    
 }
